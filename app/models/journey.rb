@@ -4,4 +4,21 @@ class Journey < ApplicationRecord
   has_many :experiences, dependent: :destroy
   has_many :saved_experiences, dependent: :destroy
   has_many :experiences, through: :saved_experiences, dependent: :destroy
+
+  after_create :prebuild_sightseeing_list
+
+  private
+
+  def prebuild_sightseeing_list
+    location = self.location
+    # Use with geocoder
+    # experience.address.near(self.location)
+    experience_in_location = Experience.all.select do |experience|
+      experience.journey.location == location
+    end
+
+    experiences_top_most_liked = experience_in_location.sort_by(&:likes).reverse.first(5)
+
+    experiences_top_most_liked.each { |experience| SavedExperience.create!(experience: experience, journey: self) }
+  end
 end

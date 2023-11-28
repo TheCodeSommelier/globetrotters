@@ -2,6 +2,34 @@
 
 <%= @journey.start_date %> - <%= @journey.end_date %>
 
+<div class="d-flex my-2">
+  <div>
+    <!-- Displaying the current weather through an api -->
+    <%= image_tag @current_weather_icon_path %>
+    <%= @temperature_for_journey %>
+  </div>
 
+  <div>
+    <!-- Displaying the languange -->
+    <%= image_tag "language_icon.svg" %>
+    <%= @journey.language %>
+  </div>
 
-<%= image_tag @current_weather_icon_path %>
+  <div>
+    <!-- Displaying the currency -->
+    <%= image_tag "currency_icon.svg" %>
+    <%= @journey.currency %>
+  </div>
+
+  <div>
+    <!-- Displaying the currency -->
+    <%= image_tag "time_zone_icon.svg" %>
+    <%= @journey.time_zone %>
+  </div>
+</div>
+
+<div>
+  <% @journey.packing_list.split(", ").each do |packing_item| %>
+    <%= packing_item %>
+  <% end %>
+</div>
