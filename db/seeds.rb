@@ -16,6 +16,7 @@ Experience.destroy_all
 Journey.destroy_all
 User.destroy_all
 
+DATE = Date.current
 LOCATIONS = ["London", "New York", "Tokyo", "Sydney"]
 CATEGORIES = ["Skiing", "Camping", "Diving", "Road Trip"]
 LANGUAGES = ["German", "Cantonese", "Spanish", "English"]
@@ -53,8 +54,6 @@ user_details = [
   }
 ]
 
-DATE = Date.current
-puts DATE
 
 journey_details = [
   {
