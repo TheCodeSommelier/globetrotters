@@ -29,9 +29,6 @@ gem "jbuilder"
 # Devise gem
 gem "devise"
 
-# Gecoder gem
-gem "geocoder"
-
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
 
