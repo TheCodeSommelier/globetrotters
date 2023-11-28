@@ -1,6 +1,18 @@
-<img src="https://moderncat.com/wp-content/uploads/2020/03/inset-1-9-940x640.jpg" alt="profile-pic" class="card" style="width: 18rem;">
-
-<h1><%= @user.first_name %> <%= @user.last_name %></h1>
-
-<h4>Followers: <%= current_user.followers %></h4>
-<h4>Following: <%= current_user.following %></h4>
+<%# PP means profile page haha %>
+<div class="container upper-pp">
+  <div class="">
+    <img src="https://moderncat.com/wp-content/uploads/2020/03/inset-1-9-940x640.jpg" alt="profile-pic" class="avatar-circle-large">
+    <h1><%= @user.first_name %> <%= @user.last_name %></h1>
+    <h1><%= @user.username %></h1>
+    <div class="follow-section">
+      <div class="followers"><h4><%= @user.followers %></h4><h6>Followers</h6></div>
+      <div class="following"><h4><%= @user.following %></h4><h6>Following</h6></div>
+    </div>
+    <h6><strong>About me:</strong></h6>
+    <p><%= @user.bio %></p>
+  </div>
+</div>
+<div class="divide-page"></div>
+<div class="tabs">
+  <a href="#">Photos</a><a href="#">Experiences</a>
+</div>
