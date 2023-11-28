@@ -36,14 +36,12 @@
 
 // This is for when we create photos and need to display them in the html.
 .lower-pp {
-  width: 100%;
-  height: 440px;
 
-  .photos img {
+  img {
     width: 110px;
     height: 110px;
     object-fit: cover;
-    padding: 5px;
+    // padding: 5px;
   }
 
   .photos {
