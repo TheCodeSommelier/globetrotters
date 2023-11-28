@@ -53,6 +53,9 @@ user_details = [
   }
 ]
 
+DATE = Date.current
+puts DATE
+
 journey_details = [
   {
     # user_id: User.find(tony),
@@ -60,7 +63,9 @@ journey_details = [
     category: CATEGORIES.sample,
     language: LANGUAGES.sample,
     currency: CURRENCY.sample,
-    time_zone: TZInfo::Timezone.get("Asia/Tokyo").to_local(Time.new)
+    time_zone: TZInfo::Timezone.get("Asia/Tokyo").to_local(Time.new),
+    start_date: DATE,
+    end_date: DATE + 5
     # time_zone: TZInfo::Timezone.get(TZDATA.select { |timezone| timezone.include?("#{location}") }).to_local(Time.new)
     # time_zone: TZInfo::Timezone.get(TZDATA.select { |timezone| timezone.include?("#{location}") }).to_local(Time.new)
   }
