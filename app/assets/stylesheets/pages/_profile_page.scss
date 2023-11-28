@@ -27,8 +27,24 @@
 .tabs {
   display: flex;
   justify-content: space-evenly;
+
   a {
     color: black;
     font-size: 20px;
+  }
+}
+
+// This is for when we create photos and need to display them in the html.
+.lower-pp {
+
+  img {
+    width: 110px;
+    height: 110px;
+    object-fit: cover;
+    // padding: 5px;
+  }
+
+  .photos {
+
   }
 }
