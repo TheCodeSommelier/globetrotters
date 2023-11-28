@@ -12,10 +12,28 @@ class JourneysController < ApplicationController
     icon_id = weather['weather'].last['icon']
     @current_weather_icon_path = "https://openweathermap.org/img/w/#{icon_id}.png"
   end
+  
+  def new
+    @journey = Journey.new
+  end
+
+  def create
+    @journey = Journey.new(journey_params)
+    @journey.user = current_user
+    if @journey.save
+      redirect_to root_path
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
 
   private
 
   def set_journey
     @journey = Journey.find(params[:id])
+  end
+
+  def journey_params
+    params.require(:journey).permit(:location, :start_date, :end_date, :category, :notes, :user)
   end
 end
