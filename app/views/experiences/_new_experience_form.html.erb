@@ -1,0 +1,7 @@
+<%= simple_form_for [ @journey, @experience] do |f| %>
+  <%= f.input :title, placeholder: "Name of experience" %>
+  <%= f.input :category, :collection => ["Food", "Nightlife", "Art and Culture", "Other"], prompt: "Please select a category" %>
+  <%= f.input :content, placeholder: "Give a description" %>
+  <%= f.input :address, placeholder: "Eg. Shoreditch Stables, London" %>
+  <%= f.button :submit, class: "btn btn-primary" %>
+<% end %>
