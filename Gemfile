@@ -3,7 +3,7 @@ source "https://rubygems.org"
 ruby "3.1.2"
 gem 'faker'
 gem 'tzinfo'
-
+gem "pg_search"
 gem 'psych', '~>3.0'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
