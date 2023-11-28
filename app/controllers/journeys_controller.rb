@@ -11,8 +11,9 @@ class JourneysController < ApplicationController
     @temperature_for_journey = weather["main"]["temp"]
     icon_id = weather['weather'].last['icon']
     @current_weather_icon_path = "https://openweathermap.org/img/w/#{icon_id}.png"
+    @sight_seeing_list = @journey.saved_experiences
   end
-  
+
   def new
     @journey = Journey.new
   end
