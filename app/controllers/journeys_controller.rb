@@ -5,6 +5,7 @@ class JourneysController < ApplicationController
   before_action :set_journey, only: %i[show]
 
   def show
+    # This is the api call to display the current weather
     url_weather = "https://api.openweathermap.org/data/2.5/weather?q=#{@journey.location}&appid=#{ENV['OPEN_WEATHER_API_KEY']}&units=metric"
     serialized_weather = URI.open(url_weather).read
     weather = JSON.parse(serialized_weather)
