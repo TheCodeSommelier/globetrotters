@@ -12,6 +12,26 @@
   </head>
 
   <body>
+    <!-- created the navbar, need to change the path and picture does not have to be hard coded  -->
+    <div class="navbar  navbar-light navbar-lewagon">
+      <div class="container">
+        <div class="footer-navbar">
+          <%= link_to root_path do %>
+          <%= image_tag("image 10.png") %>
+          <% end  %>
+          <%= link_to root_path do %>
+            <%= image_tag("Vector") %>
+          <%end %>
+          <%= link_to root_path do %>
+            <%= image_tag("plane.png") %>
+          <% end %>
+          <%= link_to root_path do %>
+            <%= image_tag("Tony Masek - Headshot 5 - 2022 copy 1.png")%>
+          <% end %>
+         </div>
+      </div>
+    </div>
+
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>
