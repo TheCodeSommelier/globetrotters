@@ -5,6 +5,8 @@ class Journey < ApplicationRecord
   has_many :saved_experiences, dependent: :destroy
   has_many :experiences, through: :saved_experiences, dependent: :destroy
 
+
+  # Before seeding comment from line out till line 25 and once the seed is done put this back in
   after_create :prebuild_sightseeing_list
 
   private
