@@ -33,3 +33,7 @@
     <%= packing_item %>
   <% end %>
 </div>
+
+<% @sight_seeing_list.each do |saved_experience| %>
+  <%= saved_experience.experience.title %>
+<% end %>
