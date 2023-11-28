@@ -4,6 +4,8 @@ ruby "3.1.2"
 gem 'faker'
 gem 'tzinfo'
 
+gem 'psych', '~>3.0'
+
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.1.2"
 
