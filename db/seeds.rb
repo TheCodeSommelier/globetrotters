@@ -7,14 +7,20 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+require 'faker'
+require 'tzinfo'
 
 puts 'Cleaning DB 🧼'
-User.destroy_all
+SavedExperience.destroy_all
 Experience.destroy_all
 Journey.destroy_all
-SavedExperience.destroy_all
+User.destroy_all
 
-puts 'Creating users xox'
+LOCATIONS = ["London", "New York", "Tokyo", "Sydney"]
+CATEGORIES = ["Skiing", "Camping", "Diving", "Road Trip"]
+LANGUAGES = ["German", "Cantonese", "Spanish", "English"]
+CURRENCY = ["EUR", "GBP", "USD", "YEN"]
+TZDATA = TZInfo::Timezone.all_identifiers
 
 user_details = [
   {
@@ -47,6 +53,34 @@ user_details = [
   }
 ]
 
-user_details.map do |details|
-  User.create(details)
+journey_details = [
+  {
+    # user_id: User.find(tony),
+    location: LOCATIONS.sample,
+    category: CATEGORIES.sample,
+    language: LANGUAGES.sample,
+    currency: CURRENCY.sample,
+    time_zone: TZInfo::Timezone.get("Asia/Tokyo").to_local(Time.new)
+    # time_zone: TZInfo::Timezone.get(TZDATA.select { |timezone| timezone.include?("#{location}") }).to_local(Time.new)
+    # time_zone: TZInfo::Timezone.get(TZDATA.select { |timezone| timezone.include?("#{location}") }).to_local(Time.new)
+  }
+]
+
+puts 'Creating users xox'
+
+user_details.each do |details|
+  user = User.create!(details)
+
+  puts "User #{user.id}: #{user.username} created"
+
+  puts "✈️-✈️-✈️-✈️ Creating Journeys For #{user.username} ✈️-✈️-✈️-✈️"
+
+  journey_details.each do |journery_details|
+    journey = Journey.new(journery_details)
+    journey.user = user
+    # journey.time_zone = TZInfo::Timezone.get(TZDATA.select { |timezone| timezone.include?("#{journey.location}") }).to_local(Time.new)
+    journey.save
+
+    puts "Created Journeys For #{user.username}"
+  end
 end
