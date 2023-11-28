@@ -1,1 +1,62 @@
 // Specific CSS for your home-page
+html, body {
+  margin-top: 0;
+  margin-bottom: 0;
+  height: 100%;
+}
+
+.banner {
+  background-image: url('https://journeywoman.com/wp-content/uploads/2021/06/APisani7082-scaled.jpg');
+  height: 92%;
+  width: auto;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.banner-text {
+  margin-bottom: 160px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: whitesmoke;
+}
+
+.logo_image {
+  margin-bottom: 80px;
+  width: 70%;
+  height: auto;
+}
+
+.banner-text p {
+  margin-bottom: 80px;
+}
+
+.landing-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.landing-container h3 {
+  margin-top: 60px;
+  margin-bottom: 80px;
+}
+
+.landing-container p {
+  margin-bottom: 80px;
+}
+
+#last-element-on-page {
+  margin-bottom: 160px;
+}
+
+.home-background-color {
+  background: $peach-gradient;
+}
