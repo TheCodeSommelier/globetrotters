@@ -1,4 +1,13 @@
 class ExperiencesController < ApplicationController
+
+  def index
+    if params[:query].present?
+      @experiences = Experience.search_by_address(params[:query])
+    else
+      @experiences = Experience.all
+    end
+  end
+
   def new
     @journey = Journey.find(params[:journey_id])
     @experience = Experience.new
