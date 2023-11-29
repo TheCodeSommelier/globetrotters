@@ -29,6 +29,7 @@ html, body {
 
 .logo_image {
   margin-bottom: 80px;
+  margin-top: 200px;
   width: 70%;
   height: auto;
 }
@@ -46,11 +47,11 @@ html, body {
 
 .landing-container h3 {
   margin-top: 60px;
-  margin-bottom: 80px;
+  margin-bottom: 40px;
 }
 
 .landing-container p {
-  margin-bottom: 80px;
+  margin-bottom: 40px;
 }
 
 #last-element-on-page {
@@ -59,4 +60,9 @@ html, body {
 
 .home-background-color {
   background: $peach-gradient;
+}
+
+.scroll-down-button {
+  margin-top: 100px;
+  font-size: 20px;
 }
