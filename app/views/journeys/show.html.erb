@@ -11,26 +11,26 @@
     <div class="d-flex flex-column justify-content-center">
       <!-- Displaying the current weather through an api -->
       <%= image_tag @current_weather_icon_path, class: "basic-info-icon my-2" %>
-      <%= @temperature_for_journey %>
+      <p><%= @temperature_for_journey %>°C</p>
     </div>
 
     <div class="d-flex flex-column text-centre">
       <!-- Displaying the languange -->
       <%= image_tag "language_icon.svg", class: "basic-info-icon my-2" %>
-      <%= @journey.language %>
+      <p><%= @journey.language %></p>
     </div>
 
     <div class="d-flex flex-column">
       <!-- Displaying the currency -->
       <%= image_tag "currency_icon.svg", class: "basic-info-icon my-2" %>
-      <%= @journey.currency %>
+      <p><%= @journey.currency %></p>
     </div>
 
     <div class="d-flex flex-column">
       <!-- Displaying the currency -->
       <%= image_tag "time_zone_icon.svg", class: "basic-info-icon my-2" %>
       <%# need to give the correct timme zone %>
-      <%= @journey.time_zone.zone %>
+      <p>GMT <%= @current_time_in_location %></p>
     </div>
   </div>
 
@@ -59,11 +59,13 @@
         <%= image_tag "diamond_icon.svg", class: "list-icon" %>
         <h2>Sightseeing</h2>
       </div>
-      <p class="top-experiences-for-location-italic"><em>Top experiences people had in <%= @journey.location %></em></p>
       <div>
         <%# lists need to be a dropdown %>
         <%= image_tag "drop_down_icon.svg" %>
       </div>
+    </div>
+    <div>
+      <p class="top-experiences-for-location-italic mt-2"><em>Top experiences people had in <%= @journey.location %></em></p>
     </div>
     <% @sight_seeing_list.each do |saved_experience| %>
       <div class="experience-card mt-3">
@@ -71,9 +73,6 @@
           <div>
             <h3><%= saved_experience.experience.title %></h3>
             <p><%= saved_experience.experience.address %></p>
-          </div>
-          <div class="d-flex mx-2">
-            <p><%= saved_experience.experience.likes %></p>
           </div>
         </div>
       </div>
