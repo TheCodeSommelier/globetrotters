@@ -1,18 +1,20 @@
-<div class="row justify-content-center">
-  <div class="col-sm-8 my-3">
-    <%= form_with url: experiences_path, method: :get, class: "d-flex" do %>
+<div class="row justify-content-center", style="width: 100%">
+  <div class="col-sm-8 my-3  ">
+    <%= form_with url: experiences_path, method: :get, class: "d-flex mx-2 my-2" do %>
       <%= text_field_tag :query,
             params[:query],
             class: "form-control",
             placeholder: "Search something cool"
         %>
-      <%= submit_tag "Find", name: "", class: "btn btn-primary mx-3" %>
+      <%= submit_tag "Find", name: "", class: "btn btn-primary mx-2 " %>
     <% end %>
   </div>
 </div>
 
-<div class="div">
+<div class="div mx-3">
 <% @experiences.each do |experience| %>
 <%= experience.title %>
+<%= experience.content %>
+
 <% end %>
 </div>
