@@ -3,17 +3,43 @@
 <div class="navbar  navbar-light navbar-lewagon">
   <div class="container-fluid">
     <div class="footer-navbar">
-      <%= link_to root_path do %>
-      <%= image_tag("image 10.png") %>
-      <% end  %>
-      <%= link_to root_path do %>
-        <%= image_tag("Vector.png") %>
-      <%end %>
-      <%= link_to root_path do %>
-        <%= image_tag("plane.png") %>
-      <% end %>
-      <%= link_to root_path do %>
-        <%= image_tag("Tony Masek - Headshot 5 - 2022 copy 1.png")%>
+      <% if current_user %>
+
+        <%= link_to experiences_path do %>
+          <%= image_tag("image 10.png") %>
+        <% end  %>
+        <%= link_to root_path do %>
+          <%= image_tag("Vector") %>
+        <%end %>
+        <%= link_to new_journey_path do %>
+          <%= image_tag("plane.png") %>
+        <% end %>
+        <%= link_to profile_page_path(:username) do %>
+          <% if current_user.photo.attach? %>
+            <%= cl_image_tag current_user.photo.key, crop: :fill, alt: "profile-pic", class: "avatar" %>
+          <% else %>
+            <%= image_tag("https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png", crop: :fill, alt: "blank-profile-pic", class: "avatar") %>
+          <% end %>
+        <% end %>
+
+        <% else %>
+
+          <%= link_to root_path do %>
+            <%= image_tag("image 10.png") %>
+          <% end  %>
+          <%= link_to new_user_session_path do %>
+            <%= image_tag("Vector") %>
+          <%end %>
+          <%= link_to new_user_session_path do %>
+            <%= image_tag("plane.png") %>
+          <% end %>
+          <%= link_to new_user_session_path do %>
+            <% if current_user.photo.attach? %>
+              <%= cl_image_tag current_user.photo.key, crop: :fill, alt: "profile-pic", class: "avatar" %>
+            <% else %>
+              <%= image_tag("https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png", crop: :fill, alt: "blank-profile-pic", class: "avatar") %>
+            <% end %>
+          <% end %>
       <% end %>
     </div>
   </div>

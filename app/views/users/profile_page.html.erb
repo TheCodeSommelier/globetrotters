@@ -1,7 +1,11 @@
 <%# PP means profile page haha %>
 <div class="container">
   <div class="upper-pp">
-    <img src="https://moderncat.com/wp-content/uploads/2020/03/inset-1-9-940x640.jpg" alt="profile-pic" class="avatar-circle-large">
+    <% if current_user && current_user.photo.attach? %>
+          <%= cl_image_tag current_user.photo.key, height: 300, width: 400, crop: :fill, alt: "profile-pic", class: "avatar-circle-large" %>
+        <% else %>
+          <%= image_tag("https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png", class: "avatar-circle-large") %>
+        <% end %>
     <h1><%= @user.first_name %> <%= @user.last_name %></h1>
     <h1><%= @user.username %></h1>
     <div class="follow-section">
