@@ -1,2 +1,30 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class= "banner">
+  <div class="banner-text">
+    <%= image_tag "GlobeTrotters_logo_blue.png", class: "logo_image" %>
+
+    <p>Share your travel experiences.</p>
+
+    <%# Link to feed wall %>
+    <p><strong><%= link_to "Inspire your next holiday", experiences_path, class: "btn-primary-custom" %></strong></p>
+
+    <a href="#last-element-on-page"><i class="fa-solid fa-chevron-down scroll-down-button" style="color: #ffffff;"></i></a>
+  </div>
+</div>
+
+<div class="home-background-color">
+  <div class="landing-container">
+    <h3>Share your experiences!</h3>
+    <%# Insert image of an experience card here %>
+    <p>*Insert image here*</p>
+  </div>
+  <div class="landing-container">
+    <h3>Create your next journey!</h3>
+    <%# Insert image of an experience card here %>
+    <p>*Insert image here*</p>
+  </div>
+  <div class="landing-container">
+    <h3>Connect with other travellers!</h3>
+    <%# Insert image of an experience card here %>
+    <p id="last-element-on-page">*Insert image here*</p>
+  </div>
+</div>

@@ -4,6 +4,7 @@ ruby "3.1.2"
 gem 'faker'
 gem 'tzinfo'
 gem "pg_search"
+gem "cloudinary"
 
 gem 'psych', '~>3.0'
 
