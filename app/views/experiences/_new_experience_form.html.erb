@@ -3,5 +3,6 @@
   <%= f.input :category, :collection => ["Food", "Nightlife", "Art and Culture", "Other"], prompt: "Please select a category" %>
   <%= f.input :content, placeholder: "Give a description" %>
   <%= f.input :address, placeholder: "Eg. Shoreditch Stables, London" %>
+  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
   <%= f.button :submit, class: "btn btn-primary" %>
 <% end %>

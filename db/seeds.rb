@@ -16,16 +16,36 @@ Experience.destroy_all
 Journey.destroy_all
 User.destroy_all
 
+# Journeys data
 DATE = Date.current
-LOCATIONS = ["London", "New York", "Tokyo", "Sydney"]
+LOCATIONS = ["London", "New York", "Berlin", "Prague"]
 CATEGORIES = ["Skiing", "Camping", "Diving", "Road Trip"]
 LANGUAGES = ["German", "Cantonese", "Spanish", "English"]
 CURRENCY = ["EUR", "GBP", "USD", "YEN"]
 TZDATA = TZInfo::Timezone.all_identifiers
 PACKING = ["underwear, passport, skis, banana", "mug, panda, jetski", "shoes, jeans, shirt"]
-EXPERIENCE_TITLES = ["Three grey hounds pub", "Ski slope jetski", "London eye"]
-CATEGORIES_EXPERIENCE = ["Food", "Nightlife", "Art and Culture", "Other"]
+IMAGE_URLS = [
+  "https://escales.ponant.com/wp-content/uploads/2020/12/plage.jpg",
+  "https://hips.hearstapps.com/hmg-prod/images/lake-bled-in-slovenia-royalty-free-image-1644922973.jpg",
+  "https://upload.wikimedia.org/wikipedia/commons/b/b6/Mount_Everest_as_seen_from_Drukair2_PLW_edit_Cropped.jpg"
+]
 
+# Experience data
+CATEGORIES_EXPERIENCE = ["Food", "Nightlife", "Art and Culture", "Other"]
+EXPERIENCE_TITLES = [
+  ["Three grey hounds pub", "Nice botanical garden", "London eye"],
+  ["That ribs place", "Nomad burger", "John's milkshakes"],
+  ["Bier mit wurst pub", "Konig Honig pub", "Berlin TV Tower"],
+  ["Prague Castle", "The Mist", "Sweet share cafe"]
+]
+EXPERIENCE_ADDRESSES = [
+  ["Hoxton, London", "Kingston, London", "Shoreditch, London"],
+  ["Manhattan, New York", "Queens, New York", "Brooklyn, New York"],
+  ["Mitte, Berlin", "Kreuzberg, Berlin", "Pankow, Berlin"],
+  ["Namesti Republiky, Prague", "Smichov, Prague", "Karlin, Prague"]
+]
+
+# User data
 user_details = [
   {
     email: 'sayyab@gmail.com',
@@ -72,15 +92,6 @@ journey_details = [
   }
 ]
 
-experience_details = [
-  {
-    title: EXPERIENCE_TITLES.sample,
-    content: "Wooow what an experience!!",
-    address: "Hoxton, London",
-    category: CATEGORIES_EXPERIENCE.sample
-  }
-]
-
 puts 'Creating users xox'
 
 user_details.each do |details|
@@ -90,21 +101,36 @@ user_details.each do |details|
 
   puts "✈️-✈️-✈️-✈️ Creating Journeys For #{user.username} ✈️-✈️-✈️-✈️"
 
-  journey_details.each do |journery_details|
-    journey = Journey.new(journery_details)
+  journey_details.each do |journey_detail|
+    journey = Journey.new(journey_detail)
     journey.user = user
-    journey.location = LOCATIONS.sample
+    journey.location = LOCATIONS.shift
     # journey.time_zone = TZInfo::Timezone.get(TZDATA.select { |timezone| timezone.include?("#{journey.location}") }).to_local(Time.new)
     journey.save
 
     puts "Created Journeys For #{user.username}"
 
-    experience_details.each do |experience_detail|
-      experience = Experience.new(experience_detail)
+    addresses_for_experience = EXPERIENCE_ADDRESSES.shift
+    titles_for_experience = EXPERIENCE_TITLES.shift
+
+    puts "Creating Experiences for #{user.username}!"
+
+    3.times do
+      experience = Experience.new(
+        {
+          title: titles_for_experience.sample,
+          content: "Wooow what an experience!!",
+          category: CATEGORIES_EXPERIENCE.sample
+        }
+      )
+
+      experience.photos.attach(io: URI.open(IMAGE_URLS.sample), filename: "nes.png", content_type: "image/png")
       experience.journey = journey
+      experience.address = addresses_for_experience.shift
       experience.likes = rand(100..1000)
       experience.save
     end
+    puts "Experiences Created! for #{user.username}"
   end
 end
 

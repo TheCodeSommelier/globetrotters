@@ -11,6 +11,7 @@
   </div>
 </div>
 
+
 <div class="container">
   <%# <div class="filter-search">
     <div class="filter">
@@ -18,9 +19,16 @@
     <div class="search">
     </div>
   </div> %>
-  <div class="cards">
+  <div class="cards data-controller="saved-experience"">
     <% @experiences.each do |experience| %>
       <div class="experience-card">
+        <button data-saved-experience-target="button" data-action="click->saved-experience#dropdown">Dropdown</button>
+        <div class="d-none" data-saved-experience-target="form">
+          <%= simple_form_for @saved_experience, url: saved_experience_path(experience) do |f| %>
+          <%= f.input :journey, collection: current_user.journeys, label_method: :location, value_method: :id %>
+          <%= f.button :submit %>
+          <% end %>
+        </div>
         <div class="photo">
           <%# <%= experience.Photo %>
         <div class="avatar">
@@ -42,5 +50,4 @@
         </div>
       </div>
     <% end %>
-  </div>
 </div>

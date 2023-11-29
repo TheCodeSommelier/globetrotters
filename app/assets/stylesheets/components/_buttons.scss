@@ -23,3 +23,10 @@
   display: inline-block;
   font-size: 16px;
 }
+
+// This is the button class for the user page tabs for Experiences and Journeys
+.nav-pills {
+  --bs-nav-pills-border-radius: var(--bs-border-radius);
+  --bs-nav-pills-link-active-color: #fff;
+  --bs-nav-pills-link-active-bg: rgb(0, 21, 128);
+}

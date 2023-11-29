@@ -1,6 +1,7 @@
 class ExperiencesController < ApplicationController
 
   def index
+    @saved_experience = SavedExperience.new
     if params[:query].present?
       @journeys = Journey.search_by_location(params[:query])
       @experiences = []
@@ -33,6 +34,6 @@ class ExperiencesController < ApplicationController
   private
 
   def experience_params
-    params.require(:experience).permit(:title, :content, :address, :category, :journey)
+    params.require(:experience).permit(:title, :content, :address, :category, :journey, photos: [])
   end
 end
