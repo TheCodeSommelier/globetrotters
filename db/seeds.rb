@@ -22,6 +22,9 @@ CATEGORIES = ["Skiing", "Camping", "Diving", "Road Trip"]
 LANGUAGES = ["German", "Cantonese", "Spanish", "English"]
 CURRENCY = ["EUR", "GBP", "USD", "YEN"]
 TZDATA = TZInfo::Timezone.all_identifiers
+PACKING = ["underwear, passport, skis, banana", "mug, panda, jetski", "shoes, jeans, shirt"]
+EXPERIENCE_TITLES = ["Three grey hounds pub", "Ski slope jetski", "London eye"]
+CATEGORIES_EXPERIENCE = ["Food", "Nightlife", "Art and Culture", "Other"]
 
 user_details = [
   {
@@ -54,19 +57,27 @@ user_details = [
   }
 ]
 
-
 journey_details = [
   {
     # user_id: User.find(tony),
-    location: LOCATIONS.sample,
     category: CATEGORIES.sample,
     language: LANGUAGES.sample,
     currency: CURRENCY.sample,
     time_zone: TZInfo::Timezone.get("Asia/Tokyo").to_local(Time.new),
     start_date: DATE,
-    end_date: DATE + 5
+    end_date: DATE + 5,
+    packing_list: PACKING.sample
     # time_zone: TZInfo::Timezone.get(TZDATA.select { |timezone| timezone.include?("#{location}") }).to_local(Time.new)
     # time_zone: TZInfo::Timezone.get(TZDATA.select { |timezone| timezone.include?("#{location}") }).to_local(Time.new)
+  }
+]
+
+experience_details = [
+  {
+    title: EXPERIENCE_TITLES.sample,
+    content: "Wooow what an experience!!",
+    address: "Hoxton, London",
+    category: CATEGORIES_EXPERIENCE.sample
   }
 ]
 
@@ -82,9 +93,31 @@ user_details.each do |details|
   journey_details.each do |journery_details|
     journey = Journey.new(journery_details)
     journey.user = user
+    journey.location = LOCATIONS.sample
     # journey.time_zone = TZInfo::Timezone.get(TZDATA.select { |timezone| timezone.include?("#{journey.location}") }).to_local(Time.new)
     journey.save
 
     puts "Created Journeys For #{user.username}"
+
+    experience_details.each do |experience_detail|
+      experience = Experience.new(experience_detail)
+      experience.journey = journey
+      experience.likes = rand(100..1000)
+      experience.save
+    end
   end
 end
+
+def save_experience_to_join_table
+  Journey.all.each do |journey|
+    experience_in_location = Experience.all.select do |experience|
+      experience.journey.location == journey.location
+    end
+
+    experiences_top_most_liked = experience_in_location.sort_by(&:likes).reverse.first(5)
+
+    experiences_top_most_liked.each { |experience| SavedExperience.create!(experience: experience, journey: journey) }
+  end
+end
+
+save_experience_to_join_table

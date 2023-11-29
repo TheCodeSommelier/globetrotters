@@ -1,7 +1,83 @@
-<%= @journey.location %>
+<div class="show-container">
+  <div class="d-flex px-3 pt-5">
+    <%= link_to image_tag("go_back_icon.svg"), :back %>
+    <div>
+      <h2 class="location-title-bold"><%= @journey.location %></h2>
+      <p><%= @journey.start_date %> - <%= @journey.end_date %></p>
+    </div>
+  </div>
 
-<%= @journey.start_date %> - <%= @journey.end_date %>
+  <div class="d-flex justify-content-between container-basic-info-icon">
+    <div class="d-flex flex-column justify-content-center">
+      <!-- Displaying the current weather through an api -->
+      <%= image_tag @current_weather_icon_path, class: "basic-info-icon my-2" %>
+      <%= @temperature_for_journey %>
+    </div>
+
+    <div class="d-flex flex-column text-centre">
+      <!-- Displaying the languange -->
+      <%= image_tag "language_icon.svg", class: "basic-info-icon my-2" %>
+      <%= @journey.language %>
+    </div>
+
+    <div class="d-flex flex-column">
+      <!-- Displaying the currency -->
+      <%= image_tag "currency_icon.svg", class: "basic-info-icon my-2" %>
+      <%= @journey.currency %>
+    </div>
+
+    <div class="d-flex flex-column">
+      <!-- Displaying the currency -->
+      <%= image_tag "time_zone_icon.svg", class: "basic-info-icon my-2" %>
+      <%# need to give the correct timme zone %>
+      <%= @journey.time_zone.zone %>
+    </div>
+  </div>
+
+  <div class="list my-4">
+    <div class="d-flex justify-content-between">
+      <div class="d-flex">
+        <%= image_tag "laguage.svg", class: "list-icon" %>
+        <h2>Packing</h2>
+      </div>
+      <div>
+        <%# lists need to be a dropdown %>
+        <%= image_tag "drop_down_icon.svg" %>
+      </div>
+    </div>
+    <ul class="mt-3 packing-list-ul">
+      <% @journey.packing_list.split(", ").each do |packing_item| %>
+        <li class="packing-item py-2 px-2"><%= packing_item.capitalize %></li>
+      <% end %>
+    </ul>
+  </div>
 
 
-
-<%= image_tag @current_weather_icon_path %>
+  <div class="list">
+    <div class="d-flex justify-content-between">
+      <div class="d-flex">
+        <%= image_tag "diamond_icon.svg", class: "list-icon" %>
+        <h2>Sightseeing</h2>
+      </div>
+      <div>
+        <%# lists need to be a dropdown %>
+        <%= image_tag "drop_down_icon.svg" %>
+      </div>
+    </div>
+    <% @sight_seeing_list.each do |saved_experience| %>
+      <div class="experience-card mt-3">
+        <div class="d-flex justify-content-between">
+          <div>
+            <h3><%= saved_experience.experience.title %></h3>
+            <p><%= saved_experience.experience.address %></p>
+          </div>
+          <div class="d-flex mx-2">
+            <p><%= saved_experience.experience.likes %></p>
+            <%# need to actually add likes %>
+            <%= image_tag "like_icon.svg" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
