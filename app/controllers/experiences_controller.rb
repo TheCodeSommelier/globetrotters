@@ -2,7 +2,13 @@ class ExperiencesController < ApplicationController
 
   def index
     if params[:query].present?
-      @experiences = Experience.search_by_address(params[:query])
+      @journeys = Journey.search_by_location(params[:query])
+      @experiences = []
+      @journeys.each do |journey|
+        journey.experiences.each do |experience|
+          @experiences << experience
+        end
+      end
     else
       @experiences = Experience.all
     end
