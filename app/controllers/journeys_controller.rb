@@ -9,13 +9,18 @@ class JourneysController < ApplicationController
     url_weather = "https://api.openweathermap.org/data/2.5/weather?q=#{@journey.location}&appid=#{ENV['OPEN_WEATHER_API_KEY']}&units=metric"
     serialized_weather = URI.open(url_weather).read
     weather = JSON.parse(serialized_weather)
+
+    # For displaying temparature and weather icon
     @temperature_for_journey = weather["main"]["temp"]
     icon_id = weather['weather'].last['icon']
     @current_weather_icon_path = "https://openweathermap.org/img/w/#{icon_id}.png"
-    @sight_seeing_list = @journey.saved_experiences
+
+    # For displaying timezone
     utc_offset_seconds = weather['timezone']
     @current_time_in_location = get_time_zone_identifier_by_utc_offset(utc_offset_seconds)
-    p @current_time_in_location
+
+    # To display the experiences ordered by likes
+    @sight_seeing_list = @journey.saved_experiences
   end
 
   def new
@@ -34,6 +39,7 @@ class JourneysController < ApplicationController
 
   private
 
+  # Gets the time zone identifier by the UTC offset
   def get_time_zone_identifier_by_utc_offset(utc_offset_seconds)
     time_zone = ActiveSupport::TimeZone.all.find { |tz| tz.utc_offset == utc_offset_seconds }
     time_zone.formatted_offset

@@ -10,5 +10,7 @@ Rails.application.routes.draw do
     resources :experiences, only: %i[new create]
   end
 
+  post "saved_experience/:experience_id", to: "saved_experiences#create", as: :saved_experience
+
   get "/:username", to: "users#profile_page", as: :profile_page
 end
