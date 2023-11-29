@@ -6,7 +6,6 @@ class Journey < ApplicationRecord
   # has_many :experiences, through: :saved_experiences, dependent: :destroy
 
 
-
   include PgSearch::Model
   pg_search_scope :search_by_location,
     against: [ :location ],
