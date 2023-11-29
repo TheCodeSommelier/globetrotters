@@ -11,9 +11,36 @@
   </div>
 </div>
 
-<div class="div mx-3">
-  <% @experiences.each do |experience| %>
-    <%= experience.title %>
-    <%= experience.content %>
-  <% end %>
+<div class="container">
+  <%# <div class="filter-search">
+    <div class="filter">
+    </div>
+    <div class="search">
+    </div>
+  </div> %>
+  <div class="cards">
+    <% @experiences.each do |experience| %>
+      <div class="experience-card">
+        <div class="photo">
+          <%# <%= experience.Photo %>
+        <div class="avatar">
+        </div>
+        <div class="title-likes">
+          <div class="title">
+            <h2><%= experience.title %></h2>
+            <div class="like-and-heart">
+             <%= image_tag("fi-rr-heart.png") %>
+          <div class="like">
+            <%= experience.likes %>
+          </div>
+          </div>
+          </div>
+        </div>
+        </div>
+        <div class="content">
+          <%= experience.content %>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>
