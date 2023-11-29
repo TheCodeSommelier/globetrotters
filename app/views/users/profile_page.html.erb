@@ -26,33 +26,18 @@
     <%# Experiences %>
     <div class="lower-pp container">
       <div class="row justify-content-center">
-        <div class="col-4">
+      <div class="col-4">
           <img src="https://moderncat.com/wp-content/uploads/2020/03/inset-1-9-940x640.jpg" alt="pic">
+
+        </div>
+        <div class="col-4">
           <% @journeys.each do |journey| %>
             <% journey.experiences.each do |experience| %>
-            <%= experience.title %>
+              <% experience.photos.each do |photo| %>
+                <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+              <% end %>
             <% end %>
           <% end %>
-        </div>
-        <div class="col-4">
-          <img src="https://moderncat.com/wp-content/uploads/2020/03/inset-1-9-940x640.jpg" alt="pic">
-
-        </div>
-        <div class="col-4">
-          <img src="https://moderncat.com/wp-content/uploads/2020/03/inset-1-9-940x640.jpg" alt="pic">
-
-        </div>
-          <div class="col-4">
-          <img src="https://moderncat.com/wp-content/uploads/2020/03/inset-1-9-940x640.jpg" alt="pic">
-
-        </div>
-        <div class="col-4">
-          <img src="https://moderncat.com/wp-content/uploads/2020/03/inset-1-9-940x640.jpg" alt="pic">
-
-        </div>
-        <div class="col-4">
-          <img src="https://moderncat.com/wp-content/uploads/2020/03/inset-1-9-940x640.jpg" alt="pic">
-
         </div>
       </div>
     </div>

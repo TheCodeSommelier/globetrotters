@@ -27,6 +27,6 @@ class ExperiencesController < ApplicationController
   private
 
   def experience_params
-    params.require(:experience).permit(:title, :content, :address, :category, :journey)
+    params.require(:experience).permit(:title, :content, :address, :category, :journey, photos: [])
   end
 end
