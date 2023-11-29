@@ -15,5 +15,11 @@
   <% @experiences.each do |experience| %>
     <%= experience.title %>
     <%= experience.content %>
+    <div>
+      <%= simple_form_for @saved_experience, url: saved_experience_path(experience) do |f| %>
+      <%= f.input :journey, collection: current_user.journeys, label_method: :location, value_method: :id %>
+      <%= f.button :submit %>
+      <% end %>
+    </div>
   <% end %>
 </div>
