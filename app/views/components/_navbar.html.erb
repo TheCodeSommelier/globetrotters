@@ -5,13 +5,13 @@
     <div class="footer-navbar">
       <% if current_user %>
 
-        <%= link_to root_path do %>
+        <%= link_to experiences_path do %>
           <%= image_tag("image 10.png") %>
         <% end  %>
         <%= link_to root_path do %>
           <%= image_tag("Vector") %>
         <%end %>
-        <%= link_to profile_page_path(:username) do %>
+        <%= link_to new_journey_path do %>
           <%= image_tag("plane.png") %>
         <% end %>
         <%= link_to profile_page_path(:username) do %>
