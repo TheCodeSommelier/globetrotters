@@ -1,0 +1,48 @@
+.show-container {
+  height: 100vh;
+  background: $peach-gradient;
+  margin-top: 0;
+
+  .container-basic-info-icon {
+    margin: 0.5rem 30px;
+  }
+
+  .location-title-bold {
+    font-weight: 600;
+  }
+}
+
+.list {
+  width: 90%;
+  border-radius: 10px;
+  background-color: rgba(255,255,255,0.4);
+  padding: 1rem;
+  margin: auto;
+
+  .list-icon {
+    margin-right: 15px;
+  }
+}
+
+.packing-list-ul {
+  list-style: none;
+  position: relative;
+  left: -20px;
+
+  .packing-item {
+    border-bottom: 1px solid rgb(180, 180, 180);
+  }
+}
+
+.basic-info-icon {
+  width: 30px;
+}
+
+.experience-card {
+  background-color: rgba(255,255,255,0.6);
+  border-radius: 10px;
+}
+
+.top-experiences-for-location-italic {
+  color: rgb(55, 55, 55);
+}
