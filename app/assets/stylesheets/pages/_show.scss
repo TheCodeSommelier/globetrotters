@@ -1,5 +1,4 @@
 .show-container {
-  height: 100vh;
   background: $peach-gradient;
   margin-top: 0;
 
@@ -46,4 +45,14 @@
 
 .top-experiences-for-location-italic {
   color: rgb(55, 55, 55);
+}
+
+.secondary-button-position {
+  position: absolute;
+  right: 30px;
+}
+
+#share-button-show-page {
+  padding: 10px;
+  font-size: 10px;
 }
