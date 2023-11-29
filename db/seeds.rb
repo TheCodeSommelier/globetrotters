@@ -24,6 +24,11 @@ LANGUAGES = ["German", "Cantonese", "Spanish", "English"]
 CURRENCY = ["EUR", "GBP", "USD", "YEN"]
 TZDATA = TZInfo::Timezone.all_identifiers
 PACKING = ["underwear, passport, skis, banana", "mug, panda, jetski", "shoes, jeans, shirt"]
+IMAGE_URLS = [
+  "https://escales.ponant.com/wp-content/uploads/2020/12/plage.jpg",
+  "https://hips.hearstapps.com/hmg-prod/images/lake-bled-in-slovenia-royalty-free-image-1644922973.jpg",
+  "https://upload.wikimedia.org/wikipedia/commons/b/b6/Mount_Everest_as_seen_from_Drukair2_PLW_edit_Cropped.jpg"
+]
 
 # Experience data
 CATEGORIES_EXPERIENCE = ["Food", "Nightlife", "Art and Culture", "Other"]
@@ -108,18 +113,24 @@ user_details.each do |details|
     addresses_for_experience = EXPERIENCE_ADDRESSES.shift
     titles_for_experience = EXPERIENCE_TITLES.shift
 
-    3.times do
-      experience = Experience.new({
-        title: titles_for_experience.sample,
-        content: "Wooow what an experience!!",
-        category: CATEGORIES_EXPERIENCE.sample
-      })
+    puts "Creating Experiences for #{user.username}!"
 
+    3.times do
+      experience = Experience.new(
+        {
+          title: titles_for_experience.sample,
+          content: "Wooow what an experience!!",
+          category: CATEGORIES_EXPERIENCE.sample
+        }
+      )
+
+      experience.photos.attach(io: URI.open(IMAGE_URLS.sample), filename: "nes.png", content_type: "image/png")
       experience.journey = journey
       experience.address = addresses_for_experience.shift
       experience.likes = rand(100..1000)
       experience.save
     end
+    puts "Experiences Created! for #{user.username}"
   end
 end
 
