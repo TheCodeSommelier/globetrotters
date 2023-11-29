@@ -1,0 +1,44 @@
+
+.content{
+  border: solid 1px black !important;
+  height: 130px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+
+.photo{
+  border: solid 1px rgb(0, 0, 0);
+  height: 450px;
+}
+
+
+.title-likes{
+  display: flex;
+  align-items: end;
+  .title{
+    height: 430px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    padding: 5px;
+    margin-left: 8px;
+    width: 100%;
+
+    h2 {
+      margin-bottom: 0;
+    }
+  .like-and-heart{
+    display: flex;
+    flex-direction: column-reverse;
+      .like {
+
+      }
+      img {
+        background-color: red;
+      }
+    }
+  }
+}
