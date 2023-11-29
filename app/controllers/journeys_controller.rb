@@ -13,6 +13,9 @@ class JourneysController < ApplicationController
     icon_id = weather['weather'].last['icon']
     @current_weather_icon_path = "https://openweathermap.org/img/w/#{icon_id}.png"
     @sight_seeing_list = @journey.saved_experiences
+    utc_offset_seconds = weather['timezone']
+    @current_time_in_location = get_time_zone_identifier_by_utc_offset(utc_offset_seconds)
+    p @current_time_in_location
   end
 
   def new
@@ -30,6 +33,11 @@ class JourneysController < ApplicationController
   end
 
   private
+
+  def get_time_zone_identifier_by_utc_offset(utc_offset_seconds)
+    time_zone = ActiveSupport::TimeZone.all.find { |tz| tz.utc_offset == utc_offset_seconds }
+    time_zone.formatted_offset
+  end
 
   def set_journey
     @journey = Journey.find(params[:id])
