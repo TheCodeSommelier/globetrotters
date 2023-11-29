@@ -13,7 +13,11 @@
         <%= image_tag("plane.png") %>
       <% end %>
       <%= link_to root_path do %>
-        <%# <%= cl_image_tag @user.photo.key, class: "avatar" %>
+        <% if current_user && current_user.photo %>
+          <%= cl_image_tag current_user.photo.key, crop: :fill, alt: "profile-pic", class: "avatar" %>
+        <% else %>
+          <%= image_tag("https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png", crop: :fill, alt: "blank-profile-pic", class: "avatar") %>
+        <% end %>
       <% end %>
     </div>
   </div>
