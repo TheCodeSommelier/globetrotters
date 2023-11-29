@@ -6,6 +6,14 @@ class Journey < ApplicationRecord
   has_many :experiences, through: :saved_experiences, dependent: :destroy
 
 
+
+  include PgSearch::Model
+  pg_search_scope :search_by_location,
+    against: [ :location ],
+    using: {
+      tsearch: { prefix: true }
+      }
+
   # Before seeding comment from line out till line 25 and once the seed is done put this back in
   after_create :prebuild_sightseeing_list
 
