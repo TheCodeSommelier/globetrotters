@@ -59,6 +59,7 @@
         <%= image_tag "diamond_icon.svg", class: "list-icon" %>
         <h2>Sightseeing</h2>
       </div>
+      <p class="top-experiences-for-location-italic"><em>Top experiences people had in <%= @journey.location %></em></p>
       <div>
         <%# lists need to be a dropdown %>
         <%= image_tag "drop_down_icon.svg" %>
@@ -73,8 +74,6 @@
           </div>
           <div class="d-flex mx-2">
             <p><%= saved_experience.experience.likes %></p>
-            <%# need to actually add likes %>
-            <%= image_tag "like_icon.svg" %>
           </div>
         </div>
       </div>
