@@ -27,7 +27,11 @@
 // This is the button class for the user page tabs for Experiences and Journeys
 .nav-pills {
   --bs-nav-pills-border-radius: var(--bs-border-radius);
-  --bs-nav-pills-link-active-color: #fff;
-  --bs-nav-pills-link-active-bg: #9497C0;
+  --bs-nav-pills-link-active-color: black;
+  --bs-nav-pills-link-active-bg: #9497c000;
   font-weight: bold;
+
+  .active{
+    text-decoration: underline;
+  }
 }
