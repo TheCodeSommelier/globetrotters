@@ -20,5 +20,7 @@ Rails.application.routes.draw do
 
   post "saved_experience/:experience_id", to: "saved_experiences#create", as: :saved_experience
 
+  delete "/saved_experience/:id", to: "saved_experiences#destroy", as: :delete_saved_experience
+
   get "/:username", to: "users#profile_page", as: :profile_page
 end

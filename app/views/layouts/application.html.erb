@@ -12,9 +12,11 @@
   </head>
 
   <body>
-    <p class="notice m-0 flash-padding-fix"><%= notice %></p>
-    <p class="alert m-0 flash-padding-fix"><%= alert %></p>
-    <%= yield %>
+    <div style="min-height:100vh;">
+      <p class="notice m-0 flash-padding-fix"><%= notice %></p>
+      <p class="alert m-0 flash-padding-fix"><%= alert %></p>
+      <%= yield %>
+    </div>
     <%= render "/components/navbar" %>
   </body>
 </html>

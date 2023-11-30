@@ -1,53 +1,61 @@
-<div class="row justify-content-center", style="width: 100%">
-  <div class="col-sm-8 my-3  ">
-    <%= form_with url: experiences_path, method: :get, class: "d-flex mx-2 my-2" do %>
-      <%= text_field_tag :query,
-            params[:query],
-            class: "form-control",
-            placeholder: "Search something cool"
-        %>
-      <%= submit_tag "Find", name: "", class: "btn btn-primary mx-2 " %>
-    <% end %>
-  </div>
-</div>
-
-
-<div class="container">
-  <%# <div class="filter-search">
-    <div class="filter">
+<div class="row justify-content-center m-1">
+    <div class="col-sm-8 my-3  ">
+      <div class="search">
+        <%= form_with url: experiences_path, method: :get, class: "d-flex mx-2 my-2" do %>
+          <%= text_field_tag :query,
+                params[:query],
+                class: "form-control",
+                placeholder: "Search something cool"
+            %>
+          <%= submit_tag "Find", name: "", class: "btn btn-primary mx-2 " %>
+        <% end %>
+      </div>
     </div>
-    <div class="search">
-    </div>
-  </div> %>
-  <div class="cards" data-controller="saved-experience" id="like">
-    <% @experiences.each do |experience| %>
-      <div class="experience-card">
-        <button data-saved-experience-target="button" data-action="click->saved-experience#dropdown">Dropdown</button>
-        <div class="d-none" data-saved-experience-target="form">
-          <%= simple_form_for @saved_experience, url: saved_experience_path(experience) do |f| %>
-          <%= f.input :journey, collection: current_user.journeys, label_method: :location, value_method: :id %>
-          <%= f.button :submit %>
-          <% end %>
-        </div>
-        <div class="photo">
-          <%# <%= experience.Photo %>
-        <div class="avatar">
-        </div>
-        <div class="title-likes">
-          <div class="title">
-            <h2><%= experience.title %></h2>
-            <div class="like-and-heart">
-                <%= render "experiences/like_link", journey: experience.journey, experience: experience %>
-              <div class="like">
-                <%= experience.cached_votes_score %>
+
+  <div class="container">
+    <div class="cards">
+      <% @experiences.each do |experience| %>
+        <div data-controller="saved-experience">
+          <div class="photo", style="background-image: url(<%= cl_image_path experience.photos.first.key%>);">
+            <div class="thisclass">
+              <div class="d-flex">
+                <div class="avatar m-3">
+                  <%= image_tag("https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png", crop: :fill, alt: "blank-profile-pic", class: "avatar") %>
+                </div>
+                <p class="username">
+                  <%= experience.journey.user.username %>
+                </p>
+              </div>
+              <%# dropdown for journeys %>
+              <div class="d-flex flex-column justify-content-center parent-postion">
+                <a data-saved-experience-target="button" class="plus-icon" data-action="click->saved-experience#dropdown"><%= image_tag("plus_icon.svg") %></a>
+                <div class="d-none form-position" data-saved-experience-target="form">
+                  <%= simple_form_for @saved_experience, url: saved_experience_path(experience) do |f| %>
+                  <%= f.input :journey, collection: current_user.journeys, label_method: :location, value_method: :id %>
+                  <%= f.submit 'Save', class: "btn-primary-custom" %>
+                  <% end %>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="title-likes">
+              <div class="title">
+                <h2><%= experience.title %></h2>
+                <div class="like-and-heart">
+                  <%= render "experiences/like_link", journey: experience.journey, experience: experience %>
+                  <div class="like">
+                    <%= experience.cached_votes_score %>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
+          <div class="content">
+            <p><%= experience.content %></p>
+          </div>
         </div>
-        </div>
-        <div class="content">
-          <%= experience.content %>
-        </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
+  </div>
 </div>

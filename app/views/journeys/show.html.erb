@@ -39,18 +39,18 @@
     </div>
   </div>
 
-  <div class="list my-4">
+  <div class="list my-4" data-controller="dropdown-lists"> <!-- stimulus controller -->
     <div class="d-flex justify-content-between">
       <div class="d-flex">
         <%= image_tag "laguage.svg", class: "list-icon" %>
         <h2>Packing</h2>
       </div>
-      <div>
+      <div data-action="click->dropdown-lists#dropdown" data-dropdown-lists-target="dropdown-lists"> <!-- data action-->
         <%# lists need to be a dropdown %>
-        <%= image_tag "drop_down_icon.svg" %>
+        <%= image_tag "drop_down_icon.svg", data: { dropdown_lists_target: "icon" } %>
       </div>
     </div>
-    <ul class="mt-3 packing-list-ul">
+    <ul class="mt-3 packing-list-ul" data-dropdown-lists-target="list">
       <% @journey.packing_list.split(", ").each do |packing_item| %>
         <li class="packing-item py-2 px-2"><%= packing_item.capitalize %></li>
       <% end %>
@@ -58,32 +58,37 @@
   </div>
 
 
-  <div class="list">
+  <div class="list" data-controller="dropdown-lists"> <!-- stimulus controller -->
     <div class="d-flex justify-content-between">
       <div class="d-flex">
-        <%= image_tag "diamond_icon.svg", class: "list-icon" %>
+        <%= image_tag "diamond_icon.svg", class: "list-icon"%>
         <h2>Sightseeing</h2>
       </div>
-      <div>
+      <div data-action="click->dropdown-lists#dropdown" data-dropdown-lists-target="dropdown-lists">
         <%# lists need to be a dropdown %>
-        <%= image_tag "drop_down_icon.svg" %>
+        <%= image_tag "drop_down_icon.svg", data: { dropdown_lists_target: "icon" }  %>
       </div>
     </div>
-    <div>
-      <p class="top-experiences-for-location-italic mt-2"><em>Top experiences people had in <%= @journey.location %></em></p>
-    </div>
-    <% @sight_seeing_list.each do |saved_experience| %>
-      <div class="experience-card mt-3">
-        <div class="d-flex flex-column">
-          <div class="p-2">
-            <%= cl_image_tag saved_experience.experience.photos.first.key, crop: :fill, class: "experiences-photo-size" %>
-          </div>
-          <div class="text-experience-card-margin-left">
-            <h3 class="mt-2"><%= saved_experience.experience.title %></h3>
-            <p><%= saved_experience.experience.address %></p>
+    <div data-dropdown-lists-target="list">
+      <div>
+        <p class="top-experiences-for-location-italic mt-2"><em>Top experiences people had in <%= @journey.location %></em></p>
+      </div>
+      <% @sight_seeing_list.each do |saved_experience| %>
+        <div class="experience-card mt-3">
+          <div class="d-flex flex-column">
+            <div class="p-2 parent-position-relative">
+              <%= link_to delete_saved_experience_path(saved_experience), data: { turbo_method: :delete }, class: "destroy-link-position" do %>
+                <%= image_tag "minus_icon.svg" %>
+              <% end %>
+              <%= cl_image_tag saved_experience.experience.photos.first.key, crop: :fill, class: "experiences-photo-size" %>
+            </div>
+            <div class="text-experience-card-margin-left">
+              <h3 class="mt-2"><%= saved_experience.experience.title %></h3>
+              <p><%= saved_experience.experience.address %></p>
+            </div>
           </div>
         </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
 </div>

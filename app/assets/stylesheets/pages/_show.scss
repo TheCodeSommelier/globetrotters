@@ -1,6 +1,7 @@
 .show-container {
   background: $peach-gradient;
   margin-top: 0;
+  min-height: 100vh;
 
   .container-basic-info-icon {
     margin: 0.5rem 30px;
@@ -65,4 +66,14 @@
 
 .text-experience-card-margin-left {
   margin-left: 0.5rem;
+}
+
+.parent-position-relative {
+  position: relative;
+
+  .destroy-link-position {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
 }
