@@ -18,8 +18,8 @@ class Journey < ApplicationRecord
 
   def prebuild_sightseeing_list
     location = self.location
-    Use with geocoder
-    experience.address.near(self.location)
+    # Use with geocoder
+    # experience.address.near(self.location)
     experience_in_location = Experience.all.select do |experience|
       experience.journey.location == location
     end
