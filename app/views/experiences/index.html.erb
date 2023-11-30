@@ -37,8 +37,7 @@
           <div class="title">
             <h2><%= experience.title %></h2>
             <div class="like-and-heart">
-             <%= image_tag("fi-rr-heart.png") %>
-             <%= render "experiences/like_link", journey: experience.journey, experience: experience %>
+              <%= render "experiences/like_link", journey: experience.journey, experience: experience %>
           <div class="like">
             <%= experience.likes %>
           </div>
