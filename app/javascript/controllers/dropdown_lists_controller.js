@@ -5,7 +5,6 @@ export default class extends Controller {
   static targets = ["icon", "dropdownLists", "list"]
 
   connect() {
-    console.log("Hello from controller!")
   }
 
   dropdown() {
