@@ -19,7 +19,7 @@
     <div class="search">
     </div>
   </div> %>
-  <div class="cards data-controller="saved-experience"">
+  <div class="cards" data-controller="saved-experience">
     <% @experiences.each do |experience| %>
       <div class="experience-card">
         <button data-saved-experience-target="button" data-action="click->saved-experience#dropdown">Dropdown</button>
