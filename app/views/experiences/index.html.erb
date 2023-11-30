@@ -37,11 +37,11 @@
           <div class="title">
             <h2><%= experience.title %></h2>
             <div class="like-and-heart">
-              <%= render "experiences/like_link", journey: experience.journey, experience: experience %>
-          <div class="like">
-            <%= experience.likes %>
-          </div>
-          </div>
+                <%= render "experiences/like_link", journey: experience.journey, experience: experience %>
+              <div class="like">
+                <%= experience.cached_votes_score %>
+              </div>
+            </div>
           </div>
         </div>
         </div>

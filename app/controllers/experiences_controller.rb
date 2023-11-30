@@ -40,7 +40,7 @@ class ExperiencesController < ApplicationController
       @experience.liked_by current_user
     end
     redirect_to experiences_path
-    # render "experiences/like.js.erb"
+    # render "experiences/like"
   end
 
   private
