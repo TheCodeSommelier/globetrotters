@@ -8,7 +8,7 @@
     <% if current_user %>
       <p><strong><%= link_to "Inspire your next holiday", experiences_path, class: "btn-primary-custom" %></strong></p>
     <% else %>
-      <p><strong><%= link_to "Log-in", experiences_path, class: "btn-primary-custom" %></strong></p>
+      <p><strong><%= link_to "Log-in", new_user_session_path, class: "btn-primary-custom" %></strong></p>
     <% end %>
     <a href="#last-element-on-page"><i class="fa-solid fa-chevron-down scroll-down-button" style="color: #ffffff;"></i></a>
   </div>
