@@ -74,9 +74,12 @@
     </div>
     <% @sight_seeing_list.each do |saved_experience| %>
       <div class="experience-card mt-3">
-        <div class="d-flex justify-content-between">
-          <div>
-            <h3><%= saved_experience.experience.title %></h3>
+        <div class="d-flex flex-column">
+          <div class="p-2">
+            <%= cl_image_tag saved_experience.experience.photos.first.key, crop: :fill, class: "experiences-photo-size" %>
+          </div>
+          <div class="text-experience-card-margin-left">
+            <h3 class="mt-2"><%= saved_experience.experience.title %></h3>
             <p><%= saved_experience.experience.address %></p>
           </div>
         </div>
