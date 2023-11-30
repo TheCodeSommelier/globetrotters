@@ -32,15 +32,23 @@
     width: 110px;
     height: 110px;
     object-fit: cover;
+    // margin-bottom: 25px;
+  }
+
+  .col-4 {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: white;
     border: solid;
     border-color: white;
     border-radius: 3px;
     box-shadow: 1px 2px 3px grey;
+    margin-bottom: 25px;
   }
 
   .journey-links {
     text-decoration: none;
-    color: white;
     font-size: large;
     text-align: center;
     font-weight: bold;
@@ -50,12 +58,26 @@
     height: 150px;
     width: 150px;
     display: flex;
-    justify-content: center;
     border: solid;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: white;
     border-color: white;
     border-radius: 3px;
     background-repeat: round;
     box-shadow: 1px 2px 3px grey;
     margin-bottom: 25px;
+    justify-content: center;
+
+    a {
+      text-decoration: none;
+    }
   }
+}
+
+.my-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+  align-items: center;
+  height: max-content;
 }
