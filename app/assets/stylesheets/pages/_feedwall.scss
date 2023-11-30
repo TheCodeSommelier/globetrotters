@@ -1,31 +1,45 @@
-
 .content{
   border: solid 1px black !important;
-  height: 130px;
+  height: auto;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 100%;
+  margin-bottom: 40px;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+  min-height: 81px;
+  box-shadow: 2px 2px 12px #888888;
 
+  p {
+    margin-left:10px;
+    display: flex;
+    align-items: center;
+  }
 }
-
 
 .photo{
   border: solid 1px rgb(0, 0, 0);
-  height: 450px;
-}
+  border-top-right-radius: 30px;
+  border-top-left-radius: 30px;
+  background-size: cover;
+  height: 415px;
 
+  }
+  .thisclass {
+    display: flex;
+    justify-content: space-between;
+  }
 
 .title-likes{
   display: flex;
   align-items: end;
   .title{
-    height: 430px;
+    height: 330px;
     display: flex;
     align-items: flex-end;
-    justify-content: space-around;
-    padding: 5px;
-    margin-left: 8px;
+    justify-content: space-between;
     width: 100%;
+    color: white;
+    padding: 0px 15px 3px 15px;
 
     h2 {
       margin-bottom: 0;
@@ -33,12 +47,35 @@
   .like-and-heart{
     display: flex;
     flex-direction: column-reverse;
-      .like {
-
-      }
-      img {
-        background-color: red;
-      }
+    margin-right: 2px;
     }
+  }
+}
+
+.username{
+  align-self: center;
+  color: white;
+}
+
+
+.parent-postion {
+  position: relative;
+  margin-right: 8px;
+
+  .plus-icon {
+    display: flex;
+    justify-content: flex-end;
+    img{
+      width: 40px;
+    }
+  }
+  .form-position {
+    position: absolute;
+    top: 48px;
+    background-color: white;
+    border-radius: 8px;
+    right: 33px;
+    padding: 20px;
+
   }
 }
