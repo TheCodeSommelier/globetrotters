@@ -19,7 +19,7 @@
     <div class="search">
     </div>
   </div> %>
-  <div class="cards" data-controller="saved-experience">
+  <div class="cards" data-controller="saved-experience" id="like">
     <% @experiences.each do |experience| %>
       <div class="experience-card">
         <button data-saved-experience-target="button" data-action="click->saved-experience#dropdown">Dropdown</button>
@@ -38,6 +38,7 @@
             <h2><%= experience.title %></h2>
             <div class="like-and-heart">
              <%= image_tag("fi-rr-heart.png") %>
+             <%= render "experiences/like_link", journey: experience.journey, experience: experience %>
           <div class="like">
             <%= experience.likes %>
           </div>

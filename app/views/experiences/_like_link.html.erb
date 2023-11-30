@@ -1,0 +1,9 @@
+<%= content_tag "div", id: "like#{experience.id}" do %>
+  <%= link_to like_experience_path(experience), method: "patch", remote: true do %>
+    <% if current_user.voted_for? experience %>
+      dislike
+    <% else %>
+      like
+    <% end %>
+  <% end %>
+<% end %>

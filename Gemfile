@@ -5,6 +5,7 @@ gem 'faker'
 gem 'tzinfo'
 gem "pg_search"
 gem "cloudinary"
+gem 'acts_as_votable'
 
 gem 'psych', '~>3.0'
 
