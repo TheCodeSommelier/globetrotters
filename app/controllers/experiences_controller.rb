@@ -4,11 +4,8 @@ class ExperiencesController < ApplicationController
     @saved_experience = SavedExperience.new
     if params[:query].present?
       @journeys = Journey.search_by_location(params[:query])
-      @experiences = []
       @journeys.each do |journey|
-        journey.experiences.each do |experience|
-          @experiences << experience
-        end
+        @experiences = journey.experiences
       end
     else
       @experiences = Experience.all
