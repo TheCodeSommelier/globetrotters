@@ -21,6 +21,11 @@ class JourneysController < ApplicationController
 
     # To display the experiences ordered by likes
     @sight_seeing_list = @journey.saved_experiences
+
+    # Packing list landuage and currency for journey DELETE ONCE CHATGPT
+    @journey.packing_list = "mug, passport, money, underwear, favourite plushie"
+    @journey.language = "Italian"
+    @journey.currency = "EUR"
   end
 
   def new
