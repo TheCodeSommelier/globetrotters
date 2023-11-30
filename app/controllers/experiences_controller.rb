@@ -31,6 +31,18 @@ class ExperiencesController < ApplicationController
     end
   end
 
+  def like
+    # @journey = Journey.find(params[:id])
+    @experience = Experience.find(params[:id])
+    if current_user.voted_for? @experience
+      @experience.unliked_by current_user
+    else
+      @experience.liked_by current_user
+    end
+    redirect_to experiences_path
+    # render "experiences/like"
+  end
+
   private
 
   def experience_params
