@@ -76,7 +76,10 @@
       <% @sight_seeing_list.each do |saved_experience| %>
         <div class="experience-card mt-3">
           <div class="d-flex flex-column">
-            <div class="p-2">
+            <div class="p-2 parent-position-relative">
+              <%= link_to delete_saved_experience_path(saved_experience), data: { turbo_method: :delete }, class: "destroy-link-position" do %>
+                <%= image_tag "minus_icon.svg" %>
+              <% end %>
               <%= cl_image_tag saved_experience.experience.photos.first.key, crop: :fill, class: "experiences-photo-size" %>
             </div>
             <div class="text-experience-card-margin-left">
