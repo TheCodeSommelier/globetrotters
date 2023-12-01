@@ -1,9 +1,10 @@
-// body {
-//   background: $peach-gradient;
-// }
+.background-peach-gradient {
+  background: $peach-gradient;
+  min-height: 100vh;
+}
 
 .title {
-  h2{
+  h2 {
     display: flex;
     justify-content: center;
   }
