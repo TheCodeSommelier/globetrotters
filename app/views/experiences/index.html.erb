@@ -42,10 +42,9 @@
             <div class="title-likes">
               <div class="title">
                 <h2><%= experience.title %></h2>
-                <div class="like-and-heart">
-                  <%= render "experiences/like_link", journey: experience.journey, experience: experience %>
-                  <div class="like">
-                    <%= experience.cached_votes_score %>
+                <div data-controller="like-experience" data-like-experience-id-value="<%= experience.id %>" class="like-and-heart">
+                  <div data-action="click->like-experience#updateLikes" data-like-experience-target = "likes" >
+                    <%= render "experiences/like_link", journey: experience.journey, experience: experience %>
                   </div>
                 </div>
               </div>
