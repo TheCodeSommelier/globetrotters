@@ -1,15 +1,13 @@
 <div class="row justify-content-center m-1">
-    <div class="col-sm-8 my-3  ">
-      <div class="search">
-        <%= form_with url: experiences_path, method: :get, class: "d-flex mx-2 my-2" do %>
+    <div class="col-sm-8 disp-flexi">
+        <%= form_with url: experiences_path, method: :get, class: "d-flex height-property" do %>
           <%= text_field_tag :query,
                 params[:query],
-                class: "form-control",
-                placeholder: "Search something cool"
+                class: "form-control search",
+                placeholder: "Search here"
             %>
-          <%= submit_tag "Find", name: "", class: "btn btn-primary mx-2 " %>
+          <%= submit_tag "Search", name: "", class: "btn-search" %>
         <% end %>
-      </div>
     </div>
 
   <div class="container">
