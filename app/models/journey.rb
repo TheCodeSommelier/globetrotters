@@ -24,7 +24,7 @@ class Journey < ApplicationRecord
       experience.journey.location == location
     end
 
-    experiences_top_most_liked = experience_in_location.sort_by(&:likes).reverse.first(5)
+    experiences_top_most_liked = experience_in_location.sort_by(&:cached_weighted_average).reverse.first(5)
 
     experiences_top_most_liked.each { |experience| SavedExperience.create!(experience: experience, journey: self) }
   end

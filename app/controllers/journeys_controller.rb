@@ -22,7 +22,6 @@ class JourneysController < ApplicationController
 
     country_code = weather['sys']['country']
 
-
     # To display the experiences ordered by likes
     @sight_seeing_list = @journey.saved_experiences
 
