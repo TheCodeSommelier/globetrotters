@@ -1,14 +1,19 @@
-<%= simple_form_for @journey do |f| %>
-  <%= f.input :location, placeholder: "Eg. London" %>
-  <%= f.input :start_date,
-              as: :string,
-              placeholder: "Please pick a start date",
-              input_html: { data: { controller: "datepicker" } }  %>
-  <%= f.input :end_date,
-              as: :string,
-              placeholder: "Please pick an end date",
-              input_html: { data: { controller: "datepicker" }, value: { } }   %>
-  <%= f.input :category, :collection => ["City Break", "Camping", "Skiing", "Diving", "Road Trip"], prompt: "Please select an activity" %>
-  <%= f.input :notes, placeholder: "Optional: additional info can be added here" %>
-  <%= f.button :submit, class: "btn btn-primary" %>
-<% end %>
+<div class="container-journey">
+
+  <%= simple_form_for @journey do |f| %>
+      <%= f.input :location, label: 'Where are you going?', placeholder: "Eg. London", class:  %>
+      <%= f.input :start_date,
+                  as: :string,
+                  placeholder: "Please pick a start date",
+                  input_html: { data: { controller: "datepicker" } }  %>
+      <%= f.input :end_date,
+                  as: :string,
+                  placeholder: "Please pick an end date",
+                  input_html: { data: { controller: "datepicker" }, value: { } }   %>
+      <%= f.input :category,label: 'What will you be doing?', :collection => ["City Break", "Camping", "Skiing", "Diving", "Road Trip"], prompt: "Please select an activity" %>
+      <%= f.input :notes, placeholder: "Optional: additional info can be added here" %>
+</div>
+       <div class="button-new-journey">
+        <%= f.button :submit, class: "create-button" %>
+      </div>
+  <% end %>
