@@ -134,6 +134,20 @@ user_details.each do |details|
   end
 end
 
+puts "adding photos for each user"
+
+howard = User.find_by first_name: 'Howard'
+howard.photo.attach(io: URI.open('https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1696525592/dqr0ahzvj9g5wizu8b9s.jpg'), filename: "nes.png", content_type: "image/png")
+
+sayyab = User.find_by first_name: 'Sayyab'
+sayyab.photo.attach(io: URI.open('https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1699401643/mxduyziruoju4bzzyf6q.jpg'), filename: "nes.png", content_type: "image/png")
+
+tony = User.find_by first_name: 'Tony'
+tony.photo.attach(io: URI.open('https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1696533138/wbxcseqnb5qddi8z3qex.jpg'), filename: "nes.png", content_type: "image/png")
+
+marco = User.find_by first_name: 'Marco'
+marco.photo.attach(io: URI.open('https://avatars.githubusercontent.com/u/146257070?v=4'), filename: "nes.png", content_type: "image/png")
+
 def save_experience_to_join_table
   Journey.all.each do |journey|
     experience_in_location = Experience.all.select do |experience|
