@@ -39,7 +39,7 @@ class JourneysController < ApplicationController
     @journey = Journey.new(journey_params)
     @journey.user = current_user
     if @journey.save
-      redirect_to root_path
+      redirect_to journey_path(@journey)
     else
       render :new, status: :unprocessable_entity
     end
@@ -53,11 +53,13 @@ class JourneysController < ApplicationController
     currency = JSON.parse(uri_currency)
     currency['data']['currency']
   end
-  
+
   # Check if everything pice of data is present for journey once CHATGPT up delete!
   def fill_in_missing_data
     if @journey.packing_list.present?
       return
+    elsif @journey.notes.nil?
+      @journey.notes = "My trip to #{@journey.location}"
     else
       @journey.packing_list = "mug, passport, money, underwear, favourite plushie"
       @journey.language = "Italian"
