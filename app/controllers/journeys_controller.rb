@@ -37,7 +37,7 @@ class JourneysController < ApplicationController
   def create
     @journey = Journey.new(journey_params)
     @journey.user = current_user
-    if @journey.save
+    if @journey.save!
       redirect_to journey_path(@journey)
     else
       render :new, status: :unprocessable_entity
