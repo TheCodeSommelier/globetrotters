@@ -4,6 +4,7 @@
     <div>
       <h2 class="location-title-bold"><%= @journey.location %></h2>
       <p><%= @journey.start_date %> - <%= @journey.end_date %></p>
+      <p class="top-experiences-for-location-italic"><em><%= @journey.notes %></em></p>
     </div>
     <div>
       <%= link_to new_journey_experience_path(@journey), class: "btn-secondary-custom secondary-button-position", id: "share-button-show-page" do %>
