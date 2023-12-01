@@ -32,7 +32,6 @@ class ExperiencesController < ApplicationController
   end
 
   def like
-    # @journey = Journey.find(params[:id])
     @experience = Experience.find(params[:id])
     if current_user.voted_for? @experience
       @experience.unliked_by current_user
