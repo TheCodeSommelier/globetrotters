@@ -27,9 +27,8 @@ class JourneysController < ApplicationController
     @sight_seeing_list = @journey.saved_experiences
 
     # Packing list landuage and currency for journey DELETE ONCE CHATGPT
-    @journey.packing_list = "mug, passport, money, underwear, favourite plushie"
-    @journey.language = "Italian"
     @journey.currency = get_currency_by_country_code(country_code)
+    fill_in_missing_data
   end
 
   def new
@@ -53,6 +52,16 @@ class JourneysController < ApplicationController
     uri_currency = URI.open("https://countriesnow.space/api/v0.1/countries/currency/q?iso2=#{country_code}").read
     currency = JSON.parse(uri_currency)
     currency['data']['currency']
+  end
+  
+  # Check if everything pice of data is present for journey once CHATGPT up delete!
+  def fill_in_missing_data
+    if @journey.packing_list.present?
+      return
+    else
+      @journey.packing_list = "mug, passport, money, underwear, favourite plushie"
+      @journey.language = "Italian"
+    end
   end
 
   # Gets the time zone identifier by the UTC offset

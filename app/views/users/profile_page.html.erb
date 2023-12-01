@@ -7,7 +7,7 @@
           <% else %>
             <%= image_tag("https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png", class: "avatar-circle-large") %>
           <% end %>
-      <h1><%= @user.first_name %> <%= @user.last_name %></h1>
+      <h1><%= @user.first_name %> <%= @user.last_name %> <i class="fa-solid fa-pen-to-square fa-xs"></i></h1>
       <h6><%= @user.username %></h6>
       <div class="follow-section">
         <div class="followers"><h4><%= @user.followers %></h4><h6>Followers</h6></div>
@@ -34,7 +34,9 @@
             <% @journeys.each do |journey| %>
               <% journey.experiences.each do |experience| %>
                 <% experience.photos.each do |photo| %>
-                  <div class="col-4"><%= cl_image_tag photo.key %></div>
+                  <div class="col-4 p-0 mx-2">
+                    <%= cl_image_tag photo.key %><%= journey.location %>
+                  </div>
                 <% end %>
               <% end %>
             <% end %>
@@ -44,11 +46,13 @@
     <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
       <%# Journeys %>
       <div class="lower-pp container" style="min-height:100vh;">
-        <div class="row justify-content-evenly">
+        <div class="my-grid">
           <% @journeys.each do |journey| %>
-            <div class="col-6 card" style="background-image: url('<%= image_path unsplash_image_url(size: '300x200', tags: journey.location) %>')">
-              <%= link_to journey.location, journey_path(journey), class: "journey-links" %>
-            </div>
+            <%= link_to journey_path(journey), class: 'journey-links' do %>
+              <div class="card" style="background-image: url('<%= image_path unsplash_image_url(size: '300x200', tags: journey.location) %>')">
+                <%= journey.location %>
+              </div>
+            <% end %>
           <% end %>
         </div>
       </div>
