@@ -23,9 +23,7 @@ class JourneysController < ApplicationController
     @sight_seeing_list = @journey.saved_experiences
 
     # Packing list landuage and currency for journey DELETE ONCE CHATGPT
-    @journey.packing_list = "mug, passport, money, underwear, favourite plushie"
-    @journey.language = "Italian"
-    @journey.currency = "EUR"
+    fill_in_missing_data
   end
 
   def new
@@ -43,6 +41,17 @@ class JourneysController < ApplicationController
   end
 
   private
+
+  # Check if everything pice of data is present for journey once CHATGPT up delete!
+  def fill_in_missing_data
+    if @journey.packing_list.present?
+      return
+    else
+      @journey.packing_list = "mug, passport, money, underwear, favourite plushie"
+      @journey.language = "Italian"
+      @journey.currency = "EUR"
+    end
+  end
 
   # Gets the time zone identifier by the UTC offset
   def get_time_zone_identifier_by_utc_offset(utc_offset_seconds)
