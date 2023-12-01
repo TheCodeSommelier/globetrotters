@@ -1,5 +1,6 @@
 require "json"
 require "open-uri"
+require "net/http"
 
 class JourneysController < ApplicationController
   before_action :set_journey, only: %i[show]
@@ -19,13 +20,16 @@ class JourneysController < ApplicationController
     utc_offset_seconds = weather['timezone']
     @current_time_in_location = get_time_zone_identifier_by_utc_offset(utc_offset_seconds)
 
+    country_code = weather['sys']['country']
+
+
     # To display the experiences ordered by likes
     @sight_seeing_list = @journey.saved_experiences
 
     # Packing list landuage and currency for journey DELETE ONCE CHATGPT
     @journey.packing_list = "mug, passport, money, underwear, favourite plushie"
     @journey.language = "Italian"
-    @journey.currency = "EUR"
+    @journey.currency = get_currency_by_country_code(country_code)
   end
 
   def new
@@ -43,6 +47,13 @@ class JourneysController < ApplicationController
   end
 
   private
+
+  # Get country first
+  def get_currency_by_country_code(country_code)
+    uri_currency = URI.open("https://countriesnow.space/api/v0.1/countries/currency/q?iso2=#{country_code}").read
+    currency = JSON.parse(uri_currency)
+    currency['data']['currency']
+  end
 
   # Gets the time zone identifier by the UTC offset
   def get_time_zone_identifier_by_utc_offset(utc_offset_seconds)
