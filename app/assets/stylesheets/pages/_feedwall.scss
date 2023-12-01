@@ -48,6 +48,11 @@
     display: flex;
     flex-direction: column-reverse;
     margin-right: 2px;
+
+    .like {
+      display: flex;
+      justify-content: center;
+    }
     }
   }
 }
@@ -78,4 +83,23 @@
     padding: 20px;
 
   }
+}
+
+.search {
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border: 1px black solid;
+  box-shadow: 1px 3px 10px #888888;
+
+}
+
+.disp-flexi {
+  display: flex;
+  justify-content: center;
+  margin-top: 68px !important;
+  margin-bottom: 58px !important;
+}
+
+.height-property {
+  height: 34px;
 }

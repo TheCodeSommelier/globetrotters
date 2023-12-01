@@ -1,5 +1,6 @@
 require "json"
 require "open-uri"
+require "net/http"
 
 class JourneysController < ApplicationController
   before_action :set_journey, only: %i[show]
@@ -19,10 +20,13 @@ class JourneysController < ApplicationController
     utc_offset_seconds = weather['timezone']
     @current_time_in_location = get_time_zone_identifier_by_utc_offset(utc_offset_seconds)
 
+    country_code = weather['sys']['country']
+
     # To display the experiences ordered by likes
     @sight_seeing_list = @journey.saved_experiences
 
     # Packing list landuage and currency for journey DELETE ONCE CHATGPT
+    @journey.currency = get_currency_by_country_code(country_code)
     fill_in_missing_data
   end
 
@@ -34,7 +38,7 @@ class JourneysController < ApplicationController
     @journey = Journey.new(journey_params)
     @journey.user = current_user
     if @journey.save
-      redirect_to root_path
+      redirect_to journey_path(@journey)
     else
       render :new, status: :unprocessable_entity
     end
@@ -42,14 +46,22 @@ class JourneysController < ApplicationController
 
   private
 
+  # Get country first
+  def get_currency_by_country_code(country_code)
+    uri_currency = URI.open("https://countriesnow.space/api/v0.1/countries/currency/q?iso2=#{country_code}").read
+    currency = JSON.parse(uri_currency)
+    currency['data']['currency']
+  end
+
   # Check if everything pice of data is present for journey once CHATGPT up delete!
   def fill_in_missing_data
     if @journey.packing_list.present?
       return
+    elsif @journey.notes.nil?
+      @journey.notes = "My trip to #{@journey.location}"
     else
       @journey.packing_list = "mug, passport, money, underwear, favourite plushie"
       @journey.language = "Italian"
-      @journey.currency = "EUR"
     end
   end
 
