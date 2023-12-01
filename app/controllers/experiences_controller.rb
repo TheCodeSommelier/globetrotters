@@ -29,15 +29,16 @@ class ExperiencesController < ApplicationController
   end
 
   def like
-    # @journey = Journey.find(params[:id])
     @experience = Experience.find(params[:id])
     if current_user.voted_for? @experience
       @experience.unliked_by current_user
     else
       @experience.liked_by current_user
     end
-    redirect_to experiences_path
-    # render "experiences/like"
+    respond_to do |format|
+      format.html { redirect_to experiences_path }
+      format.text { render partial: "experiences/like_link", locals: { experience: @experience }, formats: [:html] }
+    end
   end
 
   private
