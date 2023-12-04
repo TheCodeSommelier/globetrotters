@@ -1,8 +1,8 @@
 <div class= "banner">
+  <%= video_tag "Globetrotters_landing_page_video.mp4", :autoplay=> "autoplay", loop: "loop", :controls => true, muted: true, class: "banner-video" %>
   <div class="banner-text">
-    <%= image_tag "GlobeTrotters_logo_blue.png", class: "logo_image" %>
-
-    <p>Share your travel experiences.</p>
+    <%= image_tag "GlobeTrotters_logo_orange.png", class: "logo_image" %>
+    <p id= "landing-page-slogan">Share your travel experiences.</p>
 
     <%# Link to feed wall %>
     <% if current_user %>
@@ -14,10 +14,13 @@
   </div>
 </div>
 
-<div class="home-background-color">
+<div>
   <div class="landing-container">
-    <h3>Share your experiences!</h3>
-    <%= image_tag("experience_landing_page.svg") %>
+    <h3>Plan your next journey with the help of <strong>AI</strong>!</h3>
+    <div class= "landing-page-card">
+      <%= image_tag "Journey_AI_Widgets.png", class: "journey_widgets" %>
+      <p><strong>All your trip info in one place!</strong></p>
+    </div>
   </div>
   <div class="landing-container">
     <h3>Create your next journey!</h3>

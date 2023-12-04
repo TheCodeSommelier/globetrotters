@@ -2,35 +2,39 @@
 html, body {
   margin-top: 0;
   margin-bottom: 0;
-  height: 100%;
+  height: 844px;
+  width: 390px;
 }
 
 .banner {
-  background-image: url('https://journeywoman.com/wp-content/uploads/2021/06/APisani7082-scaled.jpg');
-  height: 92%;
-  width: auto;
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
+  position: relative;
+  top: -100px;
+  margin-bottom: -100px;
+  height: 844px;
+  width: 390px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top: 0;
+  padding-top: 0;
 }
 
 .banner-text {
-  margin-bottom: 160px;
+  position:absolute;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   color: whitesmoke;
+  margin-top: 0;
+  padding-top: 0;
 }
 
 .logo_image {
   margin-bottom: 80px;
   margin-top: 200px;
-  width: 70%;
+  width: 300px;
   height: auto;
 }
 
@@ -38,11 +42,20 @@ html, body {
   margin-bottom: 80px;
 }
 
+#landing-page-slogan {
+  text-shadow:
+        0.07em 0 black,
+        0 0.07em black,
+        -0.07em 0 black,
+        0 -0.07em black;
+}
+
 .landing-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
 }
 
 .landing-container h3 {
@@ -50,16 +63,7 @@ html, body {
   margin-bottom: 40px;
 }
 
-.landing-container p {
-  margin-bottom: 40px;
-}
-
 #last-element-on-page {
-  margin-bottom: 180px;
-}
-
-.home-background-color {
-  background: $peach-gradient;
 }
 
 .scroll-down-button {
@@ -71,4 +75,31 @@ html, body {
   width: 356px;
   border-radius: 30px;
   border: 1px black solid;
+}
+
+.banner-video {
+  height: 844px;
+  width: 390px;
+  margin-top: 0;
+  padding-top: 0;
+  object-fit: cover;
+}
+
+.landing-page-card {
+  background: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  padding-top: 10px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+  p {
+    margin-top: 20px;
+  }
+
+.journey_widgets {
+  border-radius: 10px;
 }
