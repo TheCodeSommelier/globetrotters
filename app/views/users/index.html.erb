@@ -14,7 +14,9 @@
 <div class="users-box">
   <% @users.each do |user| %>
     <div class="user-card">
+    <%= link_to profile_page_path(user.username) do  %>
       <%= image_tag(user.photo) %>
+      <% end %>
         <p> <%= user.username %> </p>
     </div>
   <% end %>
