@@ -1,4 +1,6 @@
 class Journey < ApplicationRecord
+  attr_accessor :packing_item
+
   belongs_to :user
 
   has_many :experiences, dependent: :destroy
@@ -22,8 +24,8 @@ class Journey < ApplicationRecord
       ],
       "model": "gpt-3.5-turbo"
     })
-    new_packing_list = chaptgpt_response["choices"][0]["message"]["content"]
-
+    new_packing_list = chaptgpt_response["choices"][0]["message"]["content"].split(", ")
+    p new_packing_list
     update(packing_list: new_packing_list)
     @packing_list = new_packing_list
   end
