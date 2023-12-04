@@ -1,6 +1,8 @@
 class ChatroomsController < ApplicationController
   def index
-    @chatrooms = Chatroom.where(id: current_user)
+    chatrooms1 = Chatroom.where(user_1_id: current_user)
+    chatrooms2 = Chatroom.where(user_2_id: current_user)
+    @chatrooms = chatrooms1 + chatrooms2
   end
 
   def show
@@ -9,6 +11,12 @@ class ChatroomsController < ApplicationController
   end
 
   def create
-    # Create a button that makes a POST request which creates a new chatroom.
+    user_2 = User.find_by(username: params[:user_2])
+    chatroom = Chatroom.new(user_1: current_user, user_2: user_2)
+    if chatroom.save!
+      redirect_to chatroom_path(chatroom)
+    else
+      render 'profile_page', status: :unprocessable_entity
+    end
   end
 end
