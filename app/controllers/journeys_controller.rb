@@ -3,7 +3,7 @@ require "open-uri"
 require "net/http"
 
 class JourneysController < ApplicationController
-  before_action :set_journey, only: %i[show update]
+  before_action :set_journey, only: %i[show update delete_packing_item]
 
   def show
     # This is the api call to display the current weather
@@ -42,6 +42,11 @@ class JourneysController < ApplicationController
       format.html { redirect_to journey_path(@journey) }
       format.json # Follows the classic Rails flow and look for a create.json view
     end
+  end
+
+  def delete_packing_item
+    @journey.packing_list.delete_at(params[:packingItem].to_i)
+    @journey.save!
   end
 
   private

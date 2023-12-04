@@ -10,10 +10,11 @@ Rails.application.routes.draw do
 
   get "/experiences", to: "experiences#index", as: :experiences
 
-  resources :journeys, only: %i[show new create edit update destroy] do
+  resources :journeys, only: %i[show new create edit update] do
     resources :experiences, only: %i[new create]
   end
 
+  patch "/journeys/:id/delete_packing_item", to: "journeys#delete_packing_item", as: :delete_packing_item
   # resources :experiences, only: [:show] do
   #   member do
   #     patch "like", to: "experiences#like"

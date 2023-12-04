@@ -41,7 +41,8 @@
   </div>
 
   <div class="list my-4"
-  data-controller="dropdown-lists packing-list" > <!-- stimulus controllers -->
+  data-controller="dropdown-lists packing-list"
+  data-packing-list-journey-value="<%= @journey.id %>"> <!-- stimulus controllers -->
     <div class="d-flex justify-content-between">
       <div class="d-flex">
         <%= image_tag "laguage.svg", class: "list-icon" %>
@@ -54,8 +55,8 @@
     <ul class="mt-3 packing-list-ul"
       data-dropdown-lists-target="list"
       data-packing-list-target="items">
-      <% @journey.packing_list.each do |packing_item| %>
-        <%= render "packing_list_add_item", packing_item: packing_item %>
+      <% @journey.packing_list.each_with_index do |packing_item, index| %>
+        <%= render "packing_list_add_item", packing_item: packing_item, index: index %>
       <% end %>
     </ul>
     <div>

@@ -43,9 +43,6 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_04_112955) do
   end
 
   create_table "chatrooms", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.bigint "user_1_id"
     t.bigint "user_2_id"
     t.datetime "created_at", null: false
