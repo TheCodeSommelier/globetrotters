@@ -1,5 +1,10 @@
 <h1>Your messages:</h1>
-
 <% @chatrooms.each do |chatroom| %>
-<%= chatroom %>
+  <% if  chatroom.user_1.username == current_user.username%>
+    <% user = chatroom.user_2.username %>
+  <% else %>
+    <% user = chatroom.user_1.username %>
+  <% end %>
+  <%= link_to user, chatroom_path(chatroom)  %>
+
 <% end %>
