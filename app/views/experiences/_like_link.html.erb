@@ -1,6 +1,6 @@
 <%= content_tag "div", id: "like#{experience.id}" do %>
   <div class="like" data-like-experience-target = "total">
-      <%= experience.cached_votes_score %>
+      <%= experience.weighted_score %>
   </div>
   <%= link_to like_experience_path(experience), method: :patch, remote: true do %>
     <% if current_user.voted_for? experience %>
