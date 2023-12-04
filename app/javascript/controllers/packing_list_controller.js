@@ -14,12 +14,12 @@ export default class extends Controller {
       headers: { "Accept": "application/json" },
       body: new FormData(this.formTarget)
     })
-      .then(response => response)
+      .then(response => response.json())
       .then((data) => {
         console.log(data.inserted_item)
 
         if (data.inserted_item) {
-          this.itemsTarget.insertAdjacentHTML("beforeend", `<li class="packing-item py-2 px-2">${data.inserted_item}</li>`)
+          this.itemsTarget.insertAdjacentHTML("beforeend", data.inserted_item)
         }
         // this.formTarget.outerHTML = data.form
       })
