@@ -9,4 +9,10 @@ class User < ApplicationRecord
 
   acts_as_voter
 
+  include PgSearch::Model
+  pg_search_scope :search_by_username,
+    against: [ :username ],
+    using: {
+      tsearch: { prefix: true }
+    }
 end
