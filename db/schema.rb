@@ -46,12 +46,6 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_04_112955) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "user_1_id"
-    t.bigint "user_2_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_1_id"], name: "index_chatrooms_on_user_1_id"
-    t.index ["user_2_id"], name: "index_chatrooms_on_user_2_id"
   end
 
   create_table "experiences", force: :cascade do |t|
@@ -149,8 +143,6 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_04_112955) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "chatrooms", "users", column: "user_1_id"
-  add_foreign_key "chatrooms", "users", column: "user_2_id"
   add_foreign_key "experiences", "journeys"
   add_foreign_key "journeys", "users"
   add_foreign_key "messages", "chatrooms"

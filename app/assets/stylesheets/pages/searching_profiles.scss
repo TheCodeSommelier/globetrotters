@@ -1,0 +1,30 @@
+.background-image {
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+}
+
+.user-card {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid lightgray;
+  margin-bottom: 25px;
+  padding: 20px 0px;
+  img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    border: orange 1px solid;
+    margin-right: 25px;
+  }
+  p {
+    font-size: 20px;
+    color: grey;
+    margin: 0;
+  }
+}
+
+.users-box {
+  padding: 10px;
+
+}
