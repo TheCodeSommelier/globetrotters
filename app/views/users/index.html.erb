@@ -14,7 +14,6 @@
 
 <div class="container">
   <% @users.each do |user| %>
-    <%= user.username %>
     <div class="photo", style="background-image: url(<%= cl_image_path user.photo.key%>);">
       <div class="thisclass">
         <div class="d-flex">
