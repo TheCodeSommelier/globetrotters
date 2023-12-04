@@ -41,6 +41,9 @@ gem "devise"
 # OpenAI gem
 gem "ruby-openai"
 
+# Geocoder
+gem "geocoder"
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
 

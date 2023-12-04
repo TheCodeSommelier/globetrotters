@@ -13,6 +13,11 @@ class JourneysController < ApplicationController
 
     # This gets all the data we are displaying in the show
     data_setter(weather, currency_and_language)
+
+    # This will display the markers on the map
+    experiences = @sight_seeing_list.map { |saved_experience| saved_experience.experience }
+    p experiences
+    mapbox_building(experiences)
   end
 
   def new
@@ -63,6 +68,17 @@ class JourneysController < ApplicationController
     # Gets time zone
     utc_offset_seconds = weather['timezone']
     @current_time_in_location = get_time_zone_identifier_by_utc_offset(utc_offset_seconds)
+  end
+
+  # Makes the markers for the map
+  def mapbox_building(experiences_to_display)
+    @markers = experiences_to_display.map do |experience|
+      {
+        lat: experience.latitude,
+        lng: experience.longitude,
+        experience_popup_html: render_to_string(partial: "experience_popup", locals: { experience: experience })
+      }
+    end
   end
 
   # Check if everything pice of data is present for journey once CHATGPT up delete!
