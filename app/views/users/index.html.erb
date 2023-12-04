@@ -1,4 +1,3 @@
-<h1>User list</h1>
 <div class="row justify-content-center m-1">
     <div class="col-sm-8 disp-flexi">
         <%= form_with url: users_path, method: :get, class: "d-flex height-property" do %>
@@ -12,20 +11,11 @@
     </div>
 </div>
 
-<div class="container">
+<div class="users-box">
   <% @users.each do |user| %>
-    <%= user.username %>
-    <div class="photo", style="background-image: url(<%= cl_image_path user.photo.key%>);">
-      <div class="thisclass">
-        <div class="d-flex">
-          <div class="avatar m-3">
-            <%= image_tag("https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png", crop: :fill, alt: "blank-profile-pic", class: "avatar") %>
-          </div>
-          <p class="username">
-            <%= user.username %>
-          </p>
-        </div>
-      </div>
+    <div class="user-card">
+      <%= image_tag(user.photo) %>
+        <p> <%= user.username %> </p>
     </div>
   <% end %>
 </div>
