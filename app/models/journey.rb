@@ -20,7 +20,7 @@ class Journey < ApplicationRecord
     chaptgpt_response = client.chat(parameters: {
       "messages": [
         { "role": "system", "content": "Packing assistant" },
-        { "role": "user", "content": "I am going to #{location}, on the #{start_date} and coming back on #{end_date}. Help me write a packing a list. Separate each packing item with a comma and a space and write only the packing items, do not write any pleasantries or extra information. Also write all of the items as a single string do not categorise." }
+        { "role": "user", "content": "I am going to #{location}, on the #{start_date} and coming back on #{end_date} for #{category}. Help me write a packing a list. Separate each packing item with a comma and a space and write only the packing items, do not write any pleasantries or extra information. Also write all of the items as a single string do not categorise." }
       ],
       "model": "gpt-3.5-turbo"
     })
