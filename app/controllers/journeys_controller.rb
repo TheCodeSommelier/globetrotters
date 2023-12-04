@@ -75,7 +75,8 @@ class JourneysController < ApplicationController
     @markers = experiences_to_display.map do |experience|
       {
         lat: experience.latitude,
-        lng: experience.longitude
+        lng: experience.longitude,
+        experience_popup_html: render_to_string(partial: "experience_popup", locals: { experience: experience })
       }
     end
   end
