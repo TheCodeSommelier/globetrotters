@@ -14,7 +14,7 @@
         <%= link_to new_journey_path do %>
           <%= image_tag("plane.png") %>
         <% end %>
-        <%= link_to profile_page_path(:username) do %>
+        <%= link_to profile_page_path(current_user.username) do %>
           <% if current_user.photo.attached? %>
             <%= cl_image_tag current_user.photo.key, crop: :fill, alt: "profile-pic", class: "avatar" %>
           <% else %>
