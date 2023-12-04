@@ -5,7 +5,11 @@
     <%= link_to chatrooms_path do %>
       <i class="fa-solid fa-chevron-left"></i>
     <% end %>
-    <h1>#<%= @chatroom.user_1.username %>-<%= @chatroom.user_2.username %></h1>
+    <% if @chatroom.user_1 == current_user %>
+      <h1><%= @chatroom.user_2.username %></h1>
+    <% else %>
+      <h1><%= @chatroom.user_1.username %></h1>
+    <% end %>
   </div>
   <div class="messages" data-chatroom-subscription-target="messages">
      <% @chatroom.messages.each do |message| %>

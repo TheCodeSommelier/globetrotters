@@ -32,6 +32,39 @@
       margin-bottom: 0;
     }
   }
+
+}
+
+.user1-flex {
+  display: flex;
+  align-items: center;
+
+  strong {
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+}
+
+.user2-flex {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+
+  strong {
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+}
+
+#user2-message {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.each-message {
+  height: 30px;
+  width: 30px;
+  border-radius: 50px;
 }
 
 .link-to-chat {
