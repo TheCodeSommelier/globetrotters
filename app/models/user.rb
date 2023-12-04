@@ -11,4 +11,7 @@ class User < ApplicationRecord
 
   acts_as_voter
 
+  has_many :chatrooms_as_user_1, class_name: "chatroom", foreign_key: :user_1
+  has_many :chatrooms_as_user_2, class_name: "chatroom", foreign_key: :user_2
+
 end
