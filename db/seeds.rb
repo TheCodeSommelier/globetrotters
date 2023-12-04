@@ -23,7 +23,7 @@ CATEGORIES = ["Skiing", "Camping", "Diving", "Road Trip"]
 LANGUAGES = ["German", "Cantonese", "Spanish", "English"]
 CURRENCY = ["EUR", "GBP", "USD", "YEN"]
 TZDATA = TZInfo::Timezone.all_identifiers
-PACKING = ["underwear, passport, skis, banana", "mug, panda, jetski", "shoes, jeans, shirt"]
+PACKING = [["underwear", "passport", "skis", "banana"], ["mug", "panda", "jetski"], ["shoes", "jeans", "shirt"]]
 IMAGE_URLS = [
   "https://escales.ponant.com/wp-content/uploads/2020/12/plage.jpg",
   "https://hips.hearstapps.com/hmg-prod/images/lake-bled-in-slovenia-royalty-free-image-1644922973.jpg",

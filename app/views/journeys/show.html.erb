@@ -40,22 +40,33 @@
     </div>
   </div>
 
-  <div class="list my-4" data-controller="dropdown-lists"> <!-- stimulus controller -->
+  <div class="list my-4"
+  data-controller="dropdown-lists packing-list" > <!-- stimulus controllers -->
     <div class="d-flex justify-content-between">
       <div class="d-flex">
         <%= image_tag "laguage.svg", class: "list-icon" %>
         <h2>Packing</h2>
       </div>
       <div data-action="click->dropdown-lists#dropdown" data-dropdown-lists-target="dropdown-lists"> <!-- data action-->
-        <%# lists need to be a dropdown %>
         <%= image_tag "drop_down_icon.svg", data: { dropdown_lists_target: "icon" } %>
       </div>
     </div>
-    <ul class="mt-3 packing-list-ul" data-dropdown-lists-target="list">
-      <% @journey.packing_list.split(", ").each do |packing_item| %>
-        <li class="packing-item py-2 px-2"><%= packing_item.capitalize %></li>
+    <ul class="mt-3 packing-list-ul"
+      data-dropdown-lists-target="list"
+      data-packing-list-target="items">
+      <% @journey.packing_list.each do |packing_item| %>
+        <%= render "packing_list_add_item", packing_item: packing_item %>
       <% end %>
     </ul>
+    <div>
+      <%= simple_form_for @journey, data: {
+        packing_list_target: "form",
+        action: "submit->packing-list#send"
+      } do |f| %>
+        <%= f.input :packing_item, placeholder: "What are you forgetting?" %>
+        <%= f.submit 'Add', class: "btn-primary-custom", id: "button" %>
+      <% end %>
+    </div>
   </div>
 
 
@@ -66,7 +77,6 @@
         <h2>Sightseeing</h2>
       </div>
       <div data-action="click->dropdown-lists#dropdown" data-dropdown-lists-target="dropdown-lists">
-        <%# lists need to be a dropdown %>
         <%= image_tag "drop_down_icon.svg", data: { dropdown_lists_target: "icon" }  %>
       </div>
     </div>
