@@ -2,8 +2,8 @@
 <div class="backg">
   <div class="container">
     <div class="upper-pp">
-      <% if current_user && current_user.photo.attached? %>
-            <%= cl_image_tag current_user.photo.key, height: 300, width: 400, crop: :fill, alt: "profile-pic", class: "avatar-circle-large" %>
+      <% if @user && @user.photo.attached? %>
+            <%= cl_image_tag @user.photo.key, height: 300, width: 400, crop: :fill, alt: "profile-pic", class: "avatar-circle-large" %>
           <% else %>
             <%= image_tag("https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png", class: "avatar-circle-large") %>
           <% end %>
@@ -20,6 +20,7 @@
       </div>
       <h6><strong>About me:</strong></h6>
       <p><%= @user.bio %></p>
+      <%= render 'message_link', user: @user %>
     </div>
   </div>
   <hr>

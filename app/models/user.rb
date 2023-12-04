@@ -7,6 +7,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  # has_many :chatrooms
+
   acts_as_voter
 
   include PgSearch::Model
@@ -15,4 +17,7 @@ class User < ApplicationRecord
     using: {
       tsearch: { prefix: true }
     }
+  has_many :chatrooms_as_user_1, class_name: "chatroom", foreign_key: :user_1
+  has_many :chatrooms_as_user_2, class_name: "chatroom", foreign_key: :user_2
+
 end

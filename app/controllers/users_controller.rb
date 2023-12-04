@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def profile_page
-    @user = current_user
+    set_user
     @journeys = @user.journeys
   end
 
@@ -12,4 +12,9 @@ class UsersController < ApplicationController
     end
   end
 
+  private
+
+  def set_user
+    @user = User.find_by(username: params[:username])
+  end
 end

@@ -1,0 +1,14 @@
+<% if Chatroom.where(user_1_id: current_user.id, user_2_id: user.id).empty? && Chatroom.where(user_1_id: user.id, user_2_id: current_user.id).empty? %>
+  <%= form_with url: chatrooms_path, method: :post do %>
+    <%= hidden_field_tag :user_2, @user.username %>
+    <%= submit_tag 'Send a message', class: 'btn btn-primary' %>
+  <% end %>
+<% elsif Chatroom.where(user_1_id: user.id, user_2_id: current_user.id).empty? %>
+  <%= form_with url: chatroom_path(Chatroom.where(user_1_id: current_user.id, user_2_id: user.id).first), method: :get do %>
+    <%= submit_tag 'Send a message', class: 'btn btn-primary' %>
+  <% end %>
+<% elsif Chatroom.where(user_1_id: current_user.id, user_2_id: user.id).empty? %>
+  <%= form_with url: chatroom_path(Chatroom.where(user_1_id: user.id, user_2_id: current_user.id).first), method: :get do %>
+    <%= submit_tag 'Send a message', class: 'btn btn-primary' %>
+  <% end %>
+<% end %>

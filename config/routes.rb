@@ -20,10 +20,16 @@ Rails.application.routes.draw do
   #   end
   # end
 
-
   post "saved_experience/:experience_id", to: "saved_experiences#create", as: :saved_experience
 
   delete "/saved_experience/:id", to: "saved_experiences#destroy", as: :delete_saved_experience
 
+
+
+  resources :chatrooms, only: %i[index show create] do
+    resources :messages, only: :create
+  end
+
   get "/:username", to: "users#profile_page", as: :profile_page
+
 end

@@ -1,0 +1,8 @@
+<div class="text-center" style="width:100px;height:120px;">
+  <div class="popup-experience-photo-center">
+    <%= cl_image_tag(experience.photos.first.key, :class => "popup-experience-photo-center") %>
+  </div>
+
+  <p class="popup-title"><%= experience.title %></p>
+  <p><%= experience.address %></p>
+</div>
