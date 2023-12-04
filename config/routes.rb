@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   root to: "pages#home"
 
   resources :users, only: %i[index]
+
+
   get "experiences/:id/like", to: "experiences#like", as: :like_experience
 
   get "up" => "rails/health#show", as: :rails_health_check
