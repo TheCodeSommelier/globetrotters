@@ -73,6 +73,13 @@
     <div data-dropdown-lists-target="list">
       <div>
         <p class="top-experiences-for-location-italic mt-2"><em>Top experiences people had in <%= @journey.location %></em></p>
+        <div class="experience-card w-100 p-2 map-container">
+          <div id="map"
+              data-controller="map"
+              data-map-markers-value="<%= @markers.to_json %>"
+              data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+          </div>
+        </div>
       </div>
       <% @sight_seeing_list.each do |saved_experience| %>
         <div class="experience-card mt-3">

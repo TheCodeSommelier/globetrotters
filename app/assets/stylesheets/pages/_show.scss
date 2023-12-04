@@ -77,3 +77,12 @@
     right: 10px;
   }
 }
+
+.map-container {
+  height: 300px;
+
+  #map {
+    border-radius: 10px;
+    height: 100%;
+  }
+}
