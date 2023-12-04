@@ -1,10 +1,17 @@
-<h1>Your messages:</h1>
-<% @chatrooms.each do |chatroom| %>
-  <% if  chatroom.user_1.username == current_user.username%>
-    <% user = chatroom.user_2.username %>
-  <% else %>
-    <% user = chatroom.user_1.username %>
-  <% end %>
-  <%= link_to user, chatroom_path(chatroom)  %>
+<div class="container ">
+  <h1>Your messages:</h1>
+  <% @chatrooms.each do |chatroom| %>
+    <% if  chatroom.user_1.username == current_user.username%>
+      <% user = chatroom.user_2 %>
+    <% else %>
+      <% user = chatroom.user_1 %>
+    <% end %>
 
-<% end %>
+    <%= link_to chatroom_path(chatroom), class: "link-to-chat" do %>
+      <div class="each-chatroom">
+        <%= cl_image_tag user.photo.key %>
+        <p><%= user.username %></p>
+      </div>
+    <% end %>
+  <% end %>
+</div>
