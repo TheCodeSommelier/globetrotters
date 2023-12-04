@@ -38,16 +38,16 @@ html, body {
   height: auto;
 }
 
-.banner-text p {
-  margin-bottom: 80px;
-}
-
 #landing-page-slogan {
   text-shadow:
         0.07em 0 black,
         0 0.07em black,
         -0.07em 0 black,
         0 -0.07em black;
+}
+
+.landing-page-info-container {
+  width: 323.65px;
 }
 
 .landing-container {
@@ -91,15 +91,32 @@ html, body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border-radius: 10px;
-  padding-top: 10px;
-  padding-left: 5px;
-  padding-right: 5px;
+  border-radius: 20px;
+  padding-top: 40px;
+  padding-left: 30px;
+  padding-right: 30px;
+  border: 2px solid #D56415;
+  padding-bottom: 40px;
+  height: 343.2px;
+  width: 323.65px;
 }
   p {
     margin-top: 20px;
   }
 
 .journey_widgets {
-  border-radius: 10px;
+  border-radius: 20px;
+  width: 280px;
+  height: auto;
+}
+
+.messaging-pic {
+  border-radius: 20px;
+  width: 280px;
+  height: auto;
+}
+
+.landing-page-bottom-btn {
+margin-top: 20px;
+margin-bottom: 20px;
 }

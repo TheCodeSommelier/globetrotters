@@ -1,5 +1,5 @@
 <div class= "banner">
-  <%= video_tag "Globetrotters_landing_page_video.mp4", :autoplay=> "autoplay", loop: "loop", :controls => true, muted: true, class: "banner-video" %>
+  <%= video_tag "Globetrotters_landing_page_video.mp4", :autoplay=> "autoplay", loop: "loop", :controls => false, muted: true, class: "banner-video" %>
   <div class="banner-text">
     <%= image_tag "GlobeTrotters_logo_orange.png", class: "logo_image" %>
     <p id= "landing-page-slogan">Share your travel experiences.</p>
@@ -16,18 +16,31 @@
 
 <div>
   <div class="landing-container">
-    <h3>Plan your next journey with the help of <strong>AI</strong>!</h3>
+    <h3 class="landing-page-info-container">Plan your next journey with the help of <strong>AI</strong>!</h3>
     <div class= "landing-page-card">
       <%= image_tag "Journey_AI_Widgets.png", class: "journey_widgets" %>
-      <p><strong>All your trip info in one place!</strong></p>
+      <p><strong>Essential info...</strong></p>
+      <p>[Insert image of packing list here]</p>
+      <p><strong>AI generated packing list.</strong></p>
     </div>
   </div>
   <div class="landing-container">
-    <h3>Create your next journey!</h3>
-    <%= image_tag("journey_landing_page.svg", :class => "journey-pic-width") %>
+    <h3 class="landing-page-info-container">Share your favourite experiences with your fellow travellers!</h3>
+    <div class="landing-page-card">
+      <p>[Insert image of experience card here]</p>
+      <p><strong>Top upvoted experiences shape your sightseeing list!</strong></p>
+    </div>
   </div>
   <div class="landing-container">
-    <h3>Connect with other travellers!</h3>
-    <%= image_tag("landing_chat_room.svg", :class => "journey-pic-width mb-3") %>
+    <h3 class="landing-page-info-container">Connect with other travellers!</h3>
+    <div class="landing-page-card">
+      <%= image_tag "Globetrotters_messaging.PNG", :class => "messaging-pic" %>
+      <p><strong>Adventure with friends!</strong></p>
+    </div>
+      <% if current_user %>
+        <p><strong><%= link_to "Inspire your next holiday", experiences_path, class: "btn-primary-custom landing-page-bottom-btn" %></strong></p>
+      <% else %>
+        <p><strong><%= link_to "Log-in", new_user_session_path, class: "btn-primary-custom landing-page-bottom-btn" %></strong></p>
+      <% end %>
   </div>
 </div>
