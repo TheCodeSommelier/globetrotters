@@ -1,11 +1,16 @@
 .chatroom {
   background: white;
   margin-top: 9px;
-  height: calc(100vh - 75px);
+  height: calc(100vh - 47px);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   flex-grow: 1;
+
+  .back-chevron {
+    display: flex;
+    align-items: center;
+  }
 
   h1 {
     border-bottom: 1px solid $gray-200;
@@ -14,7 +19,7 @@
   }
 
   .messages {
-    height: 100%;
+    height: calc(100vh - 104px);
     overflow: scroll;
     padding: 1rem;
   }
@@ -28,3 +33,31 @@
     }
   }
 }
+
+.link-to-chat {
+  text-decoration: none;
+  color: black;
+}
+
+.each-chatroom {
+  display: flex;
+  align-items: center;
+  height: 100px;
+  font-size: x-large;
+
+  img {
+    height: 70px;
+    width: 70px;
+    border-radius: 50px;
+  }
+
+  p {
+    margin: 0;
+    margin-left: 10px;
+  }
+}
+
+// #new_message {
+//   position: sticky;
+//   bottom: 55px;
+// }

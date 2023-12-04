@@ -19,6 +19,8 @@
       <p class="alert m-0 flash-padding-fix"><%= alert %></p>
       <%= yield %>
     </div>
-    <%= render "/components/navbar" %>
+      <% unless params[:controller] == "chatrooms" && params[:action] == 'show' %>
+        <%= render "/components/navbar" %>
+      <% end %>
   </body>
 </html>
