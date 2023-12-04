@@ -1,0 +1,22 @@
+.background-peach-gradient {
+  background: $peach-gradient;
+  min-height: 100vh;
+}
+
+.title {
+  h2 {
+    display: flex;
+    justify-content: center;
+  }
+}
+.container-for-form {
+  padding: 15px;
+  padding-top: 100px;
+}
+
+.container-journey {
+  display: flex;
+  justify-content: center;
+  background-color:  rgba(255,255,255,0.5);
+  border-radius: 10px;
+}
