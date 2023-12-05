@@ -50,9 +50,9 @@
               </div>
             </div>
           </div>
-            <div class="content">
-              <p><%= experience.content %></p>
-            </div>
+          <div class="content d-flex justify-content-between" data-controller="truncate-text">
+            <p class="d-inline-block text-truncate" data-truncate-text-target="textToTruncate"><%= experience.content %></p>
+            <%= image_tag "drop_down_icon.svg", class: "align-self-center", data: { action: "click->truncate-text#truncateText" } %>
           </div>
         </div>
       <% end %>
