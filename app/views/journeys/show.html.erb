@@ -2,12 +2,12 @@
   <div class="d-flex px-3 pt-5">
     <%= link_to image_tag("go_back_icon.svg"), :back %>
     <div>
-      <h2 class="location-title-bold"><%= @journey.location %></h2>
-      <p><%= @journey.start_date %> - <%= @journey.end_date %></p>
+      <h2 class="location-title-bold my-0"><%= @journey.location %></h2>
+      <p class="my-0 date-font-color"><%= @journey.start_date %> - <%= @journey.end_date %></p>
       <p class="top-experiences-for-location-italic"><em><%= @journey.notes %></em></p>
     </div>
     <div>
-      <%= link_to new_journey_experience_path(@journey), class: "btn-secondary-custom secondary-button-position", id: "share-button-show-page" do %>
+      <%= link_to new_journey_experience_path(@journey), class: "btn-primary-custom secondary-button-position", id: "share-button-show-page" do %>
         <%= image_tag("share_icon.svg") %>
       <% end %>
     </div>
@@ -17,26 +17,26 @@
     <div class="d-flex flex-column justify-content-center">
       <!-- Displaying the current weather through an api -->
       <%= image_tag @current_weather_icon_path, class: "basic-info-icon my-2" %>
-      <p><%= @temperature_for_journey %>°C</p>
+      <p class="basic-info-text-margin"><%= @temperature_for_journey %>°C</p>
     </div>
 
     <div class="d-flex flex-column text-centre">
       <!-- Displaying the languange -->
-      <%= image_tag "language_icon.svg", class: "basic-info-icon my-2" %>
-      <p><%= @journey.language %></p>
+      <%= image_tag "globe_icon.svg", class: "basic-info-icon my-2" %>
+      <p class="basic-info-text-margin"><%= @journey.language %></p>
     </div>
 
     <div class="d-flex flex-column">
       <!-- Displaying the currency -->
       <%= image_tag "currency_icon.svg", class: "basic-info-icon my-2" %>
-      <p><%= @journey.currency %></p>
+      <p class="basic-info-text-margin"><%= @journey.currency %></p>
     </div>
 
     <div class="d-flex flex-column">
       <!-- Displaying the currency -->
       <%= image_tag "time_zone_icon.svg", class: "basic-info-icon my-2" %>
       <%# need to give the correct timme zone %>
-      <p>GMT <%= @current_time_in_location %></p>
+      <p class="basic-info-text-margin">GMT <%= @current_time_in_location %></p>
     </div>
   </div>
 
@@ -46,7 +46,7 @@
     <div class="d-flex justify-content-between">
       <div class="d-flex">
         <%= image_tag "laguage.svg", class: "list-icon" %>
-        <h2>Packing</h2>
+        <h2 class="align-self-center list-title">Packing</h2>
       </div>
       <div data-action="click->dropdown-lists#dropdown" data-dropdown-lists-target="dropdown-lists"> <!-- data action-->
         <%= image_tag "drop_down_icon.svg", data: { dropdown_lists_target: "icon" } %>
@@ -65,7 +65,7 @@
         action: "submit->packing-list#send"
       } do |f| %>
         <%= f.input :packing_item, placeholder: "What are you forgetting?" %>
-        <%= f.submit 'Add', class: "btn-primary-custom", id: "button" %>
+        <%= f.submit 'Add', class: "btn-secondary-custom", id: "button" %>
       <% end %>
     </div>
   </div>
@@ -75,7 +75,7 @@
     <div class="d-flex justify-content-between">
       <div class="d-flex">
         <%= image_tag "diamond_icon.svg", class: "list-icon"%>
-        <h2>Sightseeing</h2>
+        <h2 class="align-self-center list-title">Sightseeing</h2>
       </div>
       <div data-action="click->dropdown-lists#dropdown" data-dropdown-lists-target="dropdown-lists">
         <%= image_tag "drop_down_icon.svg", data: { dropdown_lists_target: "icon" }  %>
@@ -99,11 +99,11 @@
               <%= link_to delete_saved_experience_path(saved_experience), data: { turbo_method: :delete }, class: "destroy-link-position" do %>
                 <%= image_tag "minus_icon.svg" %>
               <% end %>
-              <%= cl_image_tag saved_experience.experience.photos.first.key, crop: :fill, class: "experiences-photo-size" %>
+              <%= cl_image_tag saved_experience.experience.photos.first.key, class: "experiences-photo-size" %>
             </div>
             <div class="text-experience-card-margin-left">
-              <h3 class="mt-2"><%= saved_experience.experience.title %></h3>
-              <p><%= saved_experience.experience.address %></p>
+              <h3 class="mt-2 mx-2"><%= saved_experience.experience.title %></h3>
+              <p class="mt-0 mx-2 mb-2"><%= saved_experience.experience.address %></p>
             </div>
           </div>
         </div>

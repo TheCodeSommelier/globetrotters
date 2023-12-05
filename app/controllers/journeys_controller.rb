@@ -91,7 +91,8 @@ class JourneysController < ApplicationController
       {
         lat: experience.latitude,
         lng: experience.longitude,
-        experience_popup_html: render_to_string(partial: "experience_popup", locals: { experience: experience })
+        experience_popup_html: render_to_string(partial: "experience_popup", locals: { experience: experience }),
+        marker_html: render_to_string(partial: "marker")
       }
     end
   end
