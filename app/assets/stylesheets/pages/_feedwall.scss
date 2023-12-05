@@ -115,3 +115,10 @@
   outline: none;
   width: 260px;
 }
+
+.background-linear-gradient {
+  background: linear-gradient(180deg, #292929 -30.12%, rgba(20, 20, 20, 0.00) 18.18%, rgba(0, 0, 0, 0.00) 62.67%, #292929 100%);
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  height: inherit;
+}
