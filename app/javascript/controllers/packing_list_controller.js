@@ -2,13 +2,20 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="packing-list"
 export default class extends Controller {
-  static targets = ["form", "items", "packingItem"]
+  static targets = ["form", "items", "packingItem", "trash", "minusIcon"]
   static values = {
     journey: String
   }
 
   connect() {
     console.log("List controller hello!")
+  }
+
+  hideDeleteButtons() {
+    console.log(this.minusIconTargets)
+    this.minusIconTargets.forEach((icon) => {
+      icon.classList.toggle("d-none")
+    });
   }
 
   send(event) {
