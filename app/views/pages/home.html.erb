@@ -2,7 +2,6 @@
   <%= video_tag "Globetrotters_landing_page_video.mp4", :autoplay=> "autoplay", loop: "loop", :controls => false, muted: true, class: "banner-video" %>
   <div class="banner-text">
     <%= image_tag "GlobeTrotters_logo_orange.png", class: "logo_image" %>
-    <p id= "landing-page-slogan">Share your travel experiences.</p>
 
     <%# Link to feed wall %>
     <% if current_user %>
@@ -16,7 +15,7 @@
 
 <div>
   <div class="landing-container">
-    <h3 class="landing-page-info-container">Plan your next journey with the help of <strong>AI</strong>!</h3>
+    <h3 class="landing-page-info-container">Plan your next journey with the help of <span style= "color: #FF6900;"><strong>AI</strong></span>!</h3>
     <div class= "landing-page-card">
       <%= image_tag "Journey_AI_Widgets.png", class: "journey_widgets" %>
       <p><strong>Essential info...</strong></p>
@@ -25,14 +24,14 @@
     </div>
   </div>
   <div class="landing-container">
-    <h3 class="landing-page-info-container">Share your favourite experiences with your fellow travellers!</h3>
+    <h3 class="landing-page-info-container"><span style= "color: #FF6900;"><strong>Share</strong></span> your favourite experiences with your fellow travellers!</h3>
     <div class="landing-page-card">
       <p>[Insert image of experience card here]</p>
       <p><strong>Top upvoted experiences shape your sightseeing list!</strong></p>
     </div>
   </div>
   <div class="landing-container">
-    <h3 class="landing-page-info-container">Connect with other travellers!</h3>
+    <h3 class="landing-page-info-container"><span style= "color: #FF6900;"><strong>Connect</strong></span> with other travellers!</h3>
     <div class="landing-page-card">
       <%= image_tag "Globetrotters_messaging.PNG", :class => "messaging-pic" %>
       <p><strong>Adventure with friends!</strong></p>
