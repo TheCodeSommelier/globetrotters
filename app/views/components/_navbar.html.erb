@@ -10,10 +10,10 @@
         <%= link_to chatrooms_path do %>
           <%= image_tag("Vector.svg") %>
         <% end %>
-        <%= link_to new_journey_path, id:"orange-plane" do %>
-          <%= image_tag("orange_plane.svg") %>
+        <%= link_to new_journey_path do %>
+          <%= image_tag "orange_plane.svg", id: "orange-plane" %>
+          <div class="empty-icon"></div>
         <% end %>
-        <div class="empty-icon"></div>
         <%= link_to users_path do %>
           <%= image_tag("search.svg") %>
         <% end %>
@@ -29,10 +29,10 @@
 
           <%= link_to root_path do %>
             <%= image_tag("image 10.png") %>
-          <% end  %>
+          <% end %>
           <%= link_to new_user_session_path do %>
             <%= image_tag("Vector.png") %>
-          <%end %>
+          <% end %>
           <%= link_to new_user_session_path do %>
             <%= image_tag("plane.png") %>
           <% end %>
