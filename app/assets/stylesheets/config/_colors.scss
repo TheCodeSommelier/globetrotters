@@ -11,21 +11,13 @@ $light-gray: #F4F4F4;
 
 
 // Lighter shades
-$primary-light: #FFECE2;
-$secondary-light: #E0E2F8;
-$tertiary-light: #F5F2EE;
+$custom-primary-light: #FF954C;
+$custom-secondary-light: #F5F5F5;
 
 // Primary colors
-$primary: #F0C7B2;
-$secondary: #D2D6FF;
-$tertiary: #F4E1C7;
+$custom-primary: #FF6900;
+$custom-secondary: #EBEBEB;
 
 // Dark shades
-$primary-dark: #C9A18C;
-$secondary-dark: #9497C0;
-$tertiary-dark: #B7A893;
-
-
-$peach-gradient: linear-gradient(160deg, #FEF6F2 -10.5%, #F0C7B2 93.2%);
-$baby-blue-gradient: linear-gradient(6deg, #F4F4FC 4.78%, #D2D6FF 105.17%);
-$sand-gradient: linear-gradient(142deg, #F5F2EE 9.29%, #F4E1C7 95.16%);
+$custom-primary-dark: #D56415;
+$custom-secondary-dark: #C3C3C3;
