@@ -1,7 +1,7 @@
 .btn-primary-custom {
   border-radius: 10px;
   border: 1px solid #D56415;
-  background: #FF6900;
+  background: $custom-primary;
   color: #FFF;
   padding: 11px 28px;
   text-align: center;
@@ -12,7 +12,7 @@
 
 .btn-secondary-custom {
   border-radius: 10px;
-  border: 2px solid #FF6900;
+  border: 2px solid $custom-primary;
   color: #FF6900;
   padding: 11px 28px;
   text-align: center;
