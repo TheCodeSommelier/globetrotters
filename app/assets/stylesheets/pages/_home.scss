@@ -2,16 +2,16 @@
 html, body {
   margin-top: 0;
   margin-bottom: 0;
-  height: 844px;
-  width: 390px;
+  height: 852px;
+  width: 393px;
 }
 
 .banner {
   position: relative;
   top: -100px;
   margin-bottom: -100px;
-  height: 844px;
-  width: 390px;
+  height: 852px;
+  width: 393px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -33,7 +33,7 @@ html, body {
 
 .logo_image {
   margin-bottom: 80px;
-  margin-top: 200px;
+  margin-top: 230px;
   width: 300px;
   height: auto;
 }
@@ -64,7 +64,7 @@ html, body {
 }
 
 .scroll-down-button {
-  margin-top: 100px;
+  margin-top: 200px;
   font-size: 20px;
 }
 
@@ -75,8 +75,8 @@ html, body {
 }
 
 .banner-video {
-  height: 844px;
-  width: 390px;
+  height: 852px;
+  width: 394px;
   margin-top: 0;
   padding-top: 0;
   object-fit: cover;
@@ -92,7 +92,7 @@ html, body {
   padding-top: 40px;
   padding-left: 30px;
   padding-right: 30px;
-  border: 2px solid #D56415;
+  border: 3px solid #FF6900;
   padding-bottom: 40px;
   height: 343.2px;
   width: 323.65px;
