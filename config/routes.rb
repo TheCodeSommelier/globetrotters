@@ -2,15 +2,21 @@ Rails.application.routes.draw do
   devise_for :users
   # Defines the root path route ("/")
   root to: "pages#home"
+
+  resources :users, only: %i[index]
+
+
   get "experiences/:id/like", to: "experiences#like", as: :like_experience
 
   get "up" => "rails/health#show", as: :rails_health_check
 
   get "/experiences", to: "experiences#index", as: :experiences
-  resources :journeys, only: %i[show new create edit update destroy] do
+
+  resources :journeys, only: %i[show new create edit update] do
     resources :experiences, only: %i[new create]
   end
 
+  patch "/journeys/:id/delete_packing_item", to: "journeys#delete_packing_item", as: :delete_packing_item
   # resources :experiences, only: [:show] do
   #   member do
   #     patch "like", to: "experiences#like"

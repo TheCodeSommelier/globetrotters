@@ -17,7 +17,7 @@ Journey.destroy_all
 User.destroy_all
 
 # Journeys data
-PACKING = ["underwear, passport, skis, banana", "mug, panda, jetski", "shoes, jeans, shirt"]
+PACKING = [["underwear", "passport", "skis", "banana"], ["mug", "panda", "jetski"], ["shoes", "jeans", "shirt"]]
 
 # User data
 user_details = [

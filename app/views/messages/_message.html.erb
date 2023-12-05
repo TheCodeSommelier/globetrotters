@@ -1,7 +1,23 @@
 <div id="message-<%= message.id %>">
-  <small>
-    <strong><%= message.user.nickname %></strong>
-    <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
-  </small>
-  <p><%= message.content %></p>
+  <% if message.user == current_user %>
+  <div class="user1-flex">
+    <%= cl_image_tag message.user.photo.key, class: 'each-message' %>
+    <small>
+      <strong><%= message.user.username %></strong>
+      <i><%= message.created_at.strftime("%b %e %l:%M %p") %></i>
+    </small>
+  </div>
+    <p><%= message.content %></p>
+    <hr>
+  <% else %>
+    <div class="user2-flex">
+    <%= cl_image_tag message.user.photo.key, class: 'each-message' %>
+    <small>
+      <i><%= message.created_at.strftime("%b %e %l:%M %p") %></i>
+      <strong><%= message.user.username %></strong>
+    </small>
+  </div>
+    <p id="user2-message"><%= message.content %></p>
+    <hr>
+  <% end %>
 </div>

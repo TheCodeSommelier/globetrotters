@@ -1,0 +1,23 @@
+<div class="row justify-content-center m-1">
+    <div class="col-sm-8 disp-flexi">
+        <%= form_with url: users_path, method: :get, class: "d-flex height-property" do %>
+          <%= text_field_tag :query,
+                params[:query],
+                class: "form-control search",
+                placeholder: "Search here"
+            %>
+          <%= submit_tag "Search", name: "", class: "btn-search" %>
+        <% end %>
+    </div>
+</div>
+
+<div class="users-box">
+  <% @users.each do |user| %>
+    <div class="user-card">
+    <%= link_to profile_page_path(user.username) do  %>
+      <%= image_tag(user.photo) %>
+      <% end %>
+        <p> <%= user.username %> </p>
+    </div>
+  <% end %>
+</div>

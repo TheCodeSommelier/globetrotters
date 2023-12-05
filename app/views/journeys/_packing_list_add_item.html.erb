@@ -1,0 +1,6 @@
+<li class="packing-item py-2 px-2 d-flex justify-content-between packing<%= index %>" data-packing-list-target="packingItem">
+  <%= packing_item.capitalize %>
+  <div data-action="click->packing-list#delete">
+    <%= image_tag "fi-rr-trash.svg", class: "packing#{index} #{index}" %>
+  </div>
+</li>

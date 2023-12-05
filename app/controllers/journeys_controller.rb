@@ -3,7 +3,7 @@ require "open-uri"
 require "net/http"
 
 class JourneysController < ApplicationController
-  before_action :set_journey, only: %i[show]
+  before_action :set_journey, only: %i[show update delete_packing_item]
 
   def show
     # This is the api call to display the current weather
@@ -16,7 +16,6 @@ class JourneysController < ApplicationController
 
     # This will display the markers on the map
     experiences = @sight_seeing_list.map { |saved_experience| saved_experience.experience }
-    p experiences
     mapbox_building(experiences)
   end
 
@@ -32,6 +31,22 @@ class JourneysController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def update
+    @packing_list = @journey.packing_list << params[:journey][:packing_item]
+    @packing_item = params[:journey][:packing_item]
+    @journey.update(packing_list: @packing_list)
+
+    respond_to do |format|
+      format.html { redirect_to journey_path(@journey) }
+      format.json # Follows the classic Rails flow and look for a create.json view
+    end
+  end
+
+  def delete_packing_item
+    @journey.packing_list.delete_at(params[:packingItem].to_i)
+    @journey.save!
   end
 
   private
@@ -103,6 +118,6 @@ class JourneysController < ApplicationController
   end
 
   def journey_params
-    params.require(:journey).permit(:location, :start_date, :end_date, :category, :notes, :user)
+    params.require(:journey).permit(:location, :start_date, :end_date, :category, :notes, :user, :packing_item)
   end
 end

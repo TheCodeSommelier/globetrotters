@@ -1,15 +1,10 @@
 class Journey < ApplicationRecord
+  attr_accessor :packing_item
+
   belongs_to :user
 
   has_many :experiences, dependent: :destroy
   has_many :saved_experiences, dependent: :destroy
-
-  include PgSearch::Model
-  pg_search_scope :search_by_location,
-    against: [ :location ],
-    using: {
-      tsearch: { prefix: true }
-      }
 
   # Before seeding comment from line out till line 25 and once the seed is done put this back in
   after_create :prebuild_sightseeing_list
@@ -29,8 +24,7 @@ class Journey < ApplicationRecord
       ],
       "model": "gpt-3.5-turbo"
     })
-    new_packing_list = chaptgpt_response["choices"][0]["message"]["content"]
-
+    new_packing_list = chaptgpt_response["choices"][0]["message"]["content"].split(", ")
     update(packing_list: new_packing_list)
     @packing_list = new_packing_list
   end
