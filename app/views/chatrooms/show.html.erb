@@ -29,7 +29,9 @@
         %>
       </div>
       <div class="send-button">
-        <%= f.submit "Send", class: "butn" %>
+        <%= button_tag type: 'submit', class: "btn butn" do %>
+          <i class="fa-regular fa-paper-plane"></i>
+        <% end %>
       </div>
     </div>
   <% end %>
