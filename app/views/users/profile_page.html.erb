@@ -50,13 +50,13 @@
       <div class="tab-content" id="pills-tabContent">
         <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
           <%# Experiences %>
-          <div class="lower-pp container" style="min-height:100vh;">
+          <div class="lower-pp container">
             <div class="row justify-content-center">
                 <% @journeys.each do |journey| %>
                   <% journey.experiences.each do |experience| %>
                     <% experience.photos.each do |photo| %>
-                      <div class="col-4 p-0 mx-2">
-                        <%= cl_image_tag photo.key %><%= journey.location %>
+                      <div class="col-4 p-0 mx-2", style="background-image: url(<%= cl_image_path photo.key %>);">
+                          <h6 class="journey-name"><%= journey.location %></h6>
                       </div>
                     <% end %>
                   <% end %>
