@@ -3,7 +3,8 @@
   position: sticky;
   bottom: 0;
   width: 100%;
-  height:70px;
+  height:60px;
+  background-color: #CFCFCF;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -19,6 +20,9 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
+  background-color: #CFCFCF;
+  padding-bottom: 13px;
+  align-items: end;
 
   img {
     height: 40px;
@@ -27,4 +31,20 @@
 
 .flash-padding-fix {
   padding: 0;
+}
+
+#orange-plane {
+  padding: 10px;
+  border-radius: 50%;
+  background-color: #cfcfcf;
+  position: absolute;
+  left: 160px;
+  bottom: 2px;
+  img {
+    height: 61px;
+  }
+}
+
+.empty-icon {
+  width: 60px;
 }
