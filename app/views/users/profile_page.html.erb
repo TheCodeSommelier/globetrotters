@@ -37,7 +37,9 @@
       </div>
 
 
-      <h6 id="user-bio-margins"><%= @user.bio %>My name is Howard. I don't have a bio so I'm using this text as a placeholder.</h6>
+      <h6 id="user-bio-margins">
+        <%= @user.bio %>
+      </h6>
       <% if @user != current_user %>
         <%= render 'message_link', user: @user, class: "message-btn" %>
       <% end %>
@@ -80,7 +82,7 @@
                 <%= link_to journey_path(journey), class: 'journey-links' do %>
                   <div class="card" style="background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('<%= image_path unsplash_image_url(size: '300x200', tags: journey.location) %>')">
                       <h4 class="journey-card-name"><%= journey.location %></h4>
-                      <h6 class="journey-card-date"><%= journey.start_date %></h6>
+                      <h6 class="journey-card-date"><%= journey.start_date.strftime('%d/%m/%y') %></h6>
                   </div>
                 <% end %>
               <% end %>

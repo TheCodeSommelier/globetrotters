@@ -52,7 +52,12 @@
 }
 
 .message-btn {
+  padding-bottom: 10px;
   margin-bottom: 20px
+}
+
+.message-btn img {
+width: 27px;
 }
 
 .journey-card-name {
@@ -124,7 +129,7 @@ padding-right: 30px;
 }
 
 .user-name {
-margin-top: 20px;
+margin-top: 15px;
 color: #FF6900;
 font-weight: bold;
 font-size: 35px;
@@ -143,7 +148,7 @@ margin-bottom: 0;
 }
 
 #user-bio-margins {
-  margin-top: 15px;
+  margin-top: 10px;
   margin-bottom: 20px;
 }
 

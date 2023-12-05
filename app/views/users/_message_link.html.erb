@@ -2,19 +2,19 @@
   <%= form_with url: chatrooms_path, method: :post do %>
     <%= hidden_field_tag :user_2, @user.username %>
     <%= button_tag(type: "submit", class: 'btn-primary-custom message-btn') do %>
-      <i class="fa-regular fa-comments"></i>
+      <%= image_tag("Vector.svg") %>
     <% end %>
   <% end %>
 <% elsif Chatroom.where(user_1_id: user.id, user_2_id: current_user.id).empty? %>
   <%= form_with url: chatroom_path(Chatroom.where(user_1_id: current_user.id, user_2_id: user.id).first), method: :get do %>
     <%= button_tag(type: "submit", class: 'btn-primary-custom message-btn') do %>
-      <i class="fa-regular fa-comments"></i>
+      <%= image_tag("Vector.svg") %>
     <% end %>
   <% end %>
 <% elsif Chatroom.where(user_1_id: current_user.id, user_2_id: user.id).empty? %>
   <%= form_with url: chatroom_path(Chatroom.where(user_1_id: user.id, user_2_id: current_user.id).first), method: :get do %>
     <%= button_tag(type: "submit", class: 'btn-primary-custom message-btn') do %>
-      <i class="fa-regular fa-comments"></i>
+      <%= image_tag("Vector.svg") %>
     <% end %>
   <% end %>
 <% end %>
