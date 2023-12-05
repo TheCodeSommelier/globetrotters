@@ -1,10 +1,15 @@
 .popup-experience-photo-center {
-  width: 100%;
+  width: 90px;
   border-radius: 10px;
   object-fit: cover;
+  margin: auto;
 }
 
 .popup-title {
   font-weight: 700;
+  margin: 0;
+}
+
+.popup-address {
   margin: 0;
 }
