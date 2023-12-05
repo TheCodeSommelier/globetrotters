@@ -14,11 +14,14 @@ export default class extends Controller {
   }
 
   #insertMessageAndScrollDown(data) {
+    console.log('marco ')
+
     this.messagesTarget.insertAdjacentHTML("beforeend", data)
     this.messagesTarget.scrollTo(0, this.messagesTarget.scrollHeight)
   }
 
   resetForm(event) {
+    console.log('marco ')
     event.target.reset()
   }
 
