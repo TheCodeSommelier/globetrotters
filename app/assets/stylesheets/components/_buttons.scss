@@ -30,6 +30,8 @@
 
   .active{
     text-decoration: underline;
+    text-underline-offset: 8px;
+    text-decoration-color: #FF6900;
   }
 }
 
@@ -75,4 +77,12 @@
   padding-right: 10px;
   border: 1px black solid;
   box-shadow: 1px 3px 10px #888888;
+}
+
+.message-btn {
+padding-top: 5px;
+padding-bottom: 5px;
+padding-right: 30px;
+padding-left: 30px;
+font-size: 22px;
 }
