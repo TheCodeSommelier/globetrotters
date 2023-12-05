@@ -48,8 +48,15 @@
         <%= image_tag "laguage.svg", class: "list-icon" %>
         <h2 class="align-self-center list-title">Packing</h2>
       </div>
-      <div data-action="click->dropdown-lists#dropdown" data-dropdown-lists-target="dropdown-lists"> <!-- data action-->
-        <%= image_tag "drop_down_icon.svg", data: { dropdown_lists_target: "icon" } %>
+      <%# if it breaks add to the div below %>
+      <%# data-action="click->dropdown-lists#dropdown"
+           data-action="click->packing-lists#hideDeleteButtons" %>
+      <div
+           data-dropdown-lists-target="dropdown-lists"
+           data-packing-list-target="packing-list"
+      > <!-- data action-->
+        <%= image_tag "trash_icon.svg", data: { packing_list_target: "trash", action: "click->packing-list#hideDeleteButtons" } %>
+        <%= image_tag "drop_down_icon.svg", data: { dropdown_lists_target: "icon", action: "click->dropdown-lists#dropdown" } %>
       </div>
     </div>
     <ul class="mt-3 packing-list-ul"
