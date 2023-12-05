@@ -1,5 +1,10 @@
+.mapboxgl-popup-content {
+  overflow: scroll;
+}
+
 .popup-experience-photo-center {
   width: 90px;
+  height: 70px;
   border-radius: 10px;
   object-fit: cover;
   margin: auto;

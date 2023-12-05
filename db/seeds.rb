@@ -19,7 +19,7 @@ Chatroom.destroy_all
 User.destroy_all
 
 # Journeys data
-PACKING = [["underwear", "passport", "skis", "banana"], ["mug", "panda", "jetski"], ["shoes", "jeans", "shirt"]]
+# PACKING = [["underwear", "passport", "skis", "banana"], ["mug", "panda", "jetski"], ["shoes", "jeans", "shirt"]]
 
 # User data
 user_details = [
@@ -107,47 +107,47 @@ will.photo.attach(io: URI.open('https://media.wired.com/photos/5d960eba01e4a4000
 
 puts "creating journeys for each user"
 
-howlon = Journey.create!(user: howard, location: "London", category: "Art and Culture", start_date: "30/11/2023", end_date: "03/12/2023", packing_list: PACKING.sample)
+howlon = Journey.create!(user: howard, location: "London", category: "Art and Culture", start_date: "30/11/2023", end_date: "03/12/2023")
 
-howber = Journey.create!(user: howard, location: "Berlin", category: "Art and Culture", start_date: "30/11/2023", end_date: "03/12/2023", packing_list: PACKING.sample)
+howber = Journey.create!(user: howard, location: "Berlin", category: "Art and Culture", start_date: "30/11/2023", end_date: "03/12/2023")
 
-howbah = Journey.create!(user: howard, location: "Bahamas", category: "Art and Culture", start_date: "30/11/2023", end_date: "03/12/2023", packing_list: PACKING.sample)
+howbah = Journey.create!(user: howard, location: "Bahamas", category: "Art and Culture", start_date: "30/11/2023", end_date: "03/12/2023")
 
-saylon = Journey.create!(user: sayyab, location: "London", category: "Nightife", start_date: "30/11/2023", end_date: "03/12/2023", packing_list: PACKING.sample)
+saylon = Journey.create!(user: sayyab, location: "London", category: "Nightife", start_date: "30/11/2023", end_date: "03/12/2023")
 
-sayber = Journey.create!(user: sayyab, location: "Berlin", category: "Nightife", start_date: "30/11/2023", end_date: "03/12/2023", packing_list: PACKING.sample)
+sayber = Journey.create!(user: sayyab, location: "Berlin", category: "Nightife", start_date: "30/11/2023", end_date: "03/12/2023")
 
-saybah = Journey.create!(user: sayyab, location: "Bahamas", category: "Nightife", start_date: "30/11/2023", end_date: "03/12/2023", packing_list: PACKING.sample)
+saybah = Journey.create!(user: sayyab, location: "Bahamas", category: "Nightife", start_date: "30/11/2023", end_date: "03/12/2023")
 
-marlon = Journey.create!(user: marco, location: "London", category: "Road Trip", start_date: "30/11/2023", end_date: "03/12/2023", packing_list: PACKING.sample)
+marlon = Journey.create!(user: marco, location: "London", category: "Road Trip", start_date: "30/11/2023", end_date: "03/12/2023")
 
-marber = Journey.create!(user: marco, location: "Berlin", category: "Road Trip", start_date: "30/11/2023", end_date: "03/12/2023", packing_list: PACKING.sample)
+marber = Journey.create!(user: marco, location: "Berlin", category: "Road Trip", start_date: "30/11/2023", end_date: "03/12/2023")
 
-marbah = Journey.create!(user: marco, location: "Bahamas", category: "Road Trip", start_date: "30/11/2023", end_date: "03/12/2023", packing_list: PACKING.sample)
+marbah = Journey.create!(user: marco, location: "Bahamas", category: "Road Trip", start_date: "30/11/2023", end_date: "03/12/2023")
 
-tonlon = Journey.create!(user: tony, location: "London", category: "City Break", start_date: "30/11/2023", end_date: "03/12/2023", packing_list: PACKING.sample)
+tonlon = Journey.create!(user: tony, location: "London", category: "City Break", start_date: "30/11/2023", end_date: "03/12/2023")
 
-tonber = Journey.create!(user: tony, location: "Berlin", category: "City Break", start_date: "30/11/2023", end_date: "03/12/2023", packing_list: PACKING.sample)
+tonber = Journey.create!(user: tony, location: "Berlin", category: "City Break", start_date: "30/11/2023", end_date: "03/12/2023")
 
-tonbah = Journey.create!(user: tony, location: "Bahamas", category: "City Break", start_date: "30/11/2023", end_date: "03/12/2023", packing_list: PACKING.sample)
+tonbah = Journey.create!(user: tony, location: "Bahamas", category: "City Break", start_date: "30/11/2023", end_date: "03/12/2023")
 
-jodlon = Journey.create!(user: jodie, location: "London", category: "Camping", start_date: "30/11/2023", end_date: "03/12/2023", packing_list: PACKING.sample)
+jodlon = Journey.create!(user: jodie, location: "London", category: "Camping", start_date: "30/11/2023", end_date: "03/12/2023")
 
-jodber = Journey.create!(user: jodie, location: "Berlin", category: "Camping", start_date: "30/11/2023", end_date: "03/12/2023", packing_list: PACKING.sample)
+jodber = Journey.create!(user: jodie, location: "Berlin", category: "Camping", start_date: "30/11/2023", end_date: "03/12/2023")
 
-jodbah = Journey.create!(user: jodie, location: "Bahamas", category: "Camping", start_date: "30/11/2023", end_date: "03/12/2023", packing_list: PACKING.sample)
+jodbah = Journey.create!(user: jodie, location: "Bahamas", category: "Camping", start_date: "30/11/2023", end_date: "03/12/2023")
 
-heilon = Journey.create!(user: heidi, location: "London", category: "City Break", start_date: "30/11/2023", end_date: "03/12/2023", packing_list: PACKING.sample)
+heilon = Journey.create!(user: heidi, location: "London", category: "City Break", start_date: "30/11/2023", end_date: "03/12/2023")
 
-heiber = Journey.create!(user: heidi, location: "Berlin", category: "City Break", start_date: "30/11/2023", end_date: "03/12/2023", packing_list: PACKING.sample)
+heiber = Journey.create!(user: heidi, location: "Berlin", category: "City Break", start_date: "30/11/2023", end_date: "03/12/2023")
 
-heibah = Journey.create!(user: heidi, location: "Bahamas", category: "City Break", start_date: "30/11/2023", end_date: "03/12/2023", packing_list: PACKING.sample)
+heibah = Journey.create!(user: heidi, location: "Bahamas", category: "City Break", start_date: "30/11/2023", end_date: "03/12/2023")
 
-willon = Journey.create!(user: will, location: "London", category: "Nightlife", start_date: "30/11/2023", end_date: "03/12/2023", packing_list: PACKING.sample)
+willon = Journey.create!(user: will, location: "London", category: "Nightlife", start_date: "30/11/2023", end_date: "03/12/2023")
 
-wilber = Journey.create!(user: will, location: "Berlin", category: "Nightlife", start_date: "30/11/2023", end_date: "03/12/2023", packing_list: PACKING.sample)
+wilber = Journey.create!(user: will, location: "Berlin", category: "Nightlife", start_date: "30/11/2023", end_date: "03/12/2023")
 
-wilbah = Journey.create!(user: will, location: "Bahamas", category: "Nightlife", start_date: "30/11/2023", end_date: "03/12/2023", packing_list: PACKING.sample)
+wilbah = Journey.create!(user: will, location: "Bahamas", category: "Nightlife", start_date: "30/11/2023", end_date: "03/12/2023")
 
 puts "creating experiences for each journey"
 
@@ -171,11 +171,11 @@ Experience.create!(journey: sayber, title: "Bar Becketts Kopf", content: "Can't 
 Experience.last.photos.attach(io: URI.open('https://assets-prd.punchdrink.com/wp-content/uploads/2019/04/Thumb-Decibel-Japanese-Sake-Bar-East-Village-NYC.jpg'), filename: "nes.png", content_type: "image/png")
 Experience.last.liked_by(will, vote_weight: 74)
 
-Experience.create!(journey: saybah, title: "Nippers Beach Bar & Grill", content: "Nothing better than a drink at the beach with live music!", address: "Nippers Beach Bar & Grill, Great Guana Cay", category: "Nightlife")
+Experience.create!(journey: saybah, title: "Nippers Beach Bar & Grill", content: "Nothing better than a drink at the beach with live music!", address: "Bamboo Shack, Nassau, The Bahamas", category: "Nightlife")
 Experience.last.photos.attach(io: URI.open('https://image.yachtcharterfleet.com/w1920/h619/qh/ca/kd49382ea/directory/profile/photo/973103.jpg'), filename: "nes.png", content_type: "image/png")
 Experience.last.liked_by(will, vote_weight: 26)
 
-Experience.create!(journey: marlon, title: "Hoxton Mediterranean Cafe", content: "Great food at a decent price!", address: "Hoxton Mediterranean Cafe, London", category: "Food")
+Experience.create!(journey: marlon, title: "Hoxton Mediterranean Cafe", content: "Great food at a decent price!", address: "Mediterranean Cafe, London, United Kingdom", category: "Food")
 Experience.last.photos.attach(io: URI.open('https://lh3.googleusercontent.com/p/AF1QipOg0ObALSYbfV1yJEKMuH-t7O5XhjCISsqZVASs=s1360-w1360-h1020'), filename: "nes.png", content_type: "image/png")
 Experience.last.liked_by(will, vote_weight: 496)
 
@@ -183,7 +183,7 @@ Experience.create!(journey: marber, title: "McDonald's", content: "Thank goodnes
 Experience.last.photos.attach(io: URI.open('https://lh3.googleusercontent.com/p/AF1QipO8CWEgXfp5JCqDchiZ5BMCqW-Bzd1LSHLwTA9u=s1360-w1360-h1020'), filename: "nes.png", content_type: "image/png")
 Experience.last.liked_by(will, vote_weight: 688)
 
-Experience.create!(journey: marbah, title: "Cafe Madeleine", content: "I thought I would try and lose a bit of weight this holiday...", address: "Cafe Madeleine, Bahamas", category: "Food")
+Experience.create!(journey: marbah, title: "Cafe Madeleine", content: "I thought I would try and lose a bit of weight this holiday...", address: "Café Madeleine, New Providence, The Bahamas", category: "Food")
 Experience.last.photos.attach(io: URI.open('https://media-cdn.tripadvisor.com/media/photo-s/11/29/d3/32/food-display.jpg'), filename: "nes.png", content_type: "image/png")
 Experience.last.liked_by(will, vote_weight: 317)
 
@@ -195,7 +195,7 @@ Experience.create!(journey: tonber, title: "Reichstag Building", content: "Why d
 Experience.last.photos.attach(io: URI.open('https://berlintraveltips.com/wp-content/uploads/2023/10/Berlin-Reichstag-Building-free-tour-glass-dome.jpg'), filename: "nes.png", content_type: "image/png")
 Experience.last.liked_by(will, vote_weight: 225)
 
-Experience.create!(journey: tonbah, title: "Ardastra Gardens & Wildlife Conservation Centre", content: "Flamingos are real???!!!", address: "Ardastra Gardens & Wildlife Conservation Centre, Nassau", category: "Other")
+Experience.create!(journey: tonbah, title: "Ardastra Conservation Centre", content: "Flamingos are real???!!!", address: "Ardastra Gardens Zoo & Conservation Centre, Nassau, The Bahamas", category: "Other")
 Experience.last.photos.attach(io: URI.open('https://dynamic-media-cdn.tripadvisor.com/media/photo-o/05/5c/d8/80/ardastra-gardens-zoo.jpg?w=1200&h=-1&s=1'), filename: "nes.png", content_type: "image/png")
 Experience.last.liked_by(will, vote_weight: 703)
 
@@ -219,7 +219,7 @@ Experience.create!(journey: heiber, title: "CHAMÄLEON Theater", content: "Hold 
 Experience.last.photos.attach(io: URI.open('https://lh3.googleusercontent.com/p/AF1QipOIjDn6FUjcDPXleA25wdIulEV-3nEQmYvmTzlS=s1360-w1360-h1020'), filename: "nes.png", content_type: "image/png")
 Experience.last.liked_by(will, vote_weight: 77)
 
-Experience.create!(journey: heibah, title: "Crabs and Ting", content: "I love crab! 🦀🦀🦀", address: "Crabs and Ting, Nassau", category: "Food")
+Experience.create!(journey: heibah, title: "Crabs and Ting", content: "I love crab! 🦀🦀🦀", address: "Nassau, New Providence, The Bahamas", category: "Food")
 Experience.last.photos.attach(io: URI.open('https://media-cdn.tripadvisor.com/media/photo-m/1280/13/ee/d3/47/menu.jpg'), filename: "nes.png", content_type: "image/png")
 Experience.last.liked_by(will, vote_weight: 351)
 
@@ -231,7 +231,7 @@ Experience.create!(journey: wilber, title: "Charlottenburg Palace", content: "I 
 Experience.last.photos.attach(io: URI.open('https://res.cloudinary.com/hello-tickets/image/upload/c_limit,f_auto,q_auto,w_768/v1613580604/post_images/berlin-158/palacio-charlottenburg/32119144363_182d6aaca4_o_Cropped.jpg'), filename: "nes.png", content_type: "image/png")
 Experience.last.liked_by(will, vote_weight: 846)
 
-Experience.create!(journey: wilbah, title: "Pink Sands Beach", content: "This beach reminds me of the pink KitKat.", address: "Pink Sands Beach, Bahamas", category: "Other")
+Experience.create!(journey: wilbah, title: "Pink Sands Beach", content: "This beach reminds me of the pink KitKat.", address: "Pink Sands Beach, The Bahamas", category: "Other")
 Experience.last.photos.attach(io: URI.open('https://www.travelmanagers.com.au/wp-content/uploads/2023/08/AdobeStock_64327804-scaled.jpeg'), filename: "nes.png", content_type: "image/png")
 Experience.last.liked_by(will, vote_weight: 728)
 
