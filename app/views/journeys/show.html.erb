@@ -55,8 +55,8 @@
            data-dropdown-lists-target="dropdown-lists"
            data-packing-list-target="packing-list"
       > <!-- data action-->
-        <%= image_tag "trash_icon.svg", data: { packing_list_target: "trash", action: "click->packing-list#hideDeleteButtons" } %>
-        <%= image_tag "drop_down_icon.svg", data: { dropdown_lists_target: "icon", action: "click->dropdown-lists#dropdown" } %>
+        <%= image_tag "trash_grey.svg", data: { packing_list_target: "trash", action: "click->packing-list#hideDeleteButtons" } %>
+        <%= image_tag "drop_down_icon.svg", class: "dropdown-icon-size", data: { dropdown_lists_target: "icon", action: "click->dropdown-lists#dropdown" } %>
       </div>
     </div>
     <ul class="mt-3 packing-list-ul"
@@ -65,16 +65,16 @@
       <% @journey.packing_list.each_with_index do |packing_item, index| %>
         <%= render "packing_list_add_item", packing_item: packing_item, index: index %>
       <% end %>
-    </ul>
     <div>
       <%= simple_form_for @journey, data: {
         packing_list_target: "form",
         action: "submit->packing-list#send"
       } do |f| %>
-        <%= f.input :packing_item, placeholder: "What are you forgetting?" %>
+        <%= f.input :packing_item, placeholder: "What are you forgetting?", label_html: {class: "d-none"} %>
         <%= f.submit 'Add', class: "btn-secondary-custom", id: "button" %>
       <% end %>
     </div>
+    </ul>
   </div>
 
 
@@ -85,7 +85,7 @@
         <h2 class="align-self-center list-title">Sightseeing</h2>
       </div>
       <div data-action="click->dropdown-lists#dropdown" data-dropdown-lists-target="dropdown-lists">
-        <%= image_tag "drop_down_icon.svg", data: { dropdown_lists_target: "icon" }  %>
+        <%= image_tag "drop_down_icon.svg", class: "dropdown-icon-size", data: { dropdown_lists_target: "icon" }  %>
       </div>
     </div>
     <div data-dropdown-lists-target="list">
