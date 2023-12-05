@@ -1,8 +1,11 @@
-<%= simple_form_for [ @journey, @experience] do |f| %>
-  <%= f.input :title, placeholder: "Name of experience" %>
-  <%= f.input :category, :collection => ["Food", "Nightlife", "Art and Culture", "Other"], prompt: "Please select a category" %>
-  <%= f.input :content, placeholder: "Give a description" %>
-  <%= f.input :address, placeholder: "Eg. Shoreditch Stables, London" %>
-  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-  <%= f.button :submit, class: "btn btn-primary" %>
-<% end %>
+
+<div class="container-experience">
+  <%= simple_form_for [ @journey, @experience ] do |f| %>
+    <%= f.input :title, label: 'Name of the experience', placeholder: "What did you do?", class: "input-journey-size" %>
+    <%= f.input :content, label: 'Give us a description', placeholder: "How was it?" %>
+    <%= f.input :category, :collection => ["Food", "Nightlife", "Art and Culture", "Other"], prompt: "Please select a category" %>
+    <%= f.input :address, label: "Give us the address", placeholder: "Eg. Shoreditch Stables, London" %>
+    <%= f.input :photos, label: "Pics or didn't happen...", as: :file, input_html: { multiple: true } %>
+    <%= f.button :submit, "Submit", class: "btn-primary-custom submit-button-center" %>
+  <% end %>
+</div>
