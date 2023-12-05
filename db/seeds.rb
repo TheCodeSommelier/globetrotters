@@ -14,6 +14,8 @@ puts 'Cleaning DB 🧼'
 SavedExperience.destroy_all
 Experience.destroy_all
 Journey.destroy_all
+Message.destroy_all
+Chatroom.destroy_all
 User.destroy_all
 
 # Journeys data
