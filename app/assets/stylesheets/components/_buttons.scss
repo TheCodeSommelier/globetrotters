@@ -31,6 +31,8 @@
 
   .active{
     text-decoration: underline;
+    text-underline-offset: 8px;
+    text-decoration-color: #FF6900;
   }
 }
 
@@ -61,4 +63,27 @@
 .button-new-journey {
   display: flex;
   justify-content: center;
+}
+
+.btn-search {
+  background-color: #F0C7B2;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  color: black;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border: 1px black solid;
+  box-shadow: 1px 3px 10px #888888;
+}
+
+.message-btn {
+padding-top: 5px;
+padding-bottom: 5px;
+padding-right: 30px;
+padding-left: 30px;
+font-size: 22px;
 }

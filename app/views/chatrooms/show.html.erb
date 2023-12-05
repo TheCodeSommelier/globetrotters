@@ -1,35 +1,36 @@
-<div class="container chatroom"
-  data-controller="chatroom-subscription"
-  data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>">
-  <div class="back-chevron">
-    <%= link_to chatrooms_path do %>
-      <i class="fa-solid fa-chevron-left"></i>
+<div data-controller="chatroom-subscription"
+    data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>">
+  <div class="container chatroom">
+    <div class="back-chevron">
+      <%= link_to chatrooms_path do %>
+        <i class="fa-solid fa-chevron-left"></i>
+      <% end %>
+      <% if @chatroom.user_1 == current_user %>
+        <h1><%= @chatroom.user_2.username %></h1>
+      <% else %>
+        <h1><%= @chatroom.user_1.username %></h1>
+      <% end %>
+    </div>
+    <div class="messages" data-chatroom-subscription-target="messages">
+      <% @chatroom.messages.each do |message| %>
+      <%= render "messages/message", message: message %>
     <% end %>
-    <% if @chatroom.user_1 == current_user %>
-      <h1><%= @chatroom.user_2.username %></h1>
-    <% else %>
-      <h1><%= @chatroom.user_1.username %></h1>
-    <% end %>
+    </div>
   </div>
-  <div class="messages" data-chatroom-subscription-target="messages">
-     <% @chatroom.messages.each do |message| %>
-    <%= render "messages/message", message: message %>
+  <%= simple_form_for [@chatroom, @message],
+  html: { data: { action: "turbo:submit-end->chatroom-subscription#resetForm" }, class: "d-flex" }   do |f|
+  %>
+    <div class="insert-messages-here">
+      <div class="message-field">
+        <%= f.input_field :content,
+          label: false,
+          placeholder: "Message",
+          class: "flex-grow-1 mb-0 message-box"
+        %>
+      </div>
+      <div class="send-button">
+        <%= f.submit "Send", class: "butn" %>
+      </div>
+    </div>
   <% end %>
-  </div>
 </div>
-<%= simple_form_for [@chatroom, @message],
-  html: { data: { action: "turbo:submit-end->chatroom-subscription#resetForm" }, class: "d-flex w-100" }  do |f|
-%>
-  <div class="insert-messages-here">
-    <div class="message-field">
-      <%= f.input_field :content,
-        label: false,
-        placeholder: "Message",
-        class: "flex-grow-1 mb-0 message-box"
-      %>
-    </div>
-    <div class="send-button">
-      <%= f.submit "Send", class: "butn" %>
-    </div>
-  </div>
-<% end %>
