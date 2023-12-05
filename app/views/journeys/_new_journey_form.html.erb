@@ -1,7 +1,7 @@
 
   <div class="container-journey">
     <%= simple_form_for @journey do |f| %>
-        <%= f.input :location, label: 'Where are you going?', placeholder: "Eg. London", class:  %>
+        <%= f.input :location, label: 'Where are you going?', placeholder: "Eg. London", class: "input-journey-size" %>
         <%= f.input :start_date,
                     as: :string,
                     placeholder: "Please pick a start date",
@@ -10,11 +10,9 @@
                     as: :string,
                     placeholder: "Please pick an end date",
                     input_html: { data: { controller: "datepicker" }, value: { } }   %>
-        <%= f.input :category, label: 'What will you be doing?', placeholder: "Example: Camping or hiking or city break" %>
-        <%= f.input :notes, placeholder: "Optional: additional info can be added here" %>
+        <%= f.input :category, label: 'What will you be doing?', placeholder: "E.g. camping, hiking, city break..." %>
+        <%= f.input :notes, placeholder: "Optional: notes for you..." %>
   </div>
-        <div class="button-new-journey">
-          <%= f.button :submit, class: "create-button" %>
-        </div>
-    <% end %>
+  <%= f.button :submit, "Submit", class: "btn-primary-custom submit-button-center" %>
+  <% end %>
 </div>
