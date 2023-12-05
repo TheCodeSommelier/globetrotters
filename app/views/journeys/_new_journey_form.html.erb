@@ -10,7 +10,7 @@
                     as: :string,
                     placeholder: "Please pick an end date",
                     input_html: { data: { controller: "datepicker" }, value: { } }   %>
-        <%= f.input :category,label: 'What will you be doing?', :collection => ["City Break", "Camping", "Skiing", "Diving", "Road Trip"], prompt: "Please select an activity" %>
+        <%= f.input :category, label: 'What will you be doing?', placeholder: "Example: Camping or hiking or city break" %>
         <%= f.input :notes, placeholder: "Optional: additional info can be added here" %>
   </div>
         <div class="button-new-journey">
