@@ -1,0 +1,23 @@
+.btn-search {
+  position: relative;
+  height: 34px;
+  width: 60px;
+  border-radius: 20px;
+  left: -60px;
+  padding: 7px;
+  img {
+    width: 40px;
+  }
+}
+
+.height-property {
+  input::placeholder {
+    color: #A3A3A3;
+  }
+}
+
+.experiences-search-style {
+  border-radius: 20px;
+  border: 1px #A3A3A3 solid;
+  background-color: #E7E7E7;
+}

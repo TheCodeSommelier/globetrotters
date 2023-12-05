@@ -1,15 +1,15 @@
 <div class="row justify-content-center m-1">
-    <div class="col-sm-8 disp-flexi">
-        <%= form_with url: experiences_path, method: :get, class: "d-flex height-property" do %>
-          <%= text_field_tag :query,
-                params[:query],
-                class: "form-control search",
-                placeholder: "Search here"
-            %>
-          <%= submit_tag "Search", name: "", class: "btn-search" %>
-        <% end %>
-    </div>
-
+  <div class="col-sm-8 disp-flexi">
+      <%= form_with url: experiences_path, method: :get, class: "d-flex height-property" do %>
+        <%= text_field_tag :query,
+              params[:query],
+              class: "form-control experiences-search-style",
+              placeholder: "Search"
+          %>
+        <% submit_tag image_tag('orange_search.svg').html_safe, name: "", class: "btn-primary-custom btn-search" %>
+        <%= image_submit_tag("orange_search.svg", class: "btn-primary-custom btn-search" ) %>
+      <% end %>
+  </div>
   <div class="container">
     <div class="cards">
       <% @experiences.each do |experience| %>

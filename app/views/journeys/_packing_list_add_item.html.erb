@@ -1,6 +1,6 @@
 <li class="packing-item py-2 px-2 d-flex justify-content-between packing<%= index %>" data-packing-list-target="packingItem">
   <%= packing_item.capitalize %>
-  <div data-action="click->packing-list#delete">
-    <%= image_tag "fi-rr-trash.svg", class: "packing#{index} #{index}" %>
+  <div> <!-- add d-none -->
+    <%= image_tag "minus_icon_orange.svg", class: "d-none packing#{index} #{index}", data: { packing_list_target: "minusIcon", action: "click->packing-list#delete" } %>
   </div>
 </li>
