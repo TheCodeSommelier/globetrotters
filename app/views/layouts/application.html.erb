@@ -14,11 +14,11 @@
   </head>
 
   <body>
-    <div style="min-height:100vh;">
+    <div style="min-height:100vh;background-color: white;">
       <p class="notice m-0 flash-padding-fix"><%= notice %></p>
       <p class="alert m-0 flash-padding-fix"><%= alert %></p>
       <%= yield %>
     </div>
-    <%= render "/components/navbar" unless request.fullpath=='/' %>
+    <%= render "/components/navbar" unless params[:controller] == "chatrooms" && params[:action] == "show" || request.fullpath=='/'  %>
   </body>
 </html>

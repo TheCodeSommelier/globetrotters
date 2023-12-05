@@ -1,7 +1,7 @@
 .chatroom {
   background: white;
   margin-top: 9px;
-  height: calc(100vh - 47px);
+  height: calc(100vh - 38px);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -10,6 +10,10 @@
   .back-chevron {
     display: flex;
     align-items: center;
+    background-color: white;
+    position: fixed;
+    width: 100%;
+    top: 0;
   }
 
   h1 {
@@ -19,9 +23,10 @@
   }
 
   .messages {
-    height: calc(100vh - 104px);
+    height: calc(100vh - 93px);
     overflow: scroll;
     padding: 1rem;
+    margin-top: 55px;
   }
 
   #new_message {
@@ -35,9 +40,16 @@
 
 }
 
+.messages-label {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
 .user1-flex {
   display: flex;
   align-items: center;
+  margin-bottom: 5px;
 
   strong {
     padding-right: 10px;
@@ -49,6 +61,7 @@
   display: flex;
   flex-direction: row-reverse;
   align-items: center;
+  margin-bottom: 5px;
 
   strong {
     padding-right: 10px;
@@ -57,8 +70,11 @@
 }
 
 #user2-message {
-  display: flex;
-  flex-direction: row-reverse;
+  margin: 0;
+}
+
+#user1-message {
+  margin: 0;
 }
 
 .each-message {
@@ -82,15 +98,75 @@
     height: 70px;
     width: 70px;
     border-radius: 50px;
+    border: solid;
   }
 
   p {
     margin: 0;
     margin-left: 10px;
+    font-size: large;
   }
 }
 
-// #new_message {
-//   position: sticky;
-//   bottom: 55px;
-// }
+hr {
+  color: $custom-primary-dark;
+  opacity: 1;
+  margin: 5px;
+}
+
+.user1-box {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.user1-messages {
+  border: solid;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  padding: 10px;
+  width: inherit;
+  margin-bottom: 10px;
+  margin-left: 20px;
+  background-color: $custom-primary;
+  box-shadow: 1px 2px 3px $custom-secondary;
+}
+
+.user2-box {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.user2-messages {
+  display: flex;
+  justify-content: flex-end;
+  border: solid;
+  border-top-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  padding: 10px;
+  width: inherit;
+  margin-bottom: 10px;
+  margin-right: 20px;
+  background-color: $custom-primary-dark;
+  box-shadow: 1px 2px 3px $custom-secondary-dark;
+}
+
+.message-field {
+  width: 85%;
+  display: flex;
+
+  .message-box {
+    width: 100%;
+  }
+}
+
+.insert-messages-here {
+  width: 100%;
+  display: flex
+
+}
+
+.butn {
+
+}
