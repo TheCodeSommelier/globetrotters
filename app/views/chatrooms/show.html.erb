@@ -6,11 +6,25 @@
         <i class="fa-solid fa-chevron-left"></i>
       <% end %>
       <% if @chatroom.user_1 == current_user %>
-        <h1><%= @chatroom.user_2.username %></h1>
-      <% else %>
-        <h1><%= @chatroom.user_1.username %></h1>
-      <% end %>
+          <h2><%= @chatroom.user_2.username %></h2>
+        <% else %>
+          <h2><%= @chatroom.user_1.username %></h2>
+        <% end %>
+      <div class="img-pos">
+        <%= cl_image_tag current_user.photo.key, class: 'chatroom-img' %>
+        <% if @chatroom.user_1 == current_user %>
+          <%= cl_image_tag @chatroom.user_2.photo.key, class: 'chatroom-img reciever-img' %>
+        <% else %>
+          <%= cl_image_tag @chatroom.user_1.photo.key, class: 'chatroom-img reciever-img' %>
+        <% end %>
+      </div>
     </div>
+    <hr>
+    <hr>
+    <hr>
+    <hr>
+    <hr>
+    <hr>
     <div class="messages" data-chatroom-subscription-target="messages">
       <% @chatroom.messages.each do |message| %>
       <%= render "messages/message", message: message %>
@@ -25,14 +39,12 @@
         <%= f.input_field :content,
           label: false,
           placeholder: "Message #{ current_user == @chatroom.user_1 ? @chatroom.user_2.username : @chatroom.user_1.username }",
-          class: "flex-grow-1 mb-0 message-box form-control experiences-search-style"
+          class: "flex-grow-1 mb-0 message-box form-control chatroom-message-style"
         %>
       </div>
-      <div class="send-button">
-        <%= button_tag type: 'submit', class: "btn btn-primary-custom btn-search" do %>
+        <%= button_tag type: 'submit', class: "btn btn-primary-custom chatroom-send-btn" do %>
           <i class="fa-regular fa-paper-plane"></i>
         <% end %>
-      </div>
     </div>
   <% end %>
 </div>
