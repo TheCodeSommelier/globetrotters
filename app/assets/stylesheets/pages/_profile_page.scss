@@ -51,14 +51,23 @@
   }
 }
 
+.message-btn {
+  padding-bottom: 10px;
+  margin-bottom: 20px
+}
+
+.message-btn img {
+width: 27px;
+}
+
 .journey-card-name {
-  color: black;
+  color: #FF6900;
   font-weight: bold;
   margin: 0;
 }
 
 .journey-card-date {
-  color: black;
+  color: white;
   font-weight: bold;
   margin: 0;
 }
@@ -100,25 +109,27 @@
 .backg {
   background-color: #F6F6F5;
   width: 394px;
+  height: 100vh;
 }
 
 .avatar-row {
 display: flex;
 justify-content: space-between;
 align-items: center;
+text-align: center;
 padding-left: 30px;
 padding-right: 30px;
 }
 
 .stats-next-to-avatar {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   flex-direction: column;
 }
 
 .user-name {
-margin-top: 20px;
+margin-top: 15px;
 color: #FF6900;
 font-weight: bold;
 font-size: 35px;
@@ -137,8 +148,8 @@ margin-bottom: 0;
 }
 
 #user-bio-margins {
-  margin-top: 15px;
-  margin-bottom: 30px;
+  margin-top: 10px;
+  margin-bottom: 20px;
 }
 
 .username-container {

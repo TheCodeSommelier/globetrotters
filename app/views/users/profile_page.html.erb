@@ -5,8 +5,8 @@
   <div class="container profile-info-container">
     <div class="avatar-row white-cover">
       <div class="stats-next-to-avatar">
-        <h4><%= @user.followers %></h4>
-        <h6>Followers</h6>
+        <h4><%= @user.journeys.count %></h4>
+        <h6>Journeys</h6>
       </div>
       <% if @user && @user.photo.attached? %>
             <%= cl_image_tag @user.photo.key, height: 300, width: 400, crop: :fill, alt: "profile-pic", class: "avatar-circle-large profile-page-avatar" %>
@@ -14,8 +14,14 @@
             <%= image_tag("https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png", class: "avatar-circle-large profile-page-avatar") %>
           <% end %>
       <div class="stats-next-to-avatar">
-        <h4><%= @user.following %></h4>
-        <h6>Following</h6>
+        <h4>
+        <% sum = 0 %>
+        <% @user.experiences.each do |experience| %>
+          <% sum += experience.weighted_total %>
+        <% end %>
+        <%= number_with_delimiter(sum, :delimiter => ',') %>
+        </h4>
+        <h6>Upvotes</h6>
       </div>
     </div>
     <div class="user-name-bio-and-message">
@@ -31,8 +37,12 @@
       </div>
 
 
-      <h6 id="user-bio-margins"><%= @user.bio %>My name is Howard. I don't have a bio so I'm using this text as a placeholder.</h6>
-      <%= render 'message_link', user: @user %>
+      <h6 id="user-bio-margins">
+        <%= @user.bio %>
+      </h6>
+      <% if @user != current_user %>
+        <%= render 'message_link', user: @user, class: "message-btn" %>
+      <% end %>
     </div>
 
   </div>
@@ -70,9 +80,9 @@
             <div class="my-grid">
               <% @journeys.each do |journey| %>
                 <%= link_to journey_path(journey), class: 'journey-links' do %>
-                  <div class="card" style="background-image: url('<%= image_path unsplash_image_url(size: '300x200', tags: journey.location) %>')">
+                  <div class="card" style="background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('<%= image_path unsplash_image_url(size: '300x200', tags: journey.location) %>')">
                       <h4 class="journey-card-name"><%= journey.location %></h4>
-                      <h6 class="journey-card-date"><%= journey.start_date %></h6>
+                      <h6 class="journey-card-date"><%= journey.start_date.strftime('%d/%m/%y') %></h6>
                   </div>
                 <% end %>
               <% end %>
