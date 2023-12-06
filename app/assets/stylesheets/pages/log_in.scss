@@ -1,10 +1,12 @@
-h2 {
-  display: flex;
-  justify-content: center;
-  padding-top: 100px;
-  color: #D56415;
-
+.log-in-page {
+  h2 {
+    display: flex;
+    justify-content: center;
+    padding-top: 100px;
+    color: $custom-primary;
+  }
 }
+
 
 .log-in-style {
   padding: 20px;
