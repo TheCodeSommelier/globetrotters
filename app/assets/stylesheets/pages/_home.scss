@@ -93,13 +93,17 @@ html, body {
   padding-left: 30px;
   padding-right: 30px;
   border: 3px solid #FF6900;
+  // border-bottom: 3px solid #FF6900;
   padding-bottom: 40px;
-  height: 343.2px;
-  width: 323.65px;
 }
-  p {
-    margin-top: 20px;
-  }
+p {
+  margin-top: 30px;
+  margin-bottom: 0;
+}
+
+.middle-margin-text{
+  margin-bottom: 60px;
+}
 
 .journey_widgets {
   border-radius: 20px;
@@ -116,4 +120,8 @@ html, body {
 .landing-page-bottom-btn {
 margin-top: 20px;
 margin-bottom: 20px;
+}
+
+#last-element-on-page {
+  margin-bottom: 0;
 }
