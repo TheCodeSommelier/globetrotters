@@ -18,19 +18,19 @@
     <h3 class="landing-page-info-container">Plan your next journey with the help of <span style= "color: #FF6900;"><strong>AI</strong></span>!</h3>
     <div class= "landing-page-card">
       <%= image_tag "Journey_AI_Widgets.png", class: "journey_widgets" %>
-      <p><strong>Essential info...</strong></p>
-      <p>[Insert image of packing list here]</p>
+      <p class="middle-margin-text"><strong>Essential info...</strong></p>
+      <%= image_tag "packing_list_pic.PNG", class: "journey_widgets" %>
       <p id= "last-element-on-page"><strong>AI generated packing list.</strong></p>
     </div>
-  </div>
-  <div class="landing-container">
+
     <h3 class="landing-page-info-container"><span style= "color: #FF6900;"><strong>Share</strong></span> your favourite experiences with your fellow travellers!</h3>
     <div class="landing-page-card">
-      <p>[Insert image of experience card here]</p>
-      <p><strong>Top upvoted experiences shape your sightseeing list!</strong></p>
+      <%= image_tag "experience_card_pic.PNG", class: "journey_widgets" %>
+      <p><strong>Top upvoted experiences <br>shape your sightseeing list!</strong></p>
+      <%# <p><strong>Top upvoted experiences shape your sightseeing list!</strong></p> %>
     </div>
-  </div>
-  <div class="landing-container">
+
+
     <h3 class="landing-page-info-container"><span style= "color: #FF6900;"><strong>Connect</strong></span> with other travellers!</h3>
     <div class="landing-page-card">
       <%= image_tag "Globetrotters_messaging.PNG", :class => "messaging-pic" %>
@@ -42,4 +42,6 @@
         <p><strong><%= link_to "Log-in", new_user_session_path, class: "btn-primary-custom landing-page-bottom-btn" %></strong></p>
       <% end %>
   </div>
+
+
 </div>
