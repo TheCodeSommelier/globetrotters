@@ -2,7 +2,7 @@
 <div class="navbar  navbar-light navbar-lewagon">
   <div class="container-fluid">
     <div class="footer-navbar">
-      <% if current_user %>
+      <% if user_signed_in? %>
 
         <%= link_to experiences_path do %>
           <%= image_tag("home.svg") %>
@@ -24,18 +24,6 @@
             <%= image_tag("https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png", crop: :fill, alt: "blank-profile-pic", class: "avatar") %>
           <% end %>
         <% end %>
-
-        <% else %>
-
-          <%= link_to root_path do %>
-            <%= image_tag("home.svg") %>
-          <% end %>
-          <%= link_to new_user_session_path do %>
-            <%= image_tag("messages_icon_white.svg") %>
-          <% end %>
-          <%= link_to new_user_session_path do %>
-            <%= image_tag("plane.png") %>
-          <% end %>
       <% end %>
     </div>
   </div>
