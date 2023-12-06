@@ -29,11 +29,13 @@
         <h1 class="user-name">
         <%= @user.username %>
         </h1>
-        <div class="edit-link-container">
-          <%= link_to edit_user_registration_path do %>
-            <i class="fa-solid fa-pen-to-square fa-xs", style="color:Black;" ></i>
-          <% end %>
-        </div>
+        <% if @user == current_user %>
+          <div class="edit-link-container">
+            <%= link_to edit_user_registration_path do %>
+              <i class="fa-solid fa-pen-to-square fa-xs", style="color:Black;" ></i>
+            <% end %>
+          </div>
+        <% end %>
       </div>
 
 
