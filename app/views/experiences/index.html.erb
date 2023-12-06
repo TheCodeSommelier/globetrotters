@@ -28,12 +28,12 @@
                   </p>
                 </div>
                 <%# dropdown for journeys %>
-                <div class="d-flex flex-column justify-content-center parent-postion">
+                <div class="d-flex flex-column justify-content-center parent-postion ">
                   <a data-saved-experience-target="button" class="plus-icon" data-action="click->saved-experience#dropdown"><%= image_tag("plus_icon.svg") %></a>
-                  <div class="d-none form-position" data-saved-experience-target="form">
+                  <div class="d-none form-position " data-saved-experience-target="form">
                     <%= simple_form_for @saved_experience, url: saved_experience_path(experience) do |f| %>
                     <%= f.input :journey, collection: current_user.journeys, label_method: :location, value_method: :id %>
-                    <%= f.submit 'Add', class: "btn-primary-custom" %>
+                    <%= f.submit 'Add', class: "btn-primary-custom", style:"margin-left:146px;" %>
                     <% end %>
                   </div>
                 </div>
