@@ -13,6 +13,7 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+  border: solid #3A3A3A 1.5px;
 }
 
 .footer-navbar{
@@ -29,6 +30,10 @@
     width: 40px;
     position: relative;
     z-index: 1;
+  }
+
+  .avatar {
+    border: solid #3A3A3A 1.3px;
   }
 }
 
