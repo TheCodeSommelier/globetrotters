@@ -1,12 +1,13 @@
 .btn-search {
-  position: relative;
+  position: absolute;
   height: 34px;
   width: 60px;
   border-radius: 20px;
-  left: -60px;
+  left: 317px;
   padding: 7px;
   background: #FF6900;
   border: 1px #D56415 solid;
+
   img {
     width: 40px;
   }
@@ -22,4 +23,6 @@
   border-radius: 20px;
   border: 1px #A3A3A3 solid;
   background-color: #E7E7E7;
+  position: relative;
+  left: 45px;
 }
