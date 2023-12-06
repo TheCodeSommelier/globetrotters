@@ -1,21 +1,21 @@
 
-  <div class="container-journey">
-    <%= simple_form_for @journey, data: {controller: "datepicker"} do |f| %>
-      <%= f.input :location, label: 'Where are you going?', placeholder: "Eg. London", class: "input-journey-size" %>
-      <%= f.input :dates,
-                  label: "Dates",
-                  placeholder: "Please pick start and end date",
-                  input_html: { data: { datepicker_target: "dates" } }  %>
-      <%= f.input :start_date,
-                  as: :hidden,
-                  placeholder: "Please pick a start date",
-                  input_html: { data: { datepicker_target: "start" } }  %>
-      <%= f.input :end_date,
-                  as: :hidden,
-                  placeholder: "Please pick an end date",
-                  input_html: { data: { datepicker_target: "end" }, value: { } }   %>
-      <%= f.input :category, label: 'What will you be doing?', placeholder: "E.g. camping, hiking, city break..." %>
-      <%= f.input :notes, placeholder: "Optional: notes for you..." %>
-      <%= f.button :submit, "Submit", class: "btn-primary-custom new-journey-submit" %>
+<div class="container-journey">
+  <%= simple_form_for @journey, data: {controller: "datepicker"} do |f| %>
+    <%= f.input :location, label: 'Where are you going?', placeholder: "Eg. London", class: "input-journey-size" %>
+    <%= f.input :dates,
+                label: "When are you going?",
+                placeholder: "Please pick start and end date",
+                input_html: { data: { datepicker_target: "dates" } }  %>
+    <%= f.input :start_date,
+                as: :hidden,
+                placeholder: "Please pick a start date",
+                input_html: { data: { datepicker_target: "start" } }  %>
+    <%= f.input :end_date,
+                as: :hidden,
+                placeholder: "Please pick an end date",
+                input_html: { data: { datepicker_target: "end" }, value: { } }   %>
+    <%= f.input :category, label: 'What will you be doing?', placeholder: "E.g. camping, hiking, city break..." %>
+    <%= f.input :notes, placeholder: "Optional: My trip to berlin..." %>
+    <%= f.button :submit, "Submit", class: "btn-primary-custom new-journey-submit" %>
   <% end %>
 </div>

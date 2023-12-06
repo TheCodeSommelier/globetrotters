@@ -55,7 +55,7 @@
            data-dropdown-lists-target="dropdown-lists"
            data-packing-list-target="packing-list"
       > <!-- data action-->
-        <%= image_tag "trash_grey.svg", data: { packing_list_target: "trash", action: "click->packing-list#hideDeleteButtons" } %>
+        <%= image_tag "pencil_icon_grey.svg", data: { packing_list_target: "trash", action: "click->packing-list#hideDeleteButtons" } %>
         <%= image_tag "drop_down_icon.svg", class: "dropdown-icon-size", data: { dropdown_lists_target: "icon", action: "click->dropdown-lists#dropdown" } %>
       </div>
     </div>
@@ -85,9 +85,9 @@
         <%= image_tag "diamond_icon.svg", class: "list-icon"%>
         <h2 class="align-self-center list-title">Sightseeing</h2>
       </div>
-      <div data-action="click->dropdown-lists#dropdown" data-dropdown-lists-target="dropdown-lists">
-        <%= image_tag "drop_down_icon.svg", class: "dropdown-icon-size", data: { dropdown_lists_target: "icon" }  %>
-      </div>
+      <!--<div data-action="click->dropdown-lists#dropdown" data-dropdown-lists-target="dropdown-lists">
+        %= image_tag "drop_down_icon.svg", class: "dropdown-icon-size", data: { dropdown_lists_target: "icon" }  %>
+      </div>-->
     </div>
     <div data-dropdown-lists-target="list">
       <div>
