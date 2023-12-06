@@ -19,7 +19,7 @@
               <div class="thisclass">
                 <div class="d-flex">
                   <div class="avatar m-3">
-                    <%= link_to profile_page_path(current_user.username) do %>
+                    <%= link_to profile_page_path(experience.journey.user.username) do %>
                       <%= cl_image_tag experience.journey.user.photo.key, crop: :fill, alt: "profile-pic", class: "avatar" %>
                     <% end %>
                   </div>
