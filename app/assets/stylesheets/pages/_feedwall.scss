@@ -1,5 +1,7 @@
 .content{
-  border: solid 1px #A3A3A3 !important;
+  border-bottom: solid 1px #A3A3A3 !important;
+  border-left:solid 1px #A3A3A3 !important;
+  border-right:solid 1px #A3A3A3 !important;
   height: auto;
   display: flex;
   width: 100%;
@@ -17,7 +19,7 @@
 }
 
 .photo{
-  border: solid 1px #E7E7E7;
+  border: solid 1px #A3A3A3;
   border-top-right-radius: 30px;
   border-top-left-radius: 30px;
   background-size: cover;
