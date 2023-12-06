@@ -10,15 +10,11 @@ export default class extends Controller {
 
     flatpickr(this.datesTarget, {
       mode: "range",
-
+      minDate: "today",
       onChange: ([start, end]) => {
         if (start && end) {
           this.startTarget.value = start
           this.endTarget.value = end
-          const startIcon = document.getElementsByClassName("selected")
-          startIcon[0].classList.add("flatpickr-edit")
-          const endIcon = document.getElementsByClassName("selected")
-          endIcon[1].classList.add("flatpickr-edit")
         }
       },
       dateFormat: "d-m-Y",
