@@ -28,49 +28,56 @@ user_details = [
     password: "123456",
     first_name: "Sayyab",
     last_name: "Khan",
-    username: "s777yab"
+    username: "s777yab",
+    bio: "Fitness Freak 💪 | Healthy Eater 🥗 | Mindful Yogi 🧘‍♂️"
   },
   {
     email: 'tony@gmail.com',
     password: "123456",
     first_name: "Tony",
     last_name: "Masek",
-    username: "tonyM"
+    username: "tonyM",
+    bio: "Star Gazer 🌌 | Science Geek 🧪 | Puzzle Solver 🧩"
   },
   {
     email: 'marco@gmail.com',
     password: "123456",
     first_name: "Marco",
     last_name: "Di Leo",
-    username: "marcoDL"
+    username: "marcoDL",
+    bio: "Music Maestro 🎵 | Travel Junkie ✈️ | Food Explorer 🍔"
   },
   {
     email: 'howard@gmail.com',
     password: '123456',
     first_name: "Howard",
     last_name: "Thompson",
-    username: "howardT"
+    username: "howardT",
+    bio: "Tech Guru 🚀 | Code Creator | Beer Lover 🍺"
   },
   {
     email: 'jodie@gmail.com',
     password: '123456',
     first_name: "Jodie",
     last_name: "Bloggs",
-    username: "jodieB"
+    username: "jodieB",
+    bio: "Artisan Baker 🍞 | Plant Parent 🌱 | Eco Warrior ♻️"
   },
   {
     email: 'heidi@gmail.com',
     password: '123456',
     first_name: "Heidi",
     last_name: "Smith",
-    username: "heidiS"
+    username: "heidiS",
+    bio: "Bookworm 📚 | Cat Mom 🐾 | Tea Connoisseur 🍵"
   },
   {
     email: 'will@gmail.com',
     password: '123456',
     first_name: "Will",
     last_name: "Smith",
-    username: "willS"
+    username: "willS",
+    bio: "Adventure Seeker | Nature Lover 🌿 | DIY Enthusiast"
   }
 ]
 
