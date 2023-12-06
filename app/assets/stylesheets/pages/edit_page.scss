@@ -1,0 +1,29 @@
+.edit-profile {
+  padding: 20px;
+}
+.edit-title{
+  h2 {
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
+    font-size: 22px;
+    color: #D56415;
+  }
+}
+.cancel-account{
+  h3{
+    color: red;
+    padding-left: 20px;
+  }
+}
+.not-happy {
+  padding-left: 20px;
+}
+.back-page {
+  margin-top: 10px;
+  margin-left: 20px;
+  a {
+    text-decoration: none;
+    color: white;
+  }
+}
