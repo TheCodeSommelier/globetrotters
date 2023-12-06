@@ -107,47 +107,47 @@ will.photo.attach(io: URI.open('https://media.wired.com/photos/5d960eba01e4a4000
 
 puts "creating journeys for each user"
 
-howlon = Journey.create!(user: howard, location: "London", category: "Art and Culture", start_date: "30/11/2023", end_date: "03/12/2023")
+howlon = Journey.create!(user: howard, location: "London", category: "Art and Culture", start_date: Faker::Date.between(from: rand(1..14).days.ago, to: Date.today), end_date: Date.today + rand(1..15))
 
-howber = Journey.create!(user: howard, location: "Berlin", category: "Art and Culture", start_date: "30/11/2023", end_date: "03/12/2023")
+howber = Journey.create!(user: howard, location: "Berlin", category: "Art and Culture", start_date: Faker::Date.between(from: rand(1..14).days.ago, to: Date.today), end_date: Date.today + rand(1..15))
 
-howbah = Journey.create!(user: howard, location: "Bahamas", category: "Art and Culture", start_date: "30/11/2023", end_date: "03/12/2023")
+howbah = Journey.create!(user: howard, location: "Bahamas", category: "Art and Culture", start_date: Faker::Date.between(from: rand(1..14).days.ago, to: Date.today), end_date: Date.today + rand(1..15))
 
-saylon = Journey.create!(user: sayyab, location: "London", category: "Nightife", start_date: "30/11/2023", end_date: "03/12/2023")
+saylon = Journey.create!(user: sayyab, location: "London", category: "Nightife", start_date: Faker::Date.between(from: rand(1..14).days.ago, to: Date.today), end_date: Date.today + rand(1..15))
 
-sayber = Journey.create!(user: sayyab, location: "Berlin", category: "Nightife", start_date: "30/11/2023", end_date: "03/12/2023")
+sayber = Journey.create!(user: sayyab, location: "Berlin", category: "Nightife", start_date: Faker::Date.between(from: rand(1..14).days.ago, to: Date.today), end_date: Date.today + rand(1..15))
 
-saybah = Journey.create!(user: sayyab, location: "Bahamas", category: "Nightife", start_date: "30/11/2023", end_date: "03/12/2023")
+saybah = Journey.create!(user: sayyab, location: "Bahamas", category: "Nightife", start_date: Faker::Date.between(from: rand(1..14).days.ago, to: Date.today), end_date: Date.today + rand(1..15))
 
-marlon = Journey.create!(user: marco, location: "London", category: "Road Trip", start_date: "30/11/2023", end_date: "03/12/2023")
+marlon = Journey.create!(user: marco, location: "London", category: "Road Trip", start_date: Faker::Date.between(from: rand(1..14).days.ago, to: Date.today), end_date: Date.today + rand(1..15))
 
-marber = Journey.create!(user: marco, location: "Berlin", category: "Road Trip", start_date: "30/11/2023", end_date: "03/12/2023")
+marber = Journey.create!(user: marco, location: "Berlin", category: "Road Trip", start_date: Faker::Date.between(from: rand(1..14).days.ago, to: Date.today), end_date: Date.today + rand(1..15))
 
-marbah = Journey.create!(user: marco, location: "Bahamas", category: "Road Trip", start_date: "30/11/2023", end_date: "03/12/2023")
+marbah = Journey.create!(user: marco, location: "Bahamas", category: "Road Trip", start_date: Faker::Date.between(from: rand(1..14).days.ago, to: Date.today), end_date: Date.today + rand(1..15))
 
-tonlon = Journey.create!(user: tony, location: "London", category: "City Break", start_date: "30/11/2023", end_date: "03/12/2023")
+tonlon = Journey.create!(user: tony, location: "London", category: "City Break", start_date: Faker::Date.between(from: rand(1..14).days.ago, to: Date.today), end_date: Date.today + rand(1..15))
 
-tonber = Journey.create!(user: tony, location: "Berlin", category: "City Break", start_date: "30/11/2023", end_date: "03/12/2023")
+tonber = Journey.create!(user: tony, location: "Berlin", category: "City Break", start_date: Faker::Date.between(from: rand(1..14).days.ago, to: Date.today), end_date: Date.today + rand(1..15))
 
-tonbah = Journey.create!(user: tony, location: "Bahamas", category: "City Break", start_date: "30/11/2023", end_date: "03/12/2023")
+tonbah = Journey.create!(user: tony, location: "Bahamas", category: "City Break", start_date: Faker::Date.between(from: rand(1..14).days.ago, to: Date.today), end_date: Date.today + rand(1..15))
 
-jodlon = Journey.create!(user: jodie, location: "London", category: "Camping", start_date: "30/11/2023", end_date: "03/12/2023")
+jodlon = Journey.create!(user: jodie, location: "London", category: "Camping", start_date: Faker::Date.between(from: rand(1..14).days.ago, to: Date.today), end_date: Date.today + rand(1..15))
 
-jodber = Journey.create!(user: jodie, location: "Berlin", category: "Camping", start_date: "30/11/2023", end_date: "03/12/2023")
+jodber = Journey.create!(user: jodie, location: "Berlin", category: "Camping", start_date: Faker::Date.between(from: rand(1..14).days.ago, to: Date.today), end_date: Date.today + rand(1..15))
 
-jodbah = Journey.create!(user: jodie, location: "Bahamas", category: "Camping", start_date: "30/11/2023", end_date: "03/12/2023")
+jodbah = Journey.create!(user: jodie, location: "Bahamas", category: "Camping", start_date: Faker::Date.between(from: rand(1..14).days.ago, to: Date.today), end_date: Date.today + rand(1..15))
 
-heilon = Journey.create!(user: heidi, location: "London", category: "City Break", start_date: "30/11/2023", end_date: "03/12/2023")
+heilon = Journey.create!(user: heidi, location: "London", category: "City Break", start_date: Faker::Date.between(from: rand(1..14).days.ago, to: Date.today), end_date: Date.today + rand(1..15))
 
-heiber = Journey.create!(user: heidi, location: "Berlin", category: "City Break", start_date: "30/11/2023", end_date: "03/12/2023")
+heiber = Journey.create!(user: heidi, location: "Berlin", category: "City Break", start_date: Faker::Date.between(from: rand(1..14).days.ago, to: Date.today), end_date: Date.today + rand(1..15))
 
-heibah = Journey.create!(user: heidi, location: "Bahamas", category: "City Break", start_date: "30/11/2023", end_date: "03/12/2023")
+heibah = Journey.create!(user: heidi, location: "Bahamas", category: "City Break", start_date: Faker::Date.between(from: rand(1..14).days.ago, to: Date.today), end_date: Date.today + rand(1..15))
 
-willon = Journey.create!(user: will, location: "London", category: "Nightlife", start_date: "30/11/2023", end_date: "03/12/2023")
+willon = Journey.create!(user: will, location: "London", category: "Nightlife", start_date: Faker::Date.between(from: rand(1..14).days.ago, to: Date.today), end_date: Date.today + rand(1..15))
 
-wilber = Journey.create!(user: will, location: "Berlin", category: "Nightlife", start_date: "30/11/2023", end_date: "03/12/2023")
+wilber = Journey.create!(user: will, location: "Berlin", category: "Nightlife", start_date: Faker::Date.between(from: rand(1..14).days.ago, to: Date.today), end_date: Date.today + rand(1..15))
 
-wilbah = Journey.create!(user: will, location: "Bahamas", category: "Nightlife", start_date: "30/11/2023", end_date: "03/12/2023")
+wilbah = Journey.create!(user: will, location: "Bahamas", category: "Nightlife", start_date: Faker::Date.between(from: rand(1..14).days.ago, to: Date.today), end_date: Date.today + rand(1..15))
 
 puts "creating experiences for each journey"
 
