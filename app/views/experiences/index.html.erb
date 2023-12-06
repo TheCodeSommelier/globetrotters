@@ -33,7 +33,7 @@
                   <div class="d-none form-position" data-saved-experience-target="form">
                     <%= simple_form_for @saved_experience, url: saved_experience_path(experience) do |f| %>
                     <%= f.input :journey, collection: current_user.journeys, label_method: :location, value_method: :id %>
-                    <%= f.submit 'Save', class: "btn-primary-custom" %>
+                    <%= f.submit 'Add', class: "btn-primary-custom" %>
                     <% end %>
                   </div>
                 </div>
