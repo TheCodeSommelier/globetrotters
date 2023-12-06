@@ -23,10 +23,10 @@
   }
 
   .messages {
-    height: calc(100vh - 93px);
+    height: calc(100vh - 120px);
     overflow: scroll;
     padding: 1rem;
-    margin-top: 55px;
+    margin-top: 60px;
   }
 
   #new_message {
@@ -120,7 +120,7 @@ hr {
 }
 
 .user2-messages {
-  border: solid;
+  border: #7F7F7F solid;
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
   border-bottom-left-radius: 10px;
@@ -128,8 +128,8 @@ hr {
   width: inherit;
   margin-bottom: 10px;
   margin-left: 20px;
-  background-color: white;
-  box-shadow: 1px 2px 3px $custom-secondary;
+  background-color: #E7E7E7;
+  // box-shadow: 1px 2px 3px $custom-secondary;
 }
 
 .user1-box {
@@ -140,7 +140,7 @@ hr {
 .user1-messages {
   display: flex;
   justify-content: flex-end;
-  border: solid;
+  border: #A3A3A3 solid;
   border-top-left-radius: 10px;
   border-bottom-right-radius: 10px;
   border-bottom-left-radius: 10px;
@@ -148,20 +148,26 @@ hr {
   width: inherit;
   margin-bottom: 10px;
   margin-right: 20px;
-  background-color: $custom-secondary-dark;
-  box-shadow: 1px 2px 3px $custom-secondary-dark;
+  background-color: white;
+  // box-shadow: 1px 2px 3px $custom-secondary-dark;
 }
 
 .message-field {
   width: 85%;
   display: flex;
+}
 
-  .message-box {
-    width: 100%;
-    border-radius: 20px;
-    border: 1px #A3A3A3 solid;
-    background-color: #E7E7E7;
-  }
+.message-box {
+  width: 100%;
+  border-radius: 20px;
+  border: 1px #A3A3A3 solid;
+  background-color: #E7E7E7;
+  height: 34px;
+}
+
+#message_content::placeholder {
+  padding: 10px;
+  opacity: 0.5;
 }
 
 .insert-messages-here {
@@ -170,7 +176,6 @@ hr {
   justify-content: space-evenly;
 }
 
-.butn {
-  border-radius: 50px;
-  background-color: #FF6900;
+.send-button {
+  width: 0;
 }
