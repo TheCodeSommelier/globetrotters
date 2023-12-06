@@ -6,6 +6,6 @@
     <%= f.input :category, :collection => ["Food", "Nightlife", "Art and Culture", "Other"], prompt: "Please select a category" %>
     <%= f.input :address, label: "Give us the address", placeholder: "Eg. Shoreditch Stables, London" %>
     <%= f.input :photos, label: "Pics or didn't happen...", as: :file, input_html: { multiple: true } %>
-    <%= f.button :submit, "Submit", class: "btn-primary-custom submit-button-center" %>
+    <%= f.button :submit, "Submit", class: "btn-primary-custom new-journey-submit" %>
   <% end %>
 </div>
