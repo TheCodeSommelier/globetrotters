@@ -4,11 +4,16 @@ class MessagesController < ApplicationController
     @message = Message.new(message_params)
     @message.chatroom = @chatroom
     @message.user = current_user
+    receiver_id = @chatroom.user_1_id == current_user.id ? @chatroom.user_2_id : @chatroom.user_1_id
     if @message.save
-      ChatroomChannel.broadcast_to(
-        @chatroom,
-        render_to_string(partial: "message", locals: { message: @message })
-      )
+      ActionCable.server.broadcast("chatroom:#{@chatroom.id}:#{receiver_id}", {
+        html: render_to_string(partial: "message", locals: { message: @message, user: User.find(receiver_id) }),
+        user_id: current_user.id,
+      })
+      ActionCable.server.broadcast("chatroom:#{@chatroom.id}:#{current_user.id}", {
+        html: render_to_string(partial: "message", locals: { message: @message, user: current_user }),
+        user_id: current_user.id,
+      })
       head :ok
     else
       render "chatrooms/show", status: :unprocessable_entity
