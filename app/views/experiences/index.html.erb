@@ -55,9 +55,11 @@
               </div>
             </div>
           </div>
-          <div class="content d-flex justify-content-between" data-controller="truncate-text">
-            <p class="d-inline-block text-truncate" data-truncate-text-target="textToTruncate"><%= experience.content %></p>
-            <%= image_tag "drop_down_icon.svg", class: "align-self-center", data: { action: "click->truncate-text#truncateText" } %>
+            <div class="content d-flex justify-content-between" data-controller="truncate-text">
+              <div class="d-flex flex-column">
+                <p class="d-inline-block text-truncate" data-truncate-text-target="textToTruncate"><strong><%= experience.journey.user.username %>: </strong><%= experience.content %></p>
+                <%= image_tag "drop_down_icon.svg", class: "align-self-center username-content", data: { action: "click->truncate-text#truncateText" } %>
+            </div>
           </div>
         </div>
       <% end %>
