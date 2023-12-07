@@ -3,6 +3,10 @@
   background: $custom-secondary-light;
 }
 
+.form-control {
+  border-radius: 5px;
+}
+
 .title {
   h2 {
     display: flex;
