@@ -134,8 +134,6 @@ marbah = Journey.create!(user: marco, location: "Bahamas", category: "Road Trip"
 
 tonlon = Journey.create!(user: tony, location: "London", category: "City Break", start_date: Faker::Date.between(from: rand(1..14).days.ago, to: Date.today), end_date: Date.today + rand(1..15))
 
-tonber = Journey.create!(user: tony, location: "Berlin", category: "City Break", start_date: Faker::Date.between(from: rand(1..14).days.ago, to: Date.today), end_date: Date.today + rand(1..15))
-
 tonbah = Journey.create!(user: tony, location: "Bahamas", category: "City Break", start_date: Faker::Date.between(from: rand(1..14).days.ago, to: Date.today), end_date: Date.today + rand(1..15))
 
 jodlon = Journey.create!(user: jodie, location: "London", category: "Camping", start_date: Faker::Date.between(from: rand(1..14).days.ago, to: Date.today), end_date: Date.today + rand(1..15))
