@@ -67,8 +67,8 @@
                 <% @journeys.each do |journey| %>
                   <% journey.experiences.each do |experience| %>
                     <% experience.photos.each do |photo| %>
-                      <div class="col-4 p-0 mx-2", style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.00) 67.71%, #292929 100%), url(<%= cl_image_path photo.key %>);">
-                          <h6 class="journey-name"><%= journey.location %></h6>
+                      <div class="col-4 p-0 m-2", style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.00) 67.71%, #292929 100%), url(<%= cl_image_path photo.key %>);">
+                          <h6 class="journey-name"><%= experience.title %></h6>
                       </div>
                     <% end %>
                   <% end %>
