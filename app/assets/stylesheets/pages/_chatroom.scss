@@ -42,6 +42,15 @@
     }
   }
 
+  hr {
+    color: $custom-primary;
+    opacity: 1;
+    margin: 5px;
+    position: absolute;
+    top: 75px;
+    left: 34px;
+    width: 80%;
+  }
 }
 
 .messages-label {
@@ -136,11 +145,6 @@
   }
 }
 
-hr {
-  color: $custom-primary-dark;
-  opacity: 1;
-  margin: 5px;
-}
 
 .user2-box {
   display: flex;
@@ -207,10 +211,15 @@ hr {
   height: 34px;
   width: 60px;
   border-radius: 20px;
-  left: 297px;
+  left: 299px;
   padding: 7px;
   background: #FF6900;
   border: 1px #D56415 solid;
+
+  .fa-paper-plane {
+    position: relative;
+    bottom: 3px;
+  }
 }
 
 .chatroom-message-style {
