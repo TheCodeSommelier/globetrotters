@@ -19,7 +19,9 @@
     <%= link_to profile_page_path(user.username) do  %>
       <%= image_tag(user.photo) %>
       <% end %>
+      <%= link_to profile_page_path(user.username) do  %>
         <p> <%= user.username %> </p>
+      <% end %>
     </div>
   <% end %>
 </div>
