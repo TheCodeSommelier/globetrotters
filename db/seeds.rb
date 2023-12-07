@@ -196,10 +196,6 @@ Experience.create!(journey: tonlon, title: "London Eye", content: "It's not as b
 Experience.last.photos.attach(io: URI.open('https://upload.wikimedia.org/wikipedia/commons/b/b4/London_Eye_Twilight_April_2006.jpg'), filename: "nes.png", content_type: "image/png")
 Experience.last.liked_by(will, vote_weight: 148)
 
-Experience.create!(journey: tonber, title: "Reichstag Building", content: "Why did the UK leave the EU :(", address: "Reichstag Building, Berlin", category: "Other")
-Experience.last.photos.attach(io: URI.open('https://berlintraveltips.com/wp-content/uploads/2023/10/Berlin-Reichstag-Building-free-tour-glass-dome.jpg'), filename: "nes.png", content_type: "image/png")
-Experience.last.liked_by(will, vote_weight: 225)
-
 Experience.create!(journey: tonbah, title: "Ardastra Conservation Centre", content: "Flamingos are real???!!!", address: "Ardastra Gardens Zoo & Conservation Centre, Nassau, The Bahamas", category: "Other")
 Experience.last.photos.attach(io: URI.open('https://dynamic-media-cdn.tripadvisor.com/media/photo-o/05/5c/d8/80/ardastra-gardens-zoo.jpg?w=1200&h=-1&s=1'), filename: "nes.png", content_type: "image/png")
 Experience.last.liked_by(will, vote_weight: 703)
