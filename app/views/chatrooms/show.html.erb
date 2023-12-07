@@ -22,8 +22,8 @@
     <hr>
     <div class="messages" data-chatroom-subscription-target="messages">
       <% @chatroom.messages.each do |message| %>
-      <%= render "messages/message", message: message %>
-    <% end %>
+        <%= render "messages/message", message: message %>
+      <% end %>
     </div>
   </div>
   <%= simple_form_for [@chatroom, @message],
