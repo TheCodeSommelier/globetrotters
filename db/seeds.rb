@@ -188,6 +188,10 @@ Experience.create!(journey: marber, title: "Hard Rock Cafe", content: "I recomme
 Experience.last.photos.attach(io: URI.open('https://cdn.getyourguide.com/img/tour/5e847db6a59fa.jpeg/145.jpg'), filename: "nes.png", content_type: "image/png")
 Experience.last.liked_by(will, vote_weight: 688)
 
+Experience.create!(journey: marber, title: "Lego Store", content: "I Love Lego, is Amazing", address: "Leipziger Pl. 12, 10117 Berlin, Germania", category: "Other")
+Experience.last.photos.attach(io: URI.open('https://lh3.googleusercontent.com/p/AF1QipMTfRjs8k3D6jerGXaRqounemJz_h62vX51_R0x=s1360-w1360-h1020'), filename: "nes.png", content_type: "image/png")
+Experience.last.liked_by(will, vote_weight: 688)
+
 Experience.create!(journey: marbah, title: "Cafe Madeleine", content: "I thought I would try and lose a bit of weight this holiday...", address: "Café Madeleine, New Providence, The Bahamas", category: "Food")
 Experience.last.photos.attach(io: URI.open('https://media-cdn.tripadvisor.com/media/photo-s/11/29/d3/32/food-display.jpg'), filename: "nes.png", content_type: "image/png")
 Experience.last.liked_by(will, vote_weight: 317)
