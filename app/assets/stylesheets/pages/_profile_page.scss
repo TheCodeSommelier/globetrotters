@@ -87,6 +87,10 @@ width: 27px;
 
 // Styling profile page to match new style
 
+.edit-pen-icon {
+  width: 18px;
+}
+
 .profile-info-container{
   display: flex;
   justify-content: center;
@@ -170,7 +174,7 @@ position: relative;
 
 .edit-link-container {
 position:absolute;
-top: 9px;
+top: 7px;
 left: 180px;
 font-size: 35px;
 }
