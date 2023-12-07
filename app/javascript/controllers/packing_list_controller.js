@@ -30,6 +30,7 @@ export default class extends Controller {
         console.log(data)
         if (data.inserted_item) {
           this.itemsTarget.insertAdjacentHTML("beforeend", data.inserted_item)
+          event.target.reset()
         }
         // this.formTarget.outerHTML = data.form
       })
