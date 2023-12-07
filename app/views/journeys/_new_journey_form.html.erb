@@ -1,3 +1,7 @@
+<div class="feed-wall-title add-margin ">
+  <h2>Add Journey</h2>
+  <hr>
+</div>
 
 <div class="container-journey">
   <%= simple_form_for @journey, data: {controller: "datepicker"} do |f| %>
@@ -16,6 +20,6 @@
                 input_html: { data: { datepicker_target: "end" }, value: { } }   %>
     <%= f.input :category, label: 'What will you be doing?', placeholder: "E.g. camping, hiking, city break..." %>
     <%= f.input :notes, placeholder: "Optional: My trip to berlin..." %>
-    <%= f.button :submit, "Submit", class: "btn-primary-custom new-journey-submit" %>
+    <%= f.button :submit, "Generate", class: "btn-primary-custom new-journey-submit" %>
   <% end %>
 </div>
