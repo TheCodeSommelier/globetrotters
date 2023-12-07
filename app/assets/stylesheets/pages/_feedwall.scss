@@ -121,7 +121,11 @@
 
 #query {
   outline: none;
-  width: 358px;
+  // width: 358px;
+  flex-grow: 1;
+  border: none;
+  background: transparent;
+  box-shadow: none !important;
 }
 
 .background-linear-gradient {

@@ -23,28 +23,22 @@
     <hr>
     <div class="messages" data-chatroom-subscription-target="messages">
       <% @chatroom.messages.each do |message| %>
-        <%# <div class="message-row d-flex <%= message.sender?(current_user) ? 'justify-content-end' : 'justify-content-start' %>
-          <%# <div class="<%= message.sender?(current_user) ? 'sender-style' : 'receiver-style' %>
-            <%= render "messages/message", message: message, user: message.user %>
-          <%# </div>
-        </div> %>
+        <%= render "messages/message", message: message, user: message.user %>
       <% end %>
     </div>
   </div>
   <%= simple_form_for [@chatroom, @message],
-  html: { data: { action: "turbo:submit-end->chatroom-subscription#resetForm" }, class: "d-flex" }   do |f|
+    html: { data: { action: "turbo:submit-end->chatroom-subscription#resetForm" }, class: "px-4 d-flex align-items-center justify-content-between w-100" }   do |f|
   %>
-    <div class="insert-messages-here">
-      <div class="message-field">
+      <div class="d-flex align-items-center justify-content-between w-100 chatroom-message-style">
         <%= f.input_field :content,
           label: false,
           placeholder: "Message #{ current_user == @chatroom.user_1 ? @chatroom.user_2.username : @chatroom.user_1.username }",
-          class: "flex-grow-1 mb-0 message-box form-control chatroom-message-style"
+          class: "flex-grow-1 mb-0 message-box form-control"
         %>
-      </div>
         <%= button_tag type: 'submit', class: "btn btn-primary-custom chatroom-send-btn" do %>
           <i class="fa-regular fa-paper-plane"></i>
         <% end %>
-    </div>
+      </div>
   <% end %>
 </div>
