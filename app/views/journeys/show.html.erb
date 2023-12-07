@@ -6,11 +6,13 @@
       <p class="my-0 date-font-color"><%= @journey.start_date.strftime('%d/%m/%y') %> - <%= @journey.end_date.strftime('%d/%m/%y') %></p>
       <p class="top-experiences-for-location-italic"><em><%= @journey.notes %></em></p>
     </div>
-    <div>
-      <%= link_to new_journey_experience_path(@journey), class: "btn-primary-custom secondary-button-position", id: "share-button-show-page" do %>
-        <%= image_tag("share_arrow_white.svg") %>
-      <% end %>
-    </div>
+    <% if @journey.user == current_user %>
+      <div>
+        <%= link_to new_journey_experience_path(@journey), class: "btn-primary-custom secondary-button-position", id: "share-button-show-page" do %>
+          <%= image_tag("share_arrow_white.svg") %>
+        <% end %>
+      </div>
+    <% end %>
   </div>
 
   <div class="d-flex justify-content-between container-basic-info-icon">
@@ -55,7 +57,9 @@
            data-dropdown-lists-target="dropdown-lists"
            data-packing-list-target="packing-list"
       > <!-- data action-->
+      <% if @journey.user == current_user %>
         <%= image_tag "pencil_icon_grey.svg", data: { packing_list_target: "trash", action: "click->packing-list#hideDeleteButtons" } %>
+      <% end %>
         <%= image_tag "drop_down_icon.svg", class: "dropdown-icon-size", data: { dropdown_lists_target: "icon", action: "click->dropdown-lists#dropdown" } %>
       </div>
     </div>
@@ -66,15 +70,17 @@
           <%= render "packing_list_add_item", packing_item: packing_item, index: index %>
         <% end %>
       </ul>
-      <div>
-        <%= simple_form_for @journey, data: {
-          packing_list_target: "form",
-          action: "submit->packing-list#send"
-        } do |f| %>
-          <%= f.input :packing_item, placeholder: "What are you forgetting?", label_html: {class: "d-none"} %>
-          <%= f.submit 'Add', class: "btn-secondary-custom", id: "button" %>
-        <% end %>
-      </div>
+      <% if @journey.user == current_user %>
+        <div>
+          <%= simple_form_for @journey, data: {
+            packing_list_target: "form",
+            action: "submit->packing-list#send"
+          } do |f| %>
+            <%= f.input :packing_item, placeholder: "What are you forgetting?", label_html: {class: "d-none"} %>
+            <%= f.submit 'Add', class: "btn-secondary-custom", id: "button" %>
+          <% end %>
+        </div>
+      <% end %>
     </div>
   </div>
 
@@ -105,7 +111,9 @@
           <div class="d-flex flex-column">
             <div class="p-2 parent-position-relative">
               <%= link_to delete_saved_experience_path(saved_experience), data: { turbo_method: :delete }, class: "destroy-link-position" do %>
-                <%= image_tag "minus_icon.svg" %>
+                <% if @journey.user == current_user %>
+                  <%= image_tag "minus_icon.svg" %>
+                <% end %>
               <% end %>
               <%= cl_image_tag saved_experience.experience.photos.first.key, class: "experiences-photo-size" %>
             </div>
