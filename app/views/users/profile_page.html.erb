@@ -32,7 +32,7 @@
         <% if @user == current_user %>
           <div class="edit-link-container">
             <%= link_to edit_user_registration_path do %>
-              <i class="fa-solid fa-pen-to-square fa-xs", style="color:Black;" ></i>
+              <%= image_tag "pencil_icon_grey.svg" %>
             <% end %>
           </div>
         <% end %>
