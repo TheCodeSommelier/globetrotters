@@ -14,6 +14,9 @@ class Journey < ApplicationRecord
     @packing_list ||= super.blank? ? set_packing_list : super
   end
 
+  # User input validations
+  validates :location, :category, :start_date, :end_date, presence: true
+
   private
 
   def set_packing_list
