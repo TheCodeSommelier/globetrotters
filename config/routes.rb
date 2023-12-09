@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   get "/experiences", to: "experiences#index", as: :experiences
 
-  resources :journeys, only: %i[show new create edit update] do
+  resources :journeys, only: %i[show new create] do
     resources :experiences, only: %i[new create]
   end
 

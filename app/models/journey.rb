@@ -7,6 +7,8 @@ class Journey < ApplicationRecord
   has_many :saved_experiences, dependent: :destroy
   attr_accessor :dates
 
+  geocoded_by :location
+
   # Before seeding comment from line out till line 25 and once the seed is done put this back in
   after_create :prebuild_sightseeing_list
 
@@ -17,7 +19,21 @@ class Journey < ApplicationRecord
   # User input validations
   validates :location, :category, :start_date, :end_date, presence: true
 
+  # Category column validations
+  # Validates that the Category is at most 2 words and no nums
+  validates :category, format: {
+    with: /\A(?:[^\d\s]+\s*){1,2}\z/,
+    message: "Must contain at most two words and no numbers..."
+  }
+  validates :category, length: { maximum: 20 }
+  validate :validate_city_name # TODO add a flash error message
+
   private
+
+  # Checks if user input for location is an existing city
+  def validate_city_name
+    errors.add(:location, "is not a valid city...") unless Geocoder.search(location).any?
+  end
 
   def set_packing_list
     client = OpenAI::Client.new
