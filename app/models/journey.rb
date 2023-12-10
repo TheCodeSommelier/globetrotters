@@ -18,15 +18,17 @@ class Journey < ApplicationRecord
 
   # User input validations
   validates :location, :category, :start_date, :end_date, presence: true
+  validate :validate_city_name # TODO: ADD A FLASH ALERT
 
   # Category column validations
   # Validates that the Category is at most 2 words and no nums
-  validates :category, format: {
-    with: /\A(?:[^\d\s]+\s*){1,2}\z/,
-    message: "Must contain at most two words and no numbers..."
-  }
+  validates :category, format: { with: /\A(?:[^\d\s]+\s*){1,2}\z/ }
   validates :category, length: { maximum: 20 }
-  validate :validate_city_name # TODO add a flash error message
+
+  validates :start_date, :end_date, presence: true
+  validates :end_date, comparison: { greater_than: :start_date }
+
+  validates :notes, length: { maximum: 70 }
 
   private
 
@@ -38,11 +40,16 @@ class Journey < ApplicationRecord
   def set_packing_list
     client = OpenAI::Client.new
     chaptgpt_response = client.chat(parameters: {
-      "messages": [
-        { "role": "system", "content": "Packing assistant" },
-        { "role": "user", "content": "I am going to #{location}, on the #{start_date} and coming back on #{end_date} for #{category}. Help me write a packing a list with maximum 10 packing items. Separate each packing item with a comma and a space and write only the packing items, do not write any pleasantries or extra information. Also write all of the items as a single string do not categorise and do not number." }
+      messages: [
+        { role: "system", content: "Packing assistant" },
+        { role: "user", content: "I am going to #{location}, on the #{start_date}
+         and coming back on #{end_date} for #{category}.
+         Help me write a packing a list with maximum 10 packing items.
+         Separate each packing item with a comma and a space and write only the packing items,
+         do not write any pleasantries or extra information. Also write all of the items as a single string,
+         do not categorise and do not number." }
       ],
-      "model": "gpt-3.5-turbo"
+      model: "gpt-3.5-turbo"
     })
     new_packing_list = chaptgpt_response["choices"][0]["message"]["content"].split(", ")
     update(packing_list: new_packing_list)

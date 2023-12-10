@@ -28,9 +28,8 @@
 
   <body>
     <div style="min-height:100vh;background-color: white;">
-      <p class="notice m-0 flash-padding-fix"><%= notice %></p>
-      <p class="alert m-0 flash-padding-fix"><%= alert %></p>
       <%= yield %>
+      <%= render "shared/flashes" %>
     </div>
 
     <%= render "/components/navbar" unless params[:controller] == "chatrooms" && params[:action] == "show" || request.fullpath=='/' || params[:controller] == 'devise/sessions' && params[:action] == 'new' %>
