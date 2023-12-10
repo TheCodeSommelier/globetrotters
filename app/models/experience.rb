@@ -2,12 +2,16 @@ class Experience < ApplicationRecord
   belongs_to :journey
 
   has_many :saved_experiences, dependent: :destroy
-  validates :address, presence: true, uniqueness: true
+  has_many_attached :photos
+
+  validates :address, :title, :content, :category, presence: true, uniqueness: true
+  validates :photos, presence: true
+  validates :title, length: { maximum: 25 }
+  validates :content, length: { maximum: 50 }
+  validates :category, inclusion: { in: ["Food", "Nightlife", "Art and Culture", "Other"] }
 
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
-
-  has_many_attached :photos
 
   acts_as_votable
 
