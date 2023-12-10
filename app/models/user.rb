@@ -8,6 +8,13 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   # has_many :chatrooms
+  validates :username, :email, :password, :first_name, :last_name, :bio, presence: true
+  validates :bio, length: { maximum: 100 }
+  validates :username, uniqueness: true
+
+  # Password needs to be at least 8 chars long, one special char and one uppper case letter
+  validates :password, format: { with: /(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}/ }
+  validates :email, uniqueness: true
 
   acts_as_voter
 

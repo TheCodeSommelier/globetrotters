@@ -17,7 +17,7 @@ class ExperiencesController < ApplicationController
     @experience = Experience.new(experience_params)
     @journey = Journey.find(params[:journey_id])
     @experience.journey = @journey
-    if @experience.save
+    if @experience.save!
       redirect_to profile_page_path(current_user.username)
     else
       render :new, status: :unprocessable_entity

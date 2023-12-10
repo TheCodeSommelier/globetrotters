@@ -97,17 +97,6 @@ class JourneysController < ApplicationController
     end
   end
 
-  # Check if everything pice of data is present for journey once CHATGPT up delete!
-  # def fill_in_missing_data
-  #   if @journey.packing_list.present?
-  #     return
-  #   elsif @journey.notes.nil?
-  #     @journey.notes = "My trip to #{@journey.location}"
-  #   else
-  #     @journey.packing_list = "mug, passport, money, underwear, favourite plushie"
-  #   end
-  # end
-
   # Gets the time zone identifier by the UTC offset
   def get_time_zone_identifier_by_utc_offset(utc_offset_seconds)
     time_zone = ActiveSupport::TimeZone.all.find { |tz| tz.utc_offset == utc_offset_seconds }
